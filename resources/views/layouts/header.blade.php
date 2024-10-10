@@ -19,9 +19,11 @@
       </div>
       <nav class="w-[40%] flex justify-center items-center">
         <ul class="flex gap-5">
-          <li class=" bg-naranja-industrial-500 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-industrial-600 hover:text-white"><a href="#">Inicio</a></li>
-          <li class=" bg-amarillo-industrial-400 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-amarillo-industrial-500 hover:text-white"><a href="#">Planificación</a></li>
-          <li class=" bg-amarillo-pollo-300 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-amarillo-pollo-600 hover:text-white"><a href="#">Login </a></li>
+          <li class="flex space-x-3 bg-naranja-industrial-500 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-industrial-600 hover:text-white"><a href="#">Inicio</a><img
+            src='{{asset('/css/images/Home.png')}}' class='w-7 h-7'></li>
+          <li class="flex space-x-3 bg-amarillo-industrial-400 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-amarillo-industrial-500 hover:text-white"><a href="#">Planificación</a><img
+            src='{{asset('/css/images/user.png')}}' class='w-7 h-7'></li>
+          <li class="flex space-x-3 bg-amarillo-pollo-300 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-amarillo-pollo-600 hover:text-white"><a href='#'>Login</a><img src='{{asset('/css/images/user.png')}}' class='w-7 h-7' ></li>
         </ul>
       </nav>
     </header>
