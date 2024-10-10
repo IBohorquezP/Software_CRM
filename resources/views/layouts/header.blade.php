@@ -29,7 +29,7 @@
     </header>
     <div>
       <span class="h-[12px] w-[60%] bg-naranja-industrial-500 inline-block rounded-full"></span>
-      <span class="h-[12px] w-[10%] bg-amarillo-industrial-400 inline-block rounded-full"></span>
+      <span class="h-[12px] w-[15%] bg-naranja-claro-300 inline-block rounded-full"></span>
     </div>
     @yield('main')
     @yield('footer')
