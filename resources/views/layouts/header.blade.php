@@ -21,14 +21,14 @@
         <ul class="flex gap-5">
           <li class="flex space-x-3 bg-naranja-industrial-500 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-industrial-600 hover:text-white"><a href="#">Inicio</a><img
             src='{{asset('/css/images/Home.png')}}' class='w-7 h-7'></li>
-          <li class="flex space-x-3 bg-amarillo-industrial-400 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-amarillo-industrial-500 hover:text-white"><a href="#">Planificación</a><img
+          <li class="flex space-x-3 bg-naranja-claro-400 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-claro-500 hover:text-white"><a href="#">Planificación</a><img
             src='{{asset('/css/images/user.png')}}' class='w-7 h-7'></li>
-          <li class="flex space-x-3 bg-amarillo-pollo-300 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-amarillo-pollo-600 hover:text-white"><a href='#'>Login</a><img src='{{asset('/css/images/user.png')}}' class='w-7 h-7' ></li>
+          <li class="flex space-x-3 bg-amarillo-pollo-300 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-amarillo-pollo-400 hover:text-white"><a href='#'>Login</a><img src='{{asset('/css/images/user.png')}}' class='w-7 h-7' ></li>
         </ul>
       </nav>
     </header>
     <div>
-      <span class="h-[12px] w-[35%] bg-naranja-industrial-500 inline-block rounded-full"></span>
+      <span class="h-[12px] w-[60%] bg-naranja-industrial-500 inline-block rounded-full"></span>
       <span class="h-[12px] w-[10%] bg-amarillo-industrial-400 inline-block rounded-full"></span>
     </div>
     @yield('main')
