@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('servicios', function (Blueprint $table) {
-            $table->integer('serial');
+            $table->increments('id_servicio');
+            $table->integer('cedula');
+            $table->string('serial');
             $table->string('componente');
             $table->integer('servicio');
             $table->integer('modelo');
             $table->integer('horometro');
             $table->string('marca');
             $table->datetime('fecha_llegada');
-            $table->string('requisito_cliente');
-            $table->string('nota')->nullable();
+            $table->text('requisito');
+            $table->text('nota')->nullable();
             $table->timestamps();
         });
     }

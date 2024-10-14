@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('etapas', function (Blueprint $table) {
-            $table->increments('id_etapa');
+        Schema::create('servicios_clientes', function (Blueprint $table) {
+            $table->increments('id_servicio_cliente');
             $table->unsignedInteger('servicios_id_servicio'); //Foreign
-            $table->integer('numero_etapa');
-            $table->string('tipo_etapa');
+            $table->unsignedInteger('tecnicos_id_cliente'); //Foreign
             $table->timestamps();
 
             $table->foreign('servicios_id_servicio')->references('id_servicio')->on('servicios');
+            $table->foreign('tecnicos_id_cliente')->references('id_cliente')->on('clientes');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('etapas');
+        Schema::dropIfExists('servicios_clientes');
     }
 };

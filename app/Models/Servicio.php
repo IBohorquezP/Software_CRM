@@ -9,15 +9,19 @@ class Servicio extends Model
 {
     use HasFactory;
 
+    protected $table = 'servicios';
+
     protected $fillable = [
+        'id_servicio',
+        'cedula', 
         'serial',
-        'servicio',
         'componente',
+        'servicio',
         'modelo',
         'horometro',
         'marca',
         'fecha_llegada',
-        'requisitos_cliente',
+        'requisitos',
         'nota',
     ];
 }
