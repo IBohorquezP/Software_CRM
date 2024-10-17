@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Models\Servicio;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,18 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+//Ruta Home
 Route::get('/', HomeController::class);
 
+//Ruta Planificación
+Route::get('/planificacion', function () {
+    return view('planificacion');
+});
+
+//Ruta Clientes
+
+//Ruta Tecnicos
+
+//Ruta Servicios
+
+//Ruta Repuestos
