@@ -15,5 +15,6 @@ class Etapa extends Model
         'servicios_id_servicio',
         'numero_etapa',
         'tipo_etapa',
+        'img',
     ];
 }

@@ -13,5 +13,7 @@ class Bahia extends Model
     protected $fillable = [
         'id_bahia',
         'nombre',
+        'img',
+        'descripcion',
     ];
 }

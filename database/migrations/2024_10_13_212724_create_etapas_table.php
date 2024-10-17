@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedInteger('servicios_id_servicio'); //Foreign
             $table->integer('numero_etapa');
             $table->string('tipo_etapa');
+            $table->string('img');
+            $table->string('descripcion');
             $table->timestamps();
 
             $table->foreign('servicios_id_servicio')->references('id_servicio')->on('servicios');
