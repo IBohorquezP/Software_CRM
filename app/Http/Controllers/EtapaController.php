@@ -12,7 +12,7 @@ class EtapaController extends Controller
      */
     public function index()
     {
-        //
+        return view('Etapas.index');
     }
 
     /**
@@ -20,7 +20,8 @@ class EtapaController extends Controller
      */
     public function create()
     {
-        //
+        $etapa = new Etapa();
+        return view('Etapas.create');
     }
 
     /**
@@ -29,6 +30,7 @@ class EtapaController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -36,7 +38,7 @@ class EtapaController extends Controller
      */
     public function show(Etapa $etapa)
     {
-        //
+        return view('Etapas.show');
     }
 
     /**
@@ -44,7 +46,7 @@ class EtapaController extends Controller
      */
     public function edit(Etapa $etapa)
     {
-        //
+        return view('Etapas.edit');
     }
 
     /**

@@ -12,7 +12,7 @@ class BahiaController extends Controller
      */
     public function index()
     {
-        //
+        return view('Bahias.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class BahiaController extends Controller
      */
     public function create()
     {
-        //
+        return view('Bahias.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class BahiaController extends Controller
      */
     public function show(Bahia $bahia)
     {
-        //
+        return view('Bahias.show');
     }
 
     /**
@@ -44,7 +44,7 @@ class BahiaController extends Controller
      */
     public function edit(Bahia $bahia)
     {
-        //
+        return view('Bahias.edit');
     }
 
     /**
