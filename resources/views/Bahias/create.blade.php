@@ -6,7 +6,7 @@
         <div>
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Nueva Bahía</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Servicios.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('Bahias.store') }}" method="POST" enctype="multipart/form-data"
                 class="flex flex-col gap-5">
                 {{ method_field('PUT') }}
                 @csrf
@@ -38,7 +38,7 @@
               </label>
 
                 <div class="col-span-2 flex justify-evenly w-full">
-                    <a href="{{ route('Servicios.index') }}"
+                    <a href="{{ route('Bahias.index') }}"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
                     <button type="submit"
                         class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>

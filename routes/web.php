@@ -5,6 +5,8 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EtapaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MotorController;
+use App\Http\Controllers\RepuestosController;
 use App\Http\Controllers\TecnicoController;
 use App\Models\Servicio;
 use App\Models\Tecnico;
@@ -32,9 +34,11 @@ Route::get('/planificacion', function () {
 Route::resource('Clientes', ClienteController::class);
 //Ruta Tecnicos
 Route::resource('Tecnicos',TecnicoController::class);
-//Ruta Servicios
-Route::resource('Servicios', EtapaController::class);
+//Ruta Servicios / Etapas
+Route::resource('Etapas-Servicios', EtapaController::class);
 //Ruta Bahia
 Route::resource('Bahias', BahiaController::class);
 //Ruta Repuestos   
-// Route::resource('Repuestos'
+Route::resource('Repuestos', RepuestosController::class);
+//Ruta Motores / Servicios
+Route::resource('Motores-Servicios', MotorController::class);

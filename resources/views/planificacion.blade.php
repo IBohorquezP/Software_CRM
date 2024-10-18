@@ -6,19 +6,19 @@
         <h1 class="text-[60px] font-bold drop-shadow-xl">Planificación</h1>
     </section>
     <section class="grid grid-cols-4 gap-10">
-        <a href="{{route('Clientes.index')}}" class="border-4 border-black p-10 text-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500">
+        <a href="{{route('Clientes.index')}}" class="border-4 border-black p-10 text-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{asset('/css/images/planificacion/Clientes.png')}}" class="w-[150px]">
             <p class="text-xl  font-semibold">Clientes</p>
         </a>
-        <a href="#" class="border-4 border-black p-10 text-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500">
+        <a href="{{route('Tecnicos.index')}}" class="border-4 border-black p-10 text-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{asset('/css/images/planificacion/Tecnico.png')}}" class="w-[150px]">
             <p class="text-xl  font-semibold">Técnicos</p>
         </a>
-        <a href="{{route('Servicios.index')}}" class="border-4 border-black p-10 text-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500">
+        <a href="{{route('Etapas-Servicios.index')}}" class="border-4 border-black p-10 text-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{asset('/css/images/planificacion/Alquiler-de-equipos-1-150x150.png')}}" class="w-[150px]">
             <p class="text-xl  font-semibold">Servicio</p>
         </a>
-        <a href="#" class="border-4 border-black p-10 text-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500">
+        <a href="{{route('Repuestos.index')}}" class="border-4 border-black p-10 text-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{asset('/css/images/planificacion/Repuestos.png')}}" class="w-[150px]">
             <p class="text-xl  font-semibold">Repuestos</p>
         </a>

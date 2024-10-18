@@ -3,19 +3,15 @@
 @section('title', 'Ver Cliente')
 @section('main')
     <section class="grid grid-cols-2 gap-10 items-center">
-        <div>
+        <div class="col-start-2">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Ver Cliente</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Servicios.store') }}" method="POST" enctype="multipart/form-data"
-                class="flex flex-col justify-center gap-5">
-                {{ method_field('PUT') }}
-                @csrf
-
-                <label for="Nombre" class="font-bold flex flex-col gap-2">
+            <div class="flex flex-col justify-center gap-5">
+                <label for="Nombre" class="font-bold flex flex-col gap-2 ">
                     Nombre
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        required name="Nombre">
+                        required disabled name="Nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
                 <label for="Telefono" class="font-bold flex flex-col gap-2">Telefono<input type="text"
@@ -25,11 +21,11 @@
                     Cedula
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name="Cedula" required>
+                        name="Cedula" required disabled>
                     <span class="text-red-500 text-sm hidden" id="cedulaError">Este campo es obligatorio.</span>
                 </label>
 
-                <form action="" class="w-full gap-5">
+                <form action="" class="col-span-2 flex justify-evenly w-full gap-5">
                     <a href="{{ route('Clientes.index') }}"
                         class="font-bold py-2 px-10 text-center rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">Volver</a>
                     <a href="#"
@@ -37,9 +33,9 @@
                     <button type="submit"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-claro-400 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-600">Eliminar</button>
                 </form>
-            </form>
+            </div>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}" class="w-full h-[500px] object-cover">
+        <img src="{{ asset('/css/images/CRM3.webp') }}" class="row-start-1 border-4 border-black p-5 bg-gray-200 h-[400px] object-cover">
     </section>
 @endsection
 
