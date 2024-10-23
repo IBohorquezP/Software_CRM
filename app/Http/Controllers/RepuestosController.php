@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tecnico;
 use Illuminate\Http\Request;
 
-class TecnicoController extends Controller
+class RepuestosController extends Controller
 {
-    /**
+        /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('Tecnicos.index');
+        return view('Repuestos.index');
     }
 
     /**
@@ -20,7 +19,7 @@ class TecnicoController extends Controller
      */
     public function create()
     {
-        return view('Tecnicos.create');
+        return view('Repuestos.create');
     }
 
     /**
@@ -34,23 +33,24 @@ class TecnicoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tecnico $tecnico)
+    public function show(Request $repuestos
+    )
     {
-        return view('Tecnicos.show');
+        return view('Repuestos.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tecnico $tecnico)
+    public function edit(Request $repuestos)
     {
-        return view('Tecnicos.edit');
+        return view('Repuestos.edit');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tecnico $tecnico)
+    public function update(Request $request)
     {
         //
     }
@@ -58,7 +58,7 @@ class TecnicoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tecnico $tecnico)
+    public function destroy(Request $repuestos)
     {
         //
     }

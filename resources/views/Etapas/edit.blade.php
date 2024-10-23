@@ -6,8 +6,8 @@
         <div class="col-start-2">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Etapa</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Servicios.store') }}" method="POST" enctype="multipart/form-data"
-                class="grid grid-cols-2 gap-10">
+            <form action="{{ route('Etapas-Servicios.store') }}" method="POST" enctype="multipart/form-data"
+                class="grid grid-cols-2 gap-5">
                 {{ method_field('PUT') }}
                 @csrf
 
@@ -45,14 +45,14 @@
                 </label>
 
                 <div class="col-span-2 flex justify-evenly w-full">
-                    <a href="{{ route('Servicios.index') }}"
+                    <a href="{{ route('Etapas-Servicios.index') }}"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
                     <button type="submit"
                         class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>
                 </div>
             </form>
         </div>
-        <img src="{{ asset('/css/images/CRM1.jpeg') }}" class="row-start-1 border-4 border-black p-5 bg-gray-200 object-cover" style="height: 400px">
+        <img src="{{ asset('/css/images/CRM1.jpeg') }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 object-cover" style="height: 400px">
     </section>
 @endsection
 

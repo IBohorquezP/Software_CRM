@@ -3,11 +3,11 @@
 @section('title', 'Editar Cliente')
 @section('main')
     <section class="grid grid-cols-2 gap-10 items-center">
-        <div>
+        <div class="col-start-2">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Cliente</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Servicios.store') }}" method="POST" enctype="multipart/form-data"
-                class="grid grid-col-2 gap-10">
+            <form action="{{ route('Clientes.store') }}" method="POST" enctype="multipart/form-data"
+                class="grid grid-cols-2 gap-5">
                 {{ method_field('PUT') }}
                 @csrf
 
@@ -18,24 +18,25 @@
                         required name="Nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Telefono" class="font-bold flex flex-col gap-2">Telefono<input type="text" 
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" name='Telefono'></label>
-                <label for="Cedula" class="font-bold flex flex-col gap-2">
-                    Cedula
+                <label for="Tipo" class="font-bold flex flex-col gap-2">
+                    Tipo
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name="Cedula" required>
-                    <span class="text-red-500 text-sm hidden" id="cedulaError">Este campo es obligatorio.</span>
+                        name="Tipo" required>
+                    <span class="text-red-500 text-sm hidden" id="tipoError">Este campo es obligatorio.</span>
                 </label>
+                <label for="descripcion" class="font-bold flex flex-col gap-2">Descripción<input type="text"
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                        name='descripcion'></label>
 
                 <label for="imageUpload" class="flex hover:cursor-pointer justify-center items-center">
-                  <div class="flex flex-col gap-2 justify-center items-center">
-                      <span class="font-bold">Foto</span>
-                      <span class="custom-file-upload-text">Seleccione una imagen...</span>
-                  </div>
-                  <input type="file" name="image" id="imageUpload" accept="image/*" style="display: none;">
-                  <img id="imagePreview" src="" class="w-[135px] h-[135px] object-cover border-4 border-black">
-              </label>
+                    <div class="flex flex-col gap-2 justify-center items-center">
+                        <span class="font-bold">Foto</span>
+                        <span class="custom-file-upload-text">Seleccione una imagen...</span>
+                    </div>
+                    <input type="file" name="image" id="imageUpload" accept="image/*" style="display: none;">
+                    <img id="imagePreview" src="" class="w-[135px] h-[135px] object-cover border-4 border-black">
+                </label>
 
                 <div class="col-span-2 flex justify-evenly w-full">
                     <a href="{{ route('Clientes.index') }}"
@@ -45,7 +46,8 @@
                 </div>
             </form>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}" class="w-full h-[500px] object-cover">
+        <img src="{{ asset('/css/images/CRM3.webp') }}"
+            class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[400px] object-cover">
     </section>
 @endsection
 

@@ -3,10 +3,10 @@
 @section('title', 'Editar Bahias')
 @section('main')
     <section class="grid grid-cols-2 gap-10 items-center">
-        <div>
+        <div class="col-start-2">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Bahía</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Servicios.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('Bahias.store') }}" method="POST" enctype="multipart/form-data"
                 class="flex flex-col gap-5">
                 {{ method_field('PUT') }}
                 @csrf
@@ -45,6 +45,6 @@
                 </div>
             </form>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}" class="w-full h-[500px] object-cover">
+        <img src="{{ asset('/css/images/CRM3.webp') }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 object-cover" style="height: 400px">
     </section>
 @endsection
