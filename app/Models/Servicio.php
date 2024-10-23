@@ -21,6 +21,8 @@ class Servicio extends Model
         'horometro',
         'marca',
         'fecha_llegada',
+        'fecha_salida_estimada',
+        'fecha_salida_real',
         'requisitos',
         'nota',
     ];

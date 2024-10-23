@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('horometro');
             $table->string('marca');
             $table->datetime('fecha_llegada');
+            $table->datetime('fecha_salida_estimada');
+            $table->datetime('fecha_salida_real');
             $table->text('requisito');
             $table->text('nota')->nullable();
             $table->timestamps();
