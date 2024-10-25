@@ -29,7 +29,21 @@ class EtapaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validacion de datos etapa
+        $validateData = $request->validate([
+        'nombre'=> 'required|string|max:255', 
+        'descripcion'=> 'required|string|max:255',
+        'img'=> 'nullable',
+        ]);
+
+        //Crear una Etapa
+        $etapa = new Etapa();
+        $etapa->nombre =$validateData['nombre'] ;
+        $etapa->descripcion = $validateData['descripcion'];    
+        $etapa->img = $validateData['img']; 
+        $etapa->save();
+
+        return redirect()->route('Etapas-Servicios.store')->with('success', 'Etapa creada correctamente.');
 
     }
 

@@ -13,10 +13,10 @@ class Servicio extends Model
 
     protected $fillable = [
         'id_servicio',
-        'cedula', 
+        'clientes_id_cliente',
         'serial',
-        'componente',
         'servicio',
+        'componente',
         'modelo',
         'horometro',
         'marca',

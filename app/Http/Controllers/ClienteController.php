@@ -28,7 +28,19 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validacion de datos cliente
+        $validateData = $request->validate([
+        'nombre'=> 'required|string|max:255', 
+        'tipo'=> 'required|string|max:255',
+        ]);
+
+        //Crear un Cliente
+        $cliente = new Cliente();
+        $cliente->nombre =$validateData['nombre'] ;
+        $cliente->tipo = $validateData['tipo'];    
+        $cliente->save();
+
+        return redirect()->route('Clientes.store')->with('success', 'Cliente creado correctamente.');
     }
 
     /**

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('servicios', function (Blueprint $table) {
             $table->increments('id_servicio');
-            $table->integer('cedula');
+            $table->unsignedInteger('clientes_id_cliente'); //Foreign
             $table->string('serial');
-            $table->string('componente');
             $table->integer('servicio');
+            $table->string('componente');
             $table->integer('modelo');
             $table->integer('horometro');
             $table->string('marca');
@@ -26,6 +26,8 @@ return new class extends Migration
             $table->text('requisito');
             $table->text('nota')->nullable();
             $table->timestamps();
+
+            $table->foreign('clientes_id_cliente')->references('id_cliente')->on('clientes');
         });
     }
 

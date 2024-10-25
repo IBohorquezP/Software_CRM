@@ -13,8 +13,9 @@ class Etapa extends Model
     protected $fillable = [
         'id_etapa',
         'servicios_id_servicio',
-        'numero_etapa',
-        'tipo_etapa',
+        'nombre',
+        'descripcion',  
         'img',
+
     ];
 }

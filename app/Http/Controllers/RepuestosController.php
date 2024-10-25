@@ -33,8 +33,7 @@ class RepuestosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $repuestos
-    )
+    public function show(Request $repuestos)
     {
         return view('Repuestos.show');
     }

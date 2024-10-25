@@ -15,14 +15,13 @@ return new class extends Migration
             $table->increments('id_servicio_bahia');
             $table->unsignedInteger('servicios_id_servicio'); //Foreign
             $table->unsignedInteger('bahias_id_bahia'); //Foreign
-            $table->datetime('fecha_estimada');
-            $table->datetime('fecha_real');
-            $table->datetime('horas_estimadas');
-            $table->datetime('horas_reales');
-            $table->text('requerimientos');
+            $table->string('TRG');
+            $table->datetime('fecha_inico');
+            $table->datetime('fecha_fin');
+            $table->text('alcance');
             $table->string('herramienta');
             $table->text('documentacion');
-            $table->text('alcance');
+            $table->text('requerimientos');
             $table->text('actividad');
             $table->timestamps();
 

@@ -12,6 +12,7 @@ class Bahia extends Model
 
     protected $fillable = [
         'id_bahia',
+        'etapas_id_etapa',
         'nombre',
         'img',
         'descripcion',

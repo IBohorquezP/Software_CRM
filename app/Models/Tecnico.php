@@ -13,12 +13,12 @@ class Tecnico extends Model
 
     protected $fillable = [
         'id_tecnico',
+        'cod_mecanico',
         'nombre',
         'apellido',
         'cedula',
-        'correo',
-        'marca',
-        'foto',
         'cargo',
+        'foto',
+
     ];
 }
