@@ -8,58 +8,66 @@
             {{-- poner el metodo update en la ruta --}}
             <form action="{{ route('Motores-Servicios.store') }}" method="POST" enctype="multipart/form-data"
                 class="grid gap-5">
-                {{ method_field('PUT') }}
+
                 @csrf
                 <div id="form1" class="grid grid-cols-2 gap-5">
-                    <label for="NumeroServicio" class="font-bold flex flex-col gap-2">
-                        Nro Servicio
+                    <label for="servicio" class="font-bold flex flex-col gap-2">
+                        Servicio
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
+                            name=servicio>
                         <span class="text-red-500 text-sm hidden" id="numeroServicioError">Este campo es obligatorio.</span>
                     </label>
 
-                    <label for="Cliente" class="font-bold flex flex-col gap-2">
+                    <label for="id_cliente" class="font-bold flex flex-col gap-2">
                         Cliente
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=id_cliente>
                         <span class="text-red-500 text-sm hidden" id="clienteError">Este campo es obligatorio.</span>
                     </label>
 
-                    <label for="Componente" class="font-bold flex flex-col gap-2">
+                    <label for="componente" class="font-bold flex flex-col gap-2">
                         Componente
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=componente>
                         <span class="text-red-500 text-sm hidden" id="componenteError">Este campo es obligatorio.</span>
                     </label>
-                    <label for="Modelo" class="font-bold flex flex-col gap-2">
+                    <label for="modelo" class="font-bold flex flex-col gap-2">
                         Modelo
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=modelo>
                         <span class="text-red-500 text-sm hidden" id="modeloError">Este campo es obligatorio.</span>
                     </label>
-                    <label for="Serial" class="font-bold flex flex-col gap-2">
+                    <label for="serial" class="font-bold flex flex-col gap-2">
                         Serial
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=serial>
                         <span class="text-red-500 text-sm hidden" id="serialError">Este campo es obligatorio.</span>
                     </label>
-                    <label for="Horometro" class="font-bold flex flex-col gap-2">
+                    <label for="horometro" class="font-bold flex flex-col gap-2">
                         Horómetro
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=horometro>
                         <span class="text-red-500 text-sm hidden" id="horometroError">Este campo es obligatorio.</span>
                     </label>
-                    <label for="Marca" class="font-bold flex flex-col gap-2">
+                    <label for="marca" class="font-bold flex flex-col gap-2">
                         Marca
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=marca>
                         <span class="text-red-500 text-sm hidden" id="marcaError">Este campo es obligatorio.</span>
                     </label>
-                    <label for="FechaRecepcion" class="font-bold flex flex-col gap-2">
-                        Fecha Recepción
+                    <label for="fecha_llegada" class="font-bold flex flex-col gap-2">
+                        Fecha Llegada
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
-                        <span class="text-red-500 text-sm hidden" id="fecharecepcionError">Este campo es obligatorio.</span>
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=fecha_llegada>
+                        <span class="text-red-500 text-sm hidden" id="fechallegadaError">Este campo es obligatorio.</span>
                     </label>
                     <span id="btn-siguiente"
                         class="col-start-2 px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 cursor-pointer text-center hover:bg-naranja-industrial-500 hover:text-white">
@@ -67,40 +75,45 @@
                 </div>
                 {{-- aqui es el otro formulario --}}
                 <div id="form2" class="hidden grid-cols-2 gap-5">
-                    <label for="FechaSalidaEstimada" class="font-bold flex flex-col gap-2">
+                    <label for="fecha_salida_estimada" class="font-bold flex flex-col gap-2">
                         Fecha Salida Estimada
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=fecha_salida_estimada>
                         <span class="text-red-500 text-sm hidden" id="fechaSalidaEstimadaError">Este campo es
                             obligatorio.</span>
                     </label>
-                    <label for="RequisitosTrabajo" class="font-bold flex flex-col gap-2">
-                        Requisitos del Trabajo
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
-                        <span class="text-red-500 text-sm hidden" id="requisitosTrabajoError">Este campo es
-                            obligatorio.</span>
-                    </label>
-                    <label for="Respuesto" class="font-bold flex flex-col gap-2">
-                        Respuesto
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
-                        <span class="text-red-500 text-sm hidden" id="respuestoError">Este campo es obligatorio.</span>
-                    </label>
-                    <label for="FechaSalidaReal" class="font-bold flex flex-col gap-2">
+                    <label for="fecha_salida_real" class="font-bold flex flex-col gap-2">
                         Fecha Salida Real
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=fecha_salida_real>
                         <span class="text-red-500 text-sm hidden" id="fechaSalidaRealError">Este campo es
+                            obligatorio.</span>
+                    </label>
+                    <label for="requisito" class="font-bold flex flex-col gap-2">
+                        Requisitos del Trabajo
+                        <input type="text"
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=requisito>
+                        <span class="text-red-500 text-sm hidden" id="requisitosTrabajoError">Este campo es
                             obligatorio.</span>
                     </label>
                     <label for="Nota" class="font-bold flex flex-col gap-2">
                         Nota
                         <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=nota>
                         <span class="text-red-500 text-sm hidden" id="notaError">Este campo es obligatorio.</span>
                     </label>
-                    <label for="imageUpload" class="flex hover:cursor-pointer items-center">
+                    <label for="contador" class="font-bold flex flex-col gap-2">
+                        Contador
+                        <input type="text"
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                            name=contador>
+                        <span class="text-red-500 text-sm hidden" id="contadorError">Este campo es obligatorio.</span>
+                    </label>
+                    <!-- <label for="imageUpload" class="flex hover:cursor-pointer items-center">
                         <div class="flex flex-col justify-center items-center gap-2">
                             <span class="font-bold">Foto</span>
                             <span class="custom-file-upload-text">Seleccione una imagen...</span>
@@ -108,7 +121,7 @@
                         <input type="file" name="image" id="imageUpload" accept="image/*" style="display: none;">
                         <img id="imagePreview" src=""
                             class="w-[135px] h-[135px] object-cover border-4 border-black">
-                    </label>
+                    </label> -->
                     <span id="btn-anterior"
                         class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">Anterior</span>
                 </div>

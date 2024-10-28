@@ -13,7 +13,7 @@ class Servicio extends Model
 
     protected $fillable = [
         'id_servicio',
-        'clientes_id_cliente',
+        // 'clientes_id_cliente',
         'serial',
         'servicio',
         'componente',
@@ -23,6 +23,7 @@ class Servicio extends Model
         'fecha_llegada',
         'fecha_salida_estimada',
         'fecha_salida_real',
+        'contador',
         'requisitos',
         'nota',
     ];

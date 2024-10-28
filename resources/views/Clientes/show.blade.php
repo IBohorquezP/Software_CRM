@@ -9,19 +9,20 @@
             <div class="flex flex-col justify-center gap-5">
                 <label for="Nombre" class="font-bold flex flex-col gap-2 ">
                     Nombre
-                    <input type="text"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        required disabled name="Nombre">
+                    <input type="text" 
+                        class= "p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                        required disabled name="nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Telefono" class="font-bold flex flex-col gap-2">Telefono<input type="text"
+                <!-- <label for="Telefono" class="font-bold flex flex-col gap-2">Telefono<input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name='Telefono'></label>
-                <label for="Cedula" class="font-bold flex flex-col gap-2">
-                    Cedula
+                        name='Telefono'>
+                </label> -->
+                <label for="tipo" class="font-bold flex flex-col gap-2">
+                    Tipo
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name="Cedula" required disabled>
+                        name="tipo" required disabled>
                     <span class="text-red-500 text-sm hidden" id="cedulaError">Este campo es obligatorio.</span>
                 </label>
 

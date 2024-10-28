@@ -13,21 +13,22 @@ return new class extends Migration
     {
         Schema::create('servicios', function (Blueprint $table) {
             $table->increments('id_servicio');
-            $table->unsignedInteger('clientes_id_cliente'); //Foreign
+            // $table->unsignedInteger('clientes_id_cliente'); //Foreign
             $table->string('serial');
             $table->integer('servicio');
             $table->string('componente');
-            $table->integer('modelo');
+            $table->string('modelo');
             $table->integer('horometro');
             $table->string('marca');
             $table->datetime('fecha_llegada');
             $table->datetime('fecha_salida_estimada');
-            $table->datetime('fecha_salida_real');
-            $table->text('requisito');
+            $table->datetime('fecha_salida_real')->nullable();
+            $table->integer('contador')->nullable();
+            $table->text('requisito')->nullable();
             $table->text('nota')->nullable();
             $table->timestamps();
 
-            $table->foreign('clientes_id_cliente')->references('id_cliente')->on('clientes');
+            // $table->foreign('clientes_id_cliente')->references('id_cliente')->on('clientes');
         });
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MotorController;
 use App\Http\Controllers\RepuestosController;
+use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\TecnicoController;
 use App\Models\Servicio;
 use App\Models\Tecnico;
@@ -41,4 +42,4 @@ Route::resource('Bahias', BahiaController::class);
 //Ruta Repuestos   
 Route::resource('Repuestos', RepuestosController::class);
 //Ruta Motores / Servicios
-Route::resource('Motores-Servicios', MotorController::class);
+Route::resource('Motores-Servicios', ServicioController::class);
