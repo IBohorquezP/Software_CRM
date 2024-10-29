@@ -2,33 +2,29 @@
 @extends('layouts.footer')
 @section('title', 'Editar Etapa')
 @section('main')
-    <section class="grid grid-cols-2 gap-10 justify-items-center">
-        <div class="col-start-2">
+    <section class="grid grid-cols-2 gap-10 justify-items-center items-center">
+        <div class="w-full">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Etapa</h1>
             {{-- poner el metodo update en la ruta --}}
             <form action="{{ route('Etapas-Servicios.store') }}" method="POST" enctype="multipart/form-data"
-                class="grid grid-cols-2 gap-5">
+                class="flex flex-col gap-5">
                 {{ method_field('PUT') }}
                 @csrf
 
-                <label for="Numero" class="font-bold flex flex-col gap-2">
-                    Número de la Etapa
+                <label for="Numero" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Número de la Etapa
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required>
                     <span class="text-red-500 text-sm hidden" id="numeroError">Este campo es obligatorio.</span>
                 </label>
 
-                <label for="Tipo" class="font-bold flex flex-col gap-2">
-                    Tipo
-                    <input type="text"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        required>
-                    <span class="text-red-500 text-sm hidden" id="tipoError">Este campo es obligatorio.</span>
-                </label>
-
-                <label for="Descripcion"  class="font-bold flex flex-col gap-2">
-                    Descripción
+                <label for="Descripcion"  class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Descripción
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 h-[200px] focus:border-naranja-industrial-400"
                         required>
@@ -52,7 +48,7 @@
                 </div>
             </form>
         </div>
-        <img src="{{ asset('/css/images/CRM1.jpeg') }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 object-cover" style="height: 400px">
+        <img src="{{ asset('/css/images/CRM1.jpeg') }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection
 

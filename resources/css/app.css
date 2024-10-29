@@ -4,4 +4,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+.active>.page-link {
+  background-color: #F0A21C !important;
+  border-color: #F0A21C !important;
+}
+
+.page-link {
+  color: #F0A21C;
+}
+
+.page-link:hover {
+  color: #F0A21C;
+}
+
+.btn:hover{
+  background-color: var(--background-color) !important;
+}
+.form-control:focus {
+  border-color: #F0A21C;
+  outline: 0;
+  box-shadow: 0 0 0 .15rem #FFD14A;
+}

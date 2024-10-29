@@ -10,32 +10,64 @@
                 class="grid grid-cols-2 gap-5">
                 {{ method_field('PUT') }}
                 @csrf
-                <label for="id" class="font-bold flex flex-col gap-2">ID del Repuestos <input type="text" disabled
+                <label for="id" class="flex flex-col gap-2">
+                    <span class="font-bold">
+
+                        ID del Repuestos
+                    </span>
+                    <input type="text" 
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="Nombre" class="font-bold flex flex-col gap-2">Nombre<input type="text" disabled
+                <label for="Nombre" class="flex flex-col gap-2">
+                    <span class="font-bold">
+
+                        Nombre
+                    </span>
+                    <input type="text" 
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="Proveedor" class="font-bold flex flex-col gap-2 w-full">Proveedor<input type="text" disabled
+                <label for="Proveedor" class="flex flex-col gap-2 w-full">
+                    <span class="font-bold">
+                        Proveedor
+                    </span>
+                    <input type="text" 
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="Precio" class="font-bold flex flex-col gap-2 w-full">Precio<input type="text" disabled
+                <label for="Precio" class="flex flex-col gap-2 w-full">
+                    <span class="font-bold">
+                        Precio
+                    </span>
+                    <input type="text" 
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="FechaSolicitud" class="font-bold flex flex-col gap-2 w-full">Fecha Solicitud<input
-                        type="text" disabled
+                <label for="FechaSolicitud" class="flex flex-col gap-2 w-full">
+                    <span class="font-bold">
+                        Fecha Solicitud
+                    </span>
+                    <input type="text" 
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="FechaLLegada" class="font-bold flex flex-col gap-2 w-full">Fecha LLegada<input type="text"
-                        disabled
+                <label for="FechaLLegada" class="flex flex-col gap-2 w-full">
+                    <span class="font-bold">
+                        Fecha LLegada
+                    </span>
+                    <input type="text" 
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="Motor" class="font-bold flex flex-col gap-2 w-full">Motor<input type="text" disabled
+                <label for="Motor" class="flex flex-col gap-2 w-full">
+                    <span class="font-bold">
+                        Motor
+                    </span>
+                    <input type="text" 
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
                 <label for="imageUpload" class="flex hover:cursor-pointer items-center">
                     <div class="flex flex-col justify-center items-center gap-2">
                         <span class="font-bold">Foto</span>
                         <span class="custom-file-upload-text">Seleccione una imagen...</span>
                     </div>
+
                     <input type="file" name="image" id="imageUpload" accept="image/*" style="display: none;">
                     <img id="imagePreview" src="" class="w-[135px] h-[135px] object-cover border-4 border-black">
                 </label>
                 <div action="" class="col-span-2 flex justify-evenly w-full">
-                    <a href="{{ route('Servicios.index') }}"
+                    <span class="font-bold">
+
+                    </span>
+                    <a href="{{ route('Repuestos.index') }}"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">Volver</a>
                     <button type="submit"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-claro-400 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-600">Guardar</button>
@@ -43,8 +75,7 @@
             </form>
         </div>
         <img src="{{ asset('/css/images/CRM1.jpeg') }}"
-            class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 object-cover"
-            style="height: 400px">
+            class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection
 

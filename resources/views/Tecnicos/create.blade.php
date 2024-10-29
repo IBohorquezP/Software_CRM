@@ -10,32 +10,43 @@
                 class="grid grid-cols-2 gap-5">
                 @csrf
 
-                <label for="nombre" class="font-bold flex flex-col gap-2">
-                    Nombre
+                <label for="nombre" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Nombre
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required name="nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
-                <label for="apellido" class="font-bold flex flex-col gap-2">
-                    Apellido
+                <label for="apellido" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Apellido
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required name="apellido">
                     <span class="text-red-500 text-sm hidden" id="apellidoError">Este campo es obligatorio.</span>
                 </label>
-                <label for="cedula" class="font-bold flex flex-col gap-2">
-                    Cédula
+                <label for="cedula" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Cédula
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name="cedula" required>
                     <span class="text-red-500 text-sm hidden" id="cedulaError">Este campo es obligatorio.</span>
                 </label>
-                <label for="cod_mecanico" class="font-bold flex flex-col gap-2">Código del Mecanico<input type="text"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                <label for="cod_mecanico" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Código del Mecanico
+                        </span>
+                        <input type="text" class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name='cod_mecanico'></label>
-                <label for="cargo" class="font-bold flex flex-col gap-2">
-                    Cargo
+                <label for="cargo" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Cargo
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required name="cargo">
@@ -58,7 +69,8 @@
                 </div>
             </form>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}" class="w-full h-[500px] object-cover">
+        <img src="{{ asset('/css/images/CRM3.webp') }}"
+            class="justify-self-center border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection
 

@@ -16,13 +16,13 @@
         </div>
     </section>
     <section class="grid grid-cols-4 gap-10">
-        <a href="#"
+        <a href="/Motores-Servicios"
             class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
             <p class="text-xl text-center font-semibold">Desarme y Evaluación</p>
         </a>
         <img src="{{ asset('css/images/etapas/desarme.webp') }}" class="w-full h-full object-cover  row-start-1">
-        <a href="#"
+        <a href="/Motores-Servicios"
             class="border-4 border-black p-10 flex flex-col items-center  gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
             <p class="text-xl  font-semibold">Armado y Prueba</p>

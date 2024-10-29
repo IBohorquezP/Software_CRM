@@ -7,19 +7,19 @@
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Ver Cliente</h1>
             {{-- poner el metodo update en la ruta --}}
             <div class="flex flex-col justify-center gap-5">
-                <label for="Nombre" class="font-bold flex flex-col gap-2 ">
-                    Nombre
+                <label for="Nombre" class="flex flex-col gap-2 ">
+                    <span class="font-bold">
+                        Nombre
+                    </span>
                     <input type="text" 
                         class= "p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required disabled name="nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
-                <!-- <label for="Telefono" class="font-bold flex flex-col gap-2">Telefono<input type="text"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name='Telefono'>
-                </label> -->
-                <label for="tipo" class="font-bold flex flex-col gap-2">
-                    Tipo
+                <label for="tipo" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Tipo
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name="tipo" required disabled>
@@ -36,7 +36,7 @@
                 </form>
             </div>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}" class="row-start-1 border-4 border-black p-5 bg-gray-200 h-[400px] object-cover">
+        <img src="{{ asset('/css/images/CRM3.webp') }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection
 

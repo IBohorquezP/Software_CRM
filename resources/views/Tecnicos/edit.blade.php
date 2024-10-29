@@ -4,40 +4,54 @@
 @section('main')
     <section class="grid grid-cols-2 gap-10 items-center">
         <div class="col-start-2">
-            <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Técnico</h1>
+            <h1 class="font-bold  text-4xl text-center mb-10">Editar Técnico</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Tecnicos.store') }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-2 gap-5">
-                <label for="Nombre" class="font-bold flex flex-col gap-2">
-                    Nombre
+            <form action="{{ route('Tecnicos.store') }}" method="POST" enctype="multipart/form-data"
+                class="grid grid-cols-2 gap-5">
+                <label for="Nombre" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Nombre
+                    </span>
+
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required name="Nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Apellido" class="font-bold flex flex-col gap-2">
-                    Apellido
+                <label for="Apellido" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+
+                        Apellido
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required name="Apellido">
                     <span class="text-red-500 text-sm hidden" id="apellidoError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Cedula" class="font-bold flex flex-col gap-2">
-                    Cédula
+                <label for="Cedula" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Cédula
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name="Cedula" required>
                     <span class="text-red-500 text-sm hidden" id="cedulaError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Cargo" class="font-bold flex flex-col gap-2">
-                    Cargo
+                <label for="cod_mecanico" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Código del Mecanico
+                    </span><input type="text"
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                        name='cod_mecanico'></label>
+                <label for="Cargo" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Cargo
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required name="Cargo">
                     <span class="text-red-500 text-sm hidden" id="cargoError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Correo" class="font-bold flex flex-col gap-2">Correo<input type="email"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" required
-                        name='Correo'></label>
 
                 <label for="imageUpload" class="flex hover:cursor-pointer justify-center items-center ">
                     <div class="flex flex-col gap-2 justify-center items-center">
@@ -49,13 +63,15 @@
                 </label>
 
                 <div class="col-span-2 flex justify-evenly w-full gap-5">
-                  <a href="{{ route('Tecnicos.index') }}"
-                      class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">Volver</a>
-                  <button type="submit" class="font-bold py-2 px-10 rounded-sm bg-naranja-claro-400 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-600">Guardar</button>
-              </div>
+                    <a href="{{ route('Tecnicos.index') }}"
+                        class=" py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">Volver</a>
+                    <button type="submit"
+                        class=" py-2 px-10 rounded-sm bg-naranja-claro-400 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-600">Guardar</button>
+                </div>
             </form>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[400px] object-cover">
+        <img src="{{ asset('/css/images/CRM3.webp') }}"
+            class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection
 

@@ -11,17 +11,19 @@
                 {{ method_field('PUT') }}
                 @csrf
 
-                <label for="Nombre" class="font-bold flex flex-col gap-2">
-                    Nombre
+                <label for="Nombre" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Nombre
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required name="Nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
-                {{-- <label for="Tipo" class="font-bold flex flex-col gap-2">Tipo<input type="text" disabled
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" name='Tipo'></label> --}}
-                <label for="Descripcion" class="font-bold flex flex-col gap-2">
-                    Descripción
+                <label for="Descripcion" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Descripción
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 h-[200px] transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name="Descripcion" required>
@@ -45,7 +47,7 @@
                 </div>
             </form>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}" class="w-full h-[500px] object-cover">
+        <img src="{{ asset('/css/images/CRM3.webp') }}" class="justify-self-center border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection
 

@@ -7,35 +7,27 @@
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Cliente</h1>
             {{-- poner el metodo update en la ruta --}}
             <form action="{{ route('Clientes.store') }}" method="POST" enctype="multipart/form-data"
-                class="grid grid-cols-2 gap-5">
+                class="flex flex-col gap-5">
                 {{ method_field('PUT') }}
                 @csrf
 
-                <label for="Nombre" class="font-bold flex flex-col gap-2">
-                    Nombre
+                <label for="Nombre" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Nombre
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required name="Nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Tipo" class="font-bold flex flex-col gap-2">
-                    Tipo
+                <label for="Tipo" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Tipo
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name="Tipo" required>
                     <span class="text-red-500 text-sm hidden" id="tipoError">Este campo es obligatorio.</span>
-                </label>
-                <label for="descripcion" class="font-bold flex flex-col gap-2">Descripción<input type="text"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name='descripcion'></label>
-
-                <label for="imageUpload" class="flex hover:cursor-pointer justify-center items-center">
-                    <div class="flex flex-col gap-2 justify-center items-center">
-                        <span class="font-bold">Foto</span>
-                        <span class="custom-file-upload-text">Seleccione una imagen...</span>
-                    </div>
-                    <input type="file" name="image" id="imageUpload" accept="image/*" style="display: none;">
-                    <img id="imagePreview" src="" class="w-[135px] h-[135px] object-cover border-4 border-black">
                 </label>
 
                 <div class="col-span-2 flex justify-evenly w-full">

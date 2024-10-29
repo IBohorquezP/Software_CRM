@@ -7,46 +7,49 @@
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Ver Técnico</h1>
             {{-- poner el metodo update en la ruta --}}
             <div class="grid grid-cols-2 gap-5">
-                <label for="Nombre" class="font-bold flex flex-col gap-2">
-                    Nombre
+                <label for="Nombre" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Nombre
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required disabled name="Nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Apellido" class="font-bold flex flex-col gap-2">
-                    Apellido
+                <label for="Apellido" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Apellido
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required disabled name="Apellido">
                     <span class="text-red-500 text-sm hidden" id="apellidoError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Cedula" class="font-bold flex flex-col gap-2">
-                    Cédula
+                <label for="Cedula" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Cédula
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name="Cedula" required disabled>
                     <span class="text-red-500 text-sm hidden" id="cedulaError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Cargo" class="font-bold flex flex-col gap-2">
-                    Cargo
+                <label for="Cargo" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Cargo
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required disabled name="Cargo">
                     <span class="text-red-500 text-sm hidden" id="cargoError">Este campo es obligatorio.</span>
                 </label>
-                <label for="Correo" class="col-span-2 font-bold flex flex-col gap-2">Correo<input type="email"
+                <label for="cod_mecanico" class="col-span-2 flex flex-col gap-2">
+                    <span class="font-bold">
+                        Código Mecanico
+                    </span>
+                    <input type="email"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" required disabled
-                        name='Correo'></label>
-
-                {{-- <label for="imageUpload" class="flex hover:cursor-pointer justify-center items-center ">
-                    <div class="flex flex-col gap-2 justify-center items-center">
-                        <span class="font-bold">Foto</span>
-                        <span class="custom-file-upload-text">Seleccione una imagen...</span>
-                    </div>
-                    <input type="file" name="image" id="imageUpload" accept="image/*" style="display: none;">
-                    <img id="imagePreview" src="" class="w-[135px] h-[135px] object-cover border-4 border-black">
-                </label> --}}
+                        name='cod_mecanico'></label>
 
                 <form action="" class="col-span-2 flex justify-evenly w-full gap-5">
                   <a href="{{ route('Tecnicos.index') }}"
@@ -57,7 +60,7 @@
               </form>
             </div>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}" class="row-start-1 border-4 border-black p-5 bg-gray-200 h-[400px] object-cover">
+        <img src="{{ asset('/css/images/CRM3.webp') }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection
 

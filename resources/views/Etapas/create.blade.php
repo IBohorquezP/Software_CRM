@@ -2,34 +2,28 @@
 @extends('layouts.footer')
 @section('title', 'Crear Etapa')
 @section('main')
-    <section class="grid grid-cols-2 gap-10 jus">
+    <section class="grid grid-cols-2 gap-10 justify-center items-center">
         <div>
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Nueva Etapa</h1>
             {{-- poner el metodo update en la ruta --}}
             <form action="{{ route('Etapas-Servicios.store') }}" method="POST" enctype="multipart/form-data"
-                class="grid grid-cols-2 gap-5">
+                class="flex flex-col gap-5">
 
                 @csrf
 
-                <label for="nombre" class="font-bold flex flex-col gap-2">
-                    Nombre de la Etapa
+                <label for="nombre" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Nombre de la Etapa
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required name="nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
-<!-- 
-                <label for="Tipo" class="font-bold flex flex-col gap-2"> -->
-
-                    <!-- Tipo
-                    <input type="text"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        required>
-                    <span class="text-red-500 text-sm hidden" id="tipoError">Este campo es obligatorio.</span>
-                </label> -->
-
-                <label for="descripcion" class="font-bold flex flex-col gap-2">
-                    Descripción
+                <label for="descripcion" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Descripción
+                    </span>
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 h-[200px] transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         required name="descripcion">
@@ -53,7 +47,7 @@
                 </div>
             </form>
         </div>
-        <img src="{{ asset('/css/images/CRM1.jpeg') }}" class="w-full h-[500px] object-cover">
+        <img src="{{ asset('/css/images/CRM1.jpeg') }}" class="justify-self-center border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection
 
