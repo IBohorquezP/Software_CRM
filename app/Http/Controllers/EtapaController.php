@@ -44,7 +44,7 @@ class EtapaController extends Controller
         $etapa->img = $validateData['img']; 
         $etapa->save();
 
-        return redirect()->route('Etapas-Servicios.store')->with('success', 'Etapa creada correctamente.');
+        return redirect()->route('Etapas.store')->with('success', 'Etapa creada correctamente.');
 
     }
 

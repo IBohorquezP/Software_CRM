@@ -26,7 +26,7 @@
                         disabled
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
                 <form action="" class="col-span-2 flex justify-evenly w-full">
-                    <a href="{{ route('Etapas-Servicios.index') }}"
+                    <a href="{{ route('Etapas.index') }}"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">Volver</a>
                     <a href="#"
                         class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Editar</a>

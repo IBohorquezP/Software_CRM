@@ -77,7 +77,7 @@ class ServicioController extends Controller
         // Guardar servicio
         $servicio->save();
 
-        return redirect()->route('Motores-Servicios.store')->with('success', 'Servicio creado correctamente.');
+        return redirect()->route('Servicios.store')->with('success', 'Servicio creado correctamente.');
     }
 
     /**

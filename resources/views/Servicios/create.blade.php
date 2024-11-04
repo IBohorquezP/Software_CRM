@@ -6,7 +6,7 @@
         <div class="w-full">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Crear Servicio</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Motores-Servicios.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('Servicios.store') }}" method="POST" enctype="multipart/form-data"
                 class="grid gap-5">
 
                 @csrf
@@ -185,13 +185,6 @@
                         aria-placeholder="Seleccione una Bahía"
                             class="w-full col-span-2 p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                            
-                            {{-- @foreach ($servicios as $servicio)
-                                <option value="{{ $servicio->id }}">{{ $servicio->descripcion }}</option>
-                            @endforeach --}}
-                            <option>Desarme</option>
-                            {{-- foreach desarmado--}}
-                            <option>Armado</option>
-                            {{-- foreach armado--}}
                         </select>
                     </label>
                     <label for="fecha_estimada" class=" flex flex-col gap-2">
@@ -264,7 +257,7 @@
 
                 </div>
                 <div class="mt-5 flex justify-evenly w-full">
-                    <a href="{{ route('Motores-Servicios.index') }}"
+                    <a href="{{ route('Servicios.index') }}"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
                     <button type="submit"
                         class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>

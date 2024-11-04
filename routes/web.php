@@ -36,10 +36,10 @@ Route::resource('Clientes', ClienteController::class);
 //Ruta Tecnicos
 Route::resource('Tecnicos',TecnicoController::class);
 //Ruta Servicios / Etapas
-Route::resource('Etapas-Servicios', EtapaController::class);
+Route::resource('Etapas', EtapaController::class);
 //Ruta Bahia
 Route::resource('Bahias', BahiaController::class);
 //Ruta Repuestos   
 Route::resource('Repuestos', RepuestosController::class);
-//Ruta Motores / Servicios
-Route::resource('Motores-Servicios', ServicioController::class);
+//Ruta Servicios
+Route::resource('Servicios', ServicioController::class);
