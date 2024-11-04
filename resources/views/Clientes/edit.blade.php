@@ -40,11 +40,11 @@
                 </div>
             </form>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}"
+        <img src="{{ asset($cliente->img) }}"
             class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[400px] object-cover">
     </section>
 @endsection
-<!-- 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -68,4 +68,4 @@
             reader.readAsDataURL(file);
         });
     });
-</script> -->
+</script>

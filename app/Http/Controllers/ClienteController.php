@@ -33,12 +33,25 @@ class ClienteController extends Controller
         $validateData = $request->validate([
         'nombre'=> 'required|string|max:255', 
         'tipo'=> 'required|string|max:255',
+        'img'=> 'nullable',
         ]);
 
         //Crear un Cliente
         $cliente = new Cliente();
         $cliente->nombre =$validateData['nombre'] ;
-        $cliente->tipo = $validateData['tipo'];    
+        $cliente->tipo = $validateData['tipo'];   
+        $cliente->img = $validateData['img']; 
+
+        if ($request->hasFile('img')) {
+            // Obtener el archivo
+            $file = $request->file('img');
+            // Crear un nombre único para la imagen
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            // Mover el archivo a la carpeta 'public/fotos'
+            $file->move(public_path('img'), $filename);
+            // Guardar el nombre de la imagen en la base de datos
+            $cliente->img = 'img/' . $filename; 
+        } 
         $cliente->save();
 
         return redirect()->route('Clientes.store')->with('success', 'Cliente creado correctamente.');
@@ -72,6 +85,7 @@ class ClienteController extends Controller
         $validateData = $request->validate([
             'nombre'=> 'required|string|max:255', 
             'tipo'=> 'required|string|max:255',
+            'img'=> 'nullable',
         ]);
     
         $cliente = Cliente::find($id_cliente);
@@ -88,9 +102,20 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cliente $cliente)
+    public function destroy($id_cliente)
     {
+        // Encuentra el cliente por su ID
+        $cliente = Cliente::find($id_cliente);
+        
+        // Verifica si el cliente existe
+        if (!$cliente) {
+            return redirect()->route('Clientes.index')->with('error', 'Cliente no encontrado.');
+        }
+    
+        // Elimina el cliente
         $cliente->delete();
-        return redirect('/Clientes.index');
+    
+        // Redirige al índice con un mensaje de éxito
+        return redirect()->route('Clientes.index')->with('success', 'Cliente eliminado correctamente.');
     }
 }

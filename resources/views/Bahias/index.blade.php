@@ -19,7 +19,7 @@
     @foreach ($bahias as $bahia)
         <a href="{{ route('Bahias.show', $bahia->id_bahia) }}"
             class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
+            <img src="{{ asset($bahia->img) }}" class="w-[300px] h-[220px] object-cover " alt="Foto de {{ $bahia->img }}">
             <p class="text-lg text-center font-bold">{{ $bahia->nombre }}</p>
         </a>
     @endforeach  

@@ -78,7 +78,7 @@
                 </div>
             </form>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}"
+        <img src="{{ asset($tecnico->foto) }}"
             class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection

@@ -34,7 +34,32 @@
                 </form>
             </div>
         </div>
-        <img src="{{ asset('css/images/CRM3.webp') }}"
+        <img src="{{ asset($bahia->img) }}"
             class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        const imageInput = $('.image-input');
+        const imageUpload = $('#imageUpload');
+        const imagePreview = $('#imagePreview');
+
+        imageUpload.change(function() {
+            const file = this.files[0];
+            const allowedTypes = ['image/webp', 'image/jpeg', 'image/png'];
+
+            if (!allowedTypes.includes(file.type)) {
+                alert('Por favor, selecciona un archivo de imagen válido (JPEG, PNG o WebP).');
+                return false; // Prevent default behavior
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                imagePreview.attr('src', e.target.result);
+            };
+            reader.readAsDataURL(file);
+        });
+    });
+</script>

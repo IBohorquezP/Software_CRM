@@ -6,6 +6,7 @@
         <div class="col-start-2">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Ver Cliente</h1>
             {{-- poner el metodo update en la ruta --}}
+            
             <div class="flex flex-col justify-center gap-5">
                 <label for="Nombre" class="flex flex-col gap-2 ">
                     <span class="font-bold">
@@ -28,8 +29,10 @@
                     <span class="text-red-500 text-sm hidden" id="tipoError">Este campo es obligatorio.</span>
                 </label>
 
-                <form action="" class="col-span-2 flex justify-evenly w-full gap-5">
-                    <a href="{{ route('Clientes.index', $cliente->id_cliente) }}"
+                <form action="{{ route('Clientes.destroy', $cliente->id_cliente) }}" class="col-span-2 flex justify-evenly w-full gap-5">
+                    @csrf
+                    @method('DELETE')
+                    <a href="{{ route('Clientes.index') }}"
                         class="font-bold py-2 px-10 text-center rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">Volver</a>
                         <a href="{{ route('Clientes.edit', $cliente->id_cliente) }}"
                         class="font-bold py-2 px-10 text-center rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Editar</a>
@@ -38,7 +41,7 @@
                 </form>
             </div>
         </div>
-        <img src="{{ asset('/css/images/CRM3.webp') }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
+        <img src="{{ asset($cliente->img) }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection
 

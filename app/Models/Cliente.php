@@ -14,5 +14,6 @@ class Cliente extends Model
     protected $fillable = [
         'nombre',
         'tipo',
+        'img',
     ];
 }
