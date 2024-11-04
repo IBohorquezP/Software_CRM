@@ -12,7 +12,8 @@ class EtapaController extends Controller
      */
     public function index()
     {
-        return view('Etapas.index');
+        $etapas = Etapa::all(); // Obtiene todos los clientes desde la base de datos
+        return view('Etapas.index', compact('etapas')); // Pasa $clientes a la vista
     }
 
     /**
@@ -31,7 +32,7 @@ class EtapaController extends Controller
     {
         //Validacion de datos etapa
         $validateData = $request->validate([
-        'nombre'=> 'required|string|max:255', 
+        'nombre'=> 'required|string|min:3|max:255', 
         'descripcion'=> 'required|string|max:255',
         'img'=> 'nullable',
         ]);
@@ -50,9 +51,11 @@ class EtapaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Etapa $etapa)
+    public function show ($id_etapa)
     {
-        return view('Etapas.show');
+        $etapa = Etapa::find($id_etapa);
+        
+        return view('Etapas.show', compact('etapa'));
     }
 
     /**
@@ -60,7 +63,7 @@ class EtapaController extends Controller
      */
     public function edit(Etapa $etapa)
     {
-        return view('Etapas.edit');
+        return view('Etapas.edit', compact('etapa'));
     }
 
     /**

@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('etapas', function (Blueprint $table) {
             $table->increments('id_etapa');
-            $table->unsignedInteger('servicios_id_servicio'); //Foreign
-            $table->integer('nombre');
+            $table->string('nombre');
             $table->string('descripcion');
             $table->string('img');
             $table->timestamps();
-
-            $table->foreign('servicios_id_servicio')->references('id_servicio')->on('servicios');
         });
     }
 

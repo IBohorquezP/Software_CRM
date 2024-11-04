@@ -6,18 +6,19 @@
         <div class="col-start-2">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Bahía</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Bahias.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('Bahias.update' , $bahia->id_bahia) }}" method="POST" enctype="multipart/form-data"
                 class="flex flex-col gap-5">
-                {{ method_field('PUT') }}
-                @csrf
 
+                @csrf
+                @method('PUT')
                 <label for="Nombre" class="flex flex-col gap-2">
                     <span class="font-bold">
                         Nombre
                     </span>
                     <input type="text"
+                    value="{{$bahia->nombre}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        required name="Nombre">
+                        required name="nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
                 <label for="Descripcion" class="flex flex-col gap-2">
@@ -25,8 +26,9 @@
                         Descripción
                     </span>
                     <input type="text"
+                    value="{{$bahia->descripcion}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 h-[200px] transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name="Descripcion" required>
+                        name="descripcion" required>
                     <span class="text-red-500 text-sm hidden" id="descripcionError">Este campo es obligatorio.</span>
                 </label>
 

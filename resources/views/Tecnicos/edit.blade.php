@@ -6,16 +6,20 @@
         <div class="col-start-2">
             <h1 class="font-bold  text-4xl text-center mb-10">Editar Técnico</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Tecnicos.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('Tecnicos.update' , $tecnico->id_tecnico) }}" method="POST" enctype="multipart/form-data"
                 class="grid grid-cols-2 gap-5">
+                
+                @csrf
+                @method('PUT')
                 <label for="Nombre" class=" flex flex-col gap-2">
                     <span class="font-bold">
                         Nombre
                     </span>
 
                     <input type="text"
+                    value= "{{$tecnico->nombre}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        required name="Nombre">
+                        required name="nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
                 <label for="Apellido" class=" flex flex-col gap-2">
@@ -24,8 +28,9 @@
                         Apellido
                     </span>
                     <input type="text"
+                    value= "{{$tecnico->apellido}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        required name="Apellido">
+                        required name="apellido">
                     <span class="text-red-500 text-sm hidden" id="apellidoError">Este campo es obligatorio.</span>
                 </label>
                 <label for="Cedula" class=" flex flex-col gap-2">
@@ -33,14 +38,16 @@
                         Cédula
                     </span>
                     <input type="text"
+                    value= "{{$tecnico->cedula}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name="Cedula" required>
+                        name="cedula" required>
                     <span class="text-red-500 text-sm hidden" id="cedulaError">Este campo es obligatorio.</span>
                 </label>
                 <label for="cod_mecanico" class=" flex flex-col gap-2">
                     <span class="font-bold">
                         Código del Mecanico
                     </span><input type="text"
+                    value= "{{$tecnico->cod_mecanico}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name='cod_mecanico'></label>
                 <label for="Cargo" class=" flex flex-col gap-2">
@@ -48,8 +55,9 @@
                         Cargo
                     </span>
                     <input type="text"
+                    value= "{{$tecnico->cargo}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        required name="Cargo">
+                        required name="cargo">
                     <span class="text-red-500 text-sm hidden" id="cargoError">Este campo es obligatorio.</span>
                 </label>
 

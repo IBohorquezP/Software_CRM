@@ -12,7 +12,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('Clientes.index');
+        $clientes = Cliente::all(); // Obtiene todos los clientes desde la base de datos
+        return view('Clientes.index', compact('clientes')); // Pasa $clientes a la vista
     }
 
     /**
@@ -46,25 +47,42 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cliente $cliente)
+    public function show ($id_cliente)
     {
-        return view('Clientes.show');
+        $cliente = Cliente::find($id_cliente);
+
+        // Devuelve la vista 'clientes.show' pasando el cliente encontrado
+        return view('Clientes.show', compact('cliente')); 
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cliente $cliente)
+    public function edit($id_cliente)
     {
-        return view('Clientes.edit');
+        $cliente = Cliente::findorFail($id_cliente);
+        return view('Clientes.edit', compact('cliente'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, $id_cliente)
     {
-        //
+        $validateData = $request->validate([
+            'nombre'=> 'required|string|max:255', 
+            'tipo'=> 'required|string|max:255',
+        ]);
+    
+        $cliente = Cliente::find($id_cliente);
+        
+        if (!$cliente) {
+            return redirect()->route('Clientes.index')->with('error', 'Cliente no encontrado.');
+        }
+    
+        $cliente->update($validateData);
+    
+        return redirect()->route('Clientes.show', $cliente->id_cliente)->with('success', 'Cliente actualizado correctamente.');
     }
 
     /**
@@ -72,6 +90,7 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $cliente->delete();
+        return redirect('/Clientes.index');
     }
 }

@@ -15,18 +15,15 @@
                 class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-industrial-500 hover:bg-naranja-claro-400 ">Agregar</a>
         </div>
     </section>
-    <section class="grid grid-cols-4 gap-10">
-        <a href="/Motores-Servicios"
+    <section class="grid grid-cols-5 gap-10">
+    @foreach ($etapas as $etapa)  
+        <a href="{{ route('Motores-Servicios.index' , $etapa->id_etapa)}}"
             class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
-            <p class="text-xl text-center font-semibold">Desarme y Evaluación</p>
+            <p class="text-xl text-center font-bold">{{ $etapa->nombre }}</p>
         </a>
+    @endforeach 
         <img src="{{ asset('css/images/etapas/desarme.webp') }}" class="w-full h-full object-cover  row-start-1">
-        <a href="/Motores-Servicios"
-            class="border-4 border-black p-10 flex flex-col items-center  gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
-            <p class="text-xl  font-semibold">Armado y Prueba</p>
-        </a>
         <img src="{{ asset('css/images/etapas/armado.webp') }}" class="w-full h-full object-cover ">
     </section>
 @endsection

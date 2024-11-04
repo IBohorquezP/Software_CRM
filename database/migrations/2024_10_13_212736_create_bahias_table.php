@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('bahias', function (Blueprint $table) {
             $table->increments('id_bahia');
-            $table->unsignedInteger('etapas_id_etapa'); //Foreign
             $table->string('nombre');
             $table->string('img');
             $table->string('descripcion');
             $table->timestamps();
 
-            $table->foreign('etapas_id_etapa')->references('id_etapa')->on('etapas');
         });
     }
 

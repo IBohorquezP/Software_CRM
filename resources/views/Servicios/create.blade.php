@@ -21,14 +21,17 @@
                         <span class="text-red-500 text-sm hidden" id="numeroServicioError">Este campo es obligatorio.</span>
                     </label>
 
-                    <label for="id_cliente" class=" flex flex-col gap-2">
-                        <span class="font-bold">
+                    <label for="cliente" class="flex flex-col gap-2">
+                        <span class="font-bold">Cliente</span>
 
-                            Cliente
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                            name=id_cliente>
+                        <select name="id_cliente" id="id_cliente" 
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            <option value="">Seleccione un cliente</option>
+                            @foreach($clientes as $cliente)
+                                <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
+                            @endforeach
+                        </select>
+
                         <span class="text-red-500 text-sm hidden" id="clienteError">Este campo es obligatorio.</span>
                     </label>
 
@@ -151,19 +154,20 @@
                             name=contador>
                         <span class="text-red-500 text-sm hidden" id="contadorError">Este campo es obligatorio.</span>
                     </label>
-                    <label for="etapa" class=" flex flex-col gap-2">
-                        <span class="font-bold">
 
-                            Etapa
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                            name=etapa>
-                        <span class="text-red-500 text-sm hidden" id="etapaError">Este campo es obligatorio.</span>
-                    </label>
+                    <label for="id_etapa" class="flex flex-col gap-2">
+                        <span class="font-bold">Etapa</span>
+                        <select name="etapa" id="id_etapa" 
+                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                            <option value="">Seleccione una etapa</option>
+                            @foreach($etapas as $etapa)
+                                <option value="{{ $etapa->id }}">{{ $etapa->nombre }}</option>
+                            @endforeach
+                        </select>
 
                     <span id="btn-anterior"
-                        class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">Anterior</span>
+                        class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">
+                        Anterior</span>
                     <span id="nextform3"
                         class="col-start-2 px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 cursor-pointer text-center hover:bg-naranja-industrial-500 hover:text-white">
                         Siguiente</span>
@@ -178,8 +182,9 @@
                             Seleccione una bahia
                         </span>
                         <select
+                        aria-placeholder="Seleccione una Bahía"
                             class="w-full col-span-2 p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
-                            <option value="">Seleccione una opción</option>
+                           
                             {{-- @foreach ($servicios as $servicio)
                                 <option value="{{ $servicio->id }}">{{ $servicio->descripcion }}</option>
                             @endforeach --}}

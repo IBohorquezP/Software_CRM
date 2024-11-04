@@ -16,45 +16,12 @@
         </div>
     </section>
     <section class="grid grid-cols-4 gap-10">
-        <a href="#"
+    @foreach ($bahias as $bahia)
+        <a href="{{ route('Bahias.show', $bahia->id_bahia) }}"
             class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
-            <p class="text-xl text-center font-semibold">Desarme y Evaluación</p>
+            <p class="text-lg text-center font-bold">{{ $bahia->nombre }}</p>
         </a>
-        <a href="#"
-            class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
-            <p class="text-xl text-center font-semibold">Desarme y Evaluación</p>
-        </a>
-        <a href="#"
-            class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
-            <p class="text-xl text-center font-semibold">Desarme y Evaluación</p>
-        </a>
-        <a href="#"
-            class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
-            <p class="text-xl text-center font-semibold">Desarme y Evaluación</p>
-        </a>
-        <a href="#"
-            class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
-            <p class="text-xl text-center font-semibold">Desarme y Evaluación</p>
-        </a>
-        <a href="#"
-            class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
-            <p class="text-xl text-center font-semibold">Desarme y Evaluación</p>
-        </a>
-        <a href="#"
-            class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
-            <p class="text-xl text-center font-semibold">Desarme y Evaluación</p>
-        </a>
-        <a href="#"
-            class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
-            <p class="text-xl text-center font-semibold">Desarme y Evaluación</p>
-        </a>
+    @endforeach  
     </section>
 @endsection

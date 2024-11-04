@@ -9,10 +9,9 @@ class Etapa extends Model
 {
     use HasFactory;
     protected $table = 'etapas';
+    protected $primaryKey = 'id_etapa';
 
     protected $fillable = [
-        'id_etapa',
-        'servicios_id_servicio',
         'nombre',
         'descripcion',  
         'img',

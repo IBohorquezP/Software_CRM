@@ -12,7 +12,8 @@ class TecnicoController extends Controller
      */
     public function index()
     {
-        return view('Tecnicos.index');
+        $tecnicos = Tecnico::all(); // Obtiene todos los clientes desde la base de datos
+        return view('Tecnicos.index', compact('tecnicos')); // Pasa $clientes a la vista
     }
 
     /**
@@ -55,26 +56,47 @@ class TecnicoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tecnico $tecnico)
+    public function show($id_tecnico)
     {
-        return view('Tecnicos.show');
+        $tecnico = Tecnico::find($id_tecnico);
+        // Devuelve la vista 'tecnicos.show' pasando el tecnico encontrado
+        return view('Tecnicos.show', compact('tecnico'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tecnico $tecnico)
+    public function edit($id_tecnico)
     {
-        return view('Tecnicos.edit');
+        $tecnico = Tecnico::findorFail($id_tecnico);
+        return view('Tecnicos.edit', compact('tecnico'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tecnico $tecnico)
+    public function update(Request $request, $id_tecnico)
     {
-        //
+        $validateData = $request->validate([
+            'cod_mecanico'=> 'required|string|max:255', 
+            'nombre'=> 'required|string|max:255',
+            'apellido'=> 'required|string|max:255',
+            'cedula'=> 'required|string|max:255',
+            'cargo'=> 'required|string|max:255',
+            'foto'=> 'nullable',
+        ]);
+    
+        $tecnico = Tecnico::find($id_tecnico);
+        
+        if (!$tecnico) {
+            return redirect()->route('Tecnicos.index')->with('error', 'Tecnico no encontrado.');
+        }
+    
+        $tecnico->update($validateData);
+    
+        return redirect()->route('Tecnicos.show', $tecnico->id_tecnico)->with('success', 'Tecnico actualizado correctamente.');
     }
+
 
     /**
      * Remove the specified resource from storage.

@@ -9,10 +9,9 @@ class Bahia extends Model
 {
     use HasFactory;
     protected $table = 'bahias';
+    protected $primaryKey = 'id_bahia';
 
     protected $fillable = [
-        'id_bahia',
-        'etapas_id_etapa',
         'nombre',
         'img',
         'descripcion',

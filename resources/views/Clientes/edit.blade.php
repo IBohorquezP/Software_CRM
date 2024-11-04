@@ -6,18 +6,19 @@
         <div class="col-start-2">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Cliente</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Clientes.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('Clientes.update', $cliente->id_cliente) }}" method="POST" enctype="multipart/form-data"
                 class="flex flex-col gap-5">
-                {{ method_field('PUT') }}
-                @csrf
 
+                @csrf
+                @method('PUT')
                 <label for="Nombre" class=" flex flex-col gap-2">
                     <span class="font-bold">
                         Nombre
                     </span>
                     <input type="text"
+                    value="{{ $cliente->nombre }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        required name="Nombre">
+                        required name="nombre">
                     <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
                 </label>
                 <label for="Tipo" class=" flex flex-col gap-2">
@@ -25,8 +26,9 @@
                         Tipo
                     </span>
                     <input type="text"
+                    value="{{ $cliente->tipo }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name="Tipo" required>
+                        name="tipo" required>
                     <span class="text-red-500 text-sm hidden" id="tipoError">Este campo es obligatorio.</span>
                 </label>
 
@@ -42,7 +44,7 @@
             class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[400px] object-cover">
     </section>
 @endsection
-
+<!-- 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -66,4 +68,4 @@
             reader.readAsDataURL(file);
         });
     });
-</script>
+</script> -->

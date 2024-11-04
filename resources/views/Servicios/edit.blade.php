@@ -10,6 +10,7 @@
                 class="grid gap-5">
 
                 @csrf
+                @method('PUT')
                 <div id="form1" class="grid grid-cols-2 gap-5">
                     <label for="servicio" class=" flex flex-col gap-2">
                         <span class="font-bold">

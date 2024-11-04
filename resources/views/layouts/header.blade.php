@@ -41,14 +41,14 @@
                           <img src='{{ asset('/css/images/menu.svg') }}' class='w-6 h-6 cursor-pointer menu-icon'>
                         </li>
                         <div class="absolute top-[70px] left-[-140px] w-48 bg-white rounded-md shadow-md menu-content hidden">
-                          <li class="transition-all duration-300 ease-in-out rounded-t-md hover:bg-naranja-industrial-500 group "><a href="/planificacion/bahias"
-                                  class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Bahías</a></li>
-                          <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group "><a href="/planificacion/tecnicos"
-                                  class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Técnicos</a></li>
-                          <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group "><a href="/planificacion/clientes"
+                          <li class="transition-all duration-300 ease-in-out rounded-t-md hover:bg-naranja-industrial-500 group "><a href="/Clientes"
                                   class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Clientes</a></li>
-                          <li class="transition-all duration-300 ease-in-out rounded-b-md  hover:bg-naranja-industrial-500 group "><a href="/planificacion/proyectos"
-                                  class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Proyectos</a></li>
+                          <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group "><a href="/Tecnicos"
+                                  class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Técnicos</a></li>
+                          <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group "><a href="/Etapas-Servicios"
+                                  class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Servicios</a></li>
+                          <li class="transition-all duration-300 ease-in-out rounded-b-md  hover:bg-naranja-industrial-500 group "><a href="/Repuestos"
+                                  class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Repuestos</a></li>
                         </div>
                     </ul>
                   </ul>
