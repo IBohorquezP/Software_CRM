@@ -12,7 +12,7 @@
     @foreach ($tecnicos as $tecnico)
         <a href="{{ route('Tecnicos.show', $tecnico->id_tecnico) }}"
             class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
+  <img src="{{ asset($tecnico->foto) }}" class="w-[300px] h-[220px] object-cover" alt="Foto de {{ $tecnico->nombre }}">
             <p class="text-lg text-center font-bold">{{ $tecnico->nombre }} {{$tecnico->apellido}}</p>
             <p class="text-lg text-center text-gray-600">{{ $tecnico->cargo }}</p>
         </a>

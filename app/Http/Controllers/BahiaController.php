@@ -40,7 +40,18 @@ class BahiaController extends Controller
         $bahia = new Bahia();
         $bahia->nombre =$validateData['nombre'] ;
         $bahia->img = $validateData['img'];
-        $bahia->descripcion = $validateData['descripcion'];    
+        $bahia->descripcion = $validateData['descripcion'];   
+        
+        if ($request->hasFile('img')) {
+            // Obtener el archivo
+            $file = $request->file('img');
+            // Crear un nombre único para la imagen
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            // Mover el archivo a la carpeta 'public/fotos'
+            $file->move(public_path('img'), $filename);
+            // Guardar el nombre de la imagen en la base de datos
+            $bahia->img = 'img/' . $filename; 
+        }
         $bahia->save();
 
         return redirect()->route('Bahias.store')->with('success', 'Cliente creado correctamente.');

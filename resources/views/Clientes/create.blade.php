@@ -28,30 +28,28 @@
                     name="tipo" required>
                 <span class="text-red-500 text-sm hidden" id="tipoError">Este campo es obligatorio.</span>
             </label>
-
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-
+            <label for="imageUpload" class="flex hover:cursor-pointer justify-center items-center ">
+                    <div class="flex flex-col gap-2 justify-center items-center">
+                        <span class="font-bold">Foto</span>
+                        <span class="custom-file-upload-text">Seleccione una imagen...</span>
+                    </div>
+                    <input type="file" name="img" id="imageUpload" accept="image/*" style="display: none;">
+                    <img id="imagePreview" src="" class="w-[135px] h-[135px] object-cover border-4 border-black">
+                </label>
             <div class="col-span-2 flex justify-evenly w-full">
                 <a href="{{ route('Clientes.index') }}"
                     class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
                 <button type="submit"
                     class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>
             </div>
+            
         </form>
     </div>
     <img src="{{ asset('/css/images/CRM3.webp') }}" class="justify-self-center border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
 </section>
 @endsection
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
         const imageInput = $('.image-input');
@@ -74,4 +72,4 @@
             reader.readAsDataURL(file);
         });
     });
-</script> -->
+</script>

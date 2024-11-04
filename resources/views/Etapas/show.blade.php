@@ -6,19 +6,14 @@
         <div>
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Etapa</h1>
             <div class="grid grid-cols-2 gap-5">
-                <label for="Numero" class="flex flex-col gap-2">
+                <label for="nombre" class="flex flex-col gap-2">
                     <span class="font-bold">
-                        Número de la Etapa 
+                        Nombre de la Etapa 
                     </span>
                     <input type="text" disabled
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="Tipo" class="flex flex-col gap-2">
-                    <span class="font-bold">
-                        Tipo
-                    </span>
-                    <input type="text" disabled
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="Descripcion" class="col-span-2 flex flex-col gap-2 w-full">
+             
+                <label for="descripcion" class="col-span-2 flex flex-col gap-2 w-full">
                     <span class="font-bold">
                         Descripción
                     </span>

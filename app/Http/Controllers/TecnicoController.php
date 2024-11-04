@@ -36,7 +36,7 @@ class TecnicoController extends Controller
             'apellido'=> 'required|string|max:255',
             'cedula'=> 'required|string|max:255',
             'cargo'=> 'required|string|max:255',
-            'foto'=> 'nullable',
+            'foto'=> 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
     
             //Crear una Etapa
@@ -47,6 +47,17 @@ class TecnicoController extends Controller
             $tecnico->cedula = $validateData['cedula'];    
             $tecnico->cargo = $validateData['cargo'];    
             $tecnico->foto = $validateData['foto']; 
+
+            if ($request->hasFile('foto')) {
+                // Obtener el archivo
+                $file = $request->file('foto');
+                // Crear un nombre único para la imagen
+                $filename = time() . '.' . $file->getClientOriginalExtension();
+                // Mover el archivo a la carpeta 'public/fotos'
+                $file->move(public_path('fotos'), $filename);
+                // Guardar el nombre de la imagen en la base de datos
+                $tecnico->foto = 'fotos/' . $filename; 
+            }
             $tecnico->save();
     
             return redirect()->route('Tecnicos.store')->with('success', 'Tecnico creado correctamente.');
