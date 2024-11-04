@@ -43,3 +43,8 @@ Route::resource('Bahias', BahiaController::class);
 Route::resource('Repuestos', RepuestosController::class);
 //Ruta Servicios
 Route::resource('Servicios', ServicioController::class);
+
+Route::controller(BahiaController::class)->group(function(){
+    // Route::get('/AsignarBahias/{id}','asignarBahias')->name('asignarBahias');
+    Route::get('/AsignarBahias','asignarBahias')->name('asignarBahias');
+});

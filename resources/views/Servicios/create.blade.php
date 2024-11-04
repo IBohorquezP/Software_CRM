@@ -6,8 +6,7 @@
         <div class="w-full">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Crear Servicio</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Servicios.store') }}" method="POST" enctype="multipart/form-data"
-                class="grid gap-5">
+            <form action="{{ route('Servicios.store') }}" method="POST" enctype="multipart/form-data" class="grid gap-5">
 
                 @csrf
                 <div id="form1" class="grid grid-cols-2 gap-5">
@@ -24,10 +23,10 @@
                     <label for="cliente" class="flex flex-col gap-2">
                         <span class="font-bold">Cliente</span>
 
-                        <select name="id_cliente" id="id_cliente" 
+                        <select name="id_cliente" id="id_cliente"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                             <option value="">Seleccione un cliente</option>
-                            @foreach($clientes as $cliente)
+                            @foreach ($clientes as $cliente)
                                 <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
                             @endforeach
                         </select>
@@ -157,105 +156,24 @@
 
                     <label for="id_etapa" class="flex flex-col gap-2">
                         <span class="font-bold">Etapa</span>
-                        <select name="etapa" id="id_etapa" 
+                        <select name="etapa" id="id_etapa"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                             <option value="">Seleccione una etapa</option>
-                            @foreach($etapas as $etapa)
+                            @foreach ($etapas as $etapa)
                                 <option value="{{ $etapa->id }}">{{ $etapa->nombre }}</option>
                             @endforeach
                         </select>
-
+                    </label>
+                    
                     <span id="btn-anterior"
-                        class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">
-                        Anterior</span>
-                    <span id="nextform3"
-                        class="col-start-2 px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 cursor-pointer text-center hover:bg-naranja-industrial-500 hover:text-white">
-                        Siguiente</span>
+                    class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">
+                    Anterior</span>
+                {{-- <span id="nextform3"
+                    class="col-start-2 px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 cursor-pointer text-center hover:bg-naranja-industrial-500 hover:text-white">
+                    Siguiente</span> --}}
                 </div>
                 {{-- hasta aca --}}
                 {{-- formulario 3 --}}
-                <div id="form3" class="hidden grid-cols-2 gap-5">
-                    <p class="text-[30px] font-semibold text-center col-span-2">Informacion de Bahia</p>
-                    <label for="bahia" class=" col-span-2 flex flex-col gap-2">
-
-                        <span class="font-bold">
-                            Seleccione una bahia
-                        </span>
-                        <select
-                        aria-placeholder="Seleccione una Bahía"
-                            class="w-full col-span-2 p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
-                           
-                        </select>
-                    </label>
-                    <label for="fecha_estimada" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Fecha Estimada
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                            name=fecha_estimada>
-                        <span class="text-red-500 text-sm hidden" id="fechaEstimadaError">Este campo es
-                            obligatorio.</span>
-                    </label>
-                    <label for="fecha_real" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Fecha Real
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                            name=fecha__real>
-                        <span class="text-red-500 text-sm hidden" id="fechaRealError">Este campo es
-                            obligatorio.</span>
-                    </label>
-                    <label for="requerimento" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Requerimentos del Trabajo
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                            name=requerimento>
-                        <span class="text-red-500 text-sm hidden" id="requerimentosTrabajoError">Este campo es
-                            obligatorio.</span>
-                    </label>
-                    <label for="Herramienta" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Herramienta
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                            name=herramienta>
-                        <span class="text-red-500 text-sm hidden" id="herramientaError">Este campo es obligatorio.</span>
-                    </label>
-                    <label for="documentacion" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Documentación
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                            name=documentacion>
-                        <span class="text-red-500 text-sm hidden" id="documentacionError">Este campo es
-                            obligatorio.</span>
-                    </label>
-                    <label for="alcance" class=" flex flex-col gap-2">
-
-                        <span class="font-bold">
-                            Alcance
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                            name=alcance>
-                        <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
-                    </label>
-
-                    <span id="backform2"
-                        class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">Anterior</span>
-
-                </div>
                 <div class="mt-5 flex justify-evenly w-full">
                     <a href="{{ route('Servicios.index') }}"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
@@ -308,11 +226,11 @@
         // Referencias a los formularios y botones usando jQuery
         const $form1 = $('#form1');
         const $form2 = $('#form2');
-        const $form3 = $('#form3');
+        // const $form3 = $('#form3');
         const $nextButton = $('#btn-siguiente');
         const $previousButton = $('#btn-anterior');
-        const $backform2 = $('#backform2');
-        const $nextform3 = $('#nextform3');
+        // const $backform2 = $('#backform2');
+        // const $nextform3 = $('#nextform3');
 
 
 

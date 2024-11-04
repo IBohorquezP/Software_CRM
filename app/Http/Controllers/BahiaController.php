@@ -93,4 +93,11 @@ class BahiaController extends Controller
     {
         //
     }
+
+    public function asignarBahias(){
+        return view('Bahias.asignarBahias');
+    }
+    // public function asignarBahias($id_servicio){
+    //     return view('Bahias.asignarBahias');
+    // }
 }
