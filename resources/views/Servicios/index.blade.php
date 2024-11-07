@@ -35,17 +35,239 @@
                         <td>Bugatti chiron</td>
                         <td>1</td>
                         <td>
-                            <a type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out bg-naranja-industrial-500 hover:bg-naranja-industrial-500/80  text-white">Ver
-                                </a>
-                                {{--                             <a href="{{route('asignarBahias', $servicio->id)}})" type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-naranja-claro-400/80 bg-naranja-claro-400 text-white">Asignar bahía
-                                </a> --}}
-                            <a href="{{route('asignarBahias')}}" type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-naranja-claro-400/80 bg-naranja-claro-400 text-white">Asignar bahía
-                                </a>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
                             <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
                         </td>
                     </tr>
-
-            
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ismael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ASmel</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ASmel</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ASmel</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Asmael</td>
+                        <td>Papapu</td>
+                        <td>Vue</td>
+                        <td>Bugatti chiron</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver
+                                </button>
+                            <button type="button" class="px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80  bg-[#DC3545] text-white">Eliminar</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

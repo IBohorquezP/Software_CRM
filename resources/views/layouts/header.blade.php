@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <main class="w-[95%] mx-auto grid grid-rows-[auto_auto_1fr_auto] min-h-dvh items-start">
+    <main class="w-[95%] mx-auto flex flex-col">
         <header class="w-full flex justify-between">
             <div class="flex">
                 <img src="{{ asset('/css/images/Logo1.png') }}" class="w-[100px]">
