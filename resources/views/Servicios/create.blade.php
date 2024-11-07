@@ -9,6 +9,16 @@
             <form action="{{ route('Servicios.store') }}" method="POST" enctype="multipart/form-data" class="grid gap-5">
 
                 @csrf
+
+                 @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div id="form1" class="grid grid-cols-2 gap-5">
                     <label for="servicio" class=" flex flex-col gap-2">
                         <span class="font-bold">
@@ -27,7 +37,7 @@
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                             <option value="">Seleccione un cliente</option>
                             @foreach ($clientes as $cliente)
-                                <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
+                                <option value="{{ $cliente->id_cliente }}">{{ $cliente->nombre }}</option>
                             @endforeach
                         </select>
 
@@ -156,11 +166,11 @@
 
                     <label for="id_etapa" class="flex flex-col gap-2">
                         <span class="font-bold">Etapa</span>
-                        <select name="etapa" id="id_etapa"
+                        <select name="id_etapa" id="id_etapa"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                             <option value="">Seleccione una etapa</option>
                             @foreach ($etapas as $etapa)
-                                <option value="{{ $etapa->id }}">{{ $etapa->nombre }}</option>
+                                <option value="{{ $etapa->id_etapa }}">{{ $etapa->nombre }}</option>
                             @endforeach
                         </select>
                     </label>

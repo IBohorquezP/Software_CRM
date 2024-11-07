@@ -244,7 +244,7 @@
                             class="w-full col-span-2 p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-40disabled0" >
                             <option v a lue="">Seleccione una opción</option>
                             {{-- @foreach ($servicios as $servicio)
-                                <option value="{{ $servicio->id }}">{{ $servicio->descripcion }}</option>
+                                <option value="{{ $servicio->id_servicio }}">{{ $servicio->descripcion }}</option>
                             @endforeach --}}
                             <option value="Otro">Otro</option>
                         </select>

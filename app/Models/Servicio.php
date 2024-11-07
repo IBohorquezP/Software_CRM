@@ -29,8 +29,8 @@ class Servicio extends Model
         'requisitos',
         'nota',
     ];
-    public function tecnicos(): BelongsToMany
-    {
-        return $this->belongsToMany(Tecnico::class, 'servicio_tecnico'); // 'servicio_tecnico' es el nombre de la tabla intermedia
-    }
+    // public function tecnicos(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(Tecnico::class, 'servicio_tecnico'); // 'servicio_tecnico' es el nombre de la tabla intermedia
+    // }
 }

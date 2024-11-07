@@ -22,8 +22,8 @@ class Tecnico extends Model
         'foto',
     ];
 
-    public function servicios(): BelongsToMany
-    {
-        return $this->belongsToMany(Servicio::class, 'servicio_tecnico'); // 'servicio_tecnico' es el nombre de la tabla intermedia
-    }
+    // public function servicios(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(Servicio::class, 'servicio_tecnico'); // 'servicio_tecnico' es el nombre de la tabla intermedia
+    // }
 }

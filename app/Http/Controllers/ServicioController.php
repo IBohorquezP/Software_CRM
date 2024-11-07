@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Servicio;
 use App\Models\Cliente;
 use App\Models\Etapa;
-use App\Models\Tecnico;
 use Illuminate\Http\Request;
 
 class ServicioController extends Controller
@@ -25,8 +24,8 @@ class ServicioController extends Controller
     {
         $clientes = Cliente::all(); // Obtiene todos los clientes desde la base de datos
         $etapas = Etapa::all(); // Obtiene todas las etapas desde la base de datos
-        $tecnicos = Tecnico::all(); //Obtiene todos los tecnicos desde la base de datos
-        return view('Servicios.create', compact('clientes','etapas','tecnicos')); // Pasa todo a la vista de creación de servicios
+        // $tecnicos = Tecnico::all(); //Obtiene todos los tecnicos desde la base de datos
+        return view('Servicios.create', compact('clientes','etapas')); // Pasa todo a la vista de creación de servicios
     }
 
     /**
@@ -34,7 +33,6 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
          //Validacion de datos Servicio
         $validateData = $request->validate([
             'serial' => 'required|string|max:255',
@@ -43,16 +41,16 @@ class ServicioController extends Controller
             'modelo' => 'required|string|max:255',
             'marca' => 'nullable|string|max:255',
             'horometro' => 'nullable|string',
-            'fecha_llegada' => 'required|datetime:Y-m-d H:00|max:255',
-            'fecha_salida_estimada' => 'required|datetime:Y-m-d H:00|max:255',
-            'fecha_salida_real' => 'required|datetime:Y-m-d H:00|max:255',
+            'fecha_llegada' => 'required|date_format:Y/m/d|max:255',
+            'fecha_salida_estimada' => 'nullable|date_format:Y/m/d|max:255',
+            'fecha_salida_real' => 'nullable|date_format:Y/m/d|max:255',
             'contador' => 'nullable|string|max:255',
             'requisito' => 'nullable|string|max:255',
             'nota'=> 'string|max:255',
-            'id_cliente'=> 'required|exists:clientes,id',
-            'id_etapa'=>'required|exists:etapas,id',
-            'id_tecnico'=>'required|array',
-            'id_tecnicos.*' => 'exists:tecnicos,id'
+            'id_cliente'=> 'required|exists:clientes,id_cliente',
+            'id_etapa'=>'required|exists:etapas,id_etapa',
+            // 'id_tecnico'=>'required|array',
+            // 'id_tecnicos.*' => 'exists:tecnicos,id'
         ]);
 
         //Crear un Servicio
@@ -69,15 +67,15 @@ class ServicioController extends Controller
         $servicio->contador = $validateData['contador'];
         $servicio->requisito = $validateData['requisito'];
         $servicio->nota = $validateData['nota'];
-        $servicio->id_cliente = $validateData['id_cliente'];
-        $servicio->id_etapa = $validateData['id_etapa'];
+        $servicio->clientes_id_cliente = $validateData['id_cliente'];
+        $servicio->etapas_id_etapa = $validateData['id_etapa'];
    
         // Guardar técnicos seleccionados en la tabla intermedia
-        $servicio->tecnicos()->sync($validateData['id_tecnicos']);
+        // $servicio->tecnicos()->sync($validateData['id_tecnicos']);
         // Guardar servicio
         $servicio->save();
 
-        return redirect()->route('Servicios.store')->with('success', 'Servicio creado correctamente.');
+        return redirect()->route('Servicios.index')->with('success', 'Servicio creado correctamente.');
     }
 
     /**
