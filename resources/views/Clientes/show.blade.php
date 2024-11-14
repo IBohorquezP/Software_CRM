@@ -29,7 +29,7 @@
                     <span class="text-red-500 text-sm hidden" id="tipoError">Este campo es obligatorio.</span>
                 </label>
 
-                <form action="{{ route('Clientes.destroy', $cliente->id_cliente) }}" class="col-span-2 flex justify-evenly w-full gap-5">
+                <form action="{{ route('Clientes.destroy', $cliente->id_cliente) }}" method="POST" class="col-span-2 flex justify-evenly w-full gap-5">
                     @csrf
                     @method('DELETE')
                     <a href="{{ route('Clientes.index') }}"

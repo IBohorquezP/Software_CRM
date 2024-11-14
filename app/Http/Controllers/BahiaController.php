@@ -20,7 +20,7 @@ class BahiaController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    { 
         return view('Bahias.create');
     }
 
@@ -32,14 +32,14 @@ class BahiaController extends Controller
       //Validacion de datos bahias
       $validateData = $request->validate([
         'nombre'=> 'required|string|max:255', 
-        'img'=> 'nullable', 
+        'img'=> 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
         'descripcion'=> 'required|string|max:255',
         ]);
 
         //Crear un Cliente
         $bahia = new Bahia();
         $bahia->nombre =$validateData['nombre'] ;
-        $bahia->img = $validateData['img'];
+        $bahia->img = $validateData['img'] ?? null;
         $bahia->descripcion = $validateData['descripcion'];   
         
         if ($request->hasFile('img')) {
@@ -100,8 +100,18 @@ class BahiaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Bahia $bahia)
+    public function destroy($id_bahia)
     {
-        //
+        $bahia = Bahia::find($id_bahia);
+
+        $bahia->delete();
+
+        // Redirige al índice con un mensaje de éxito
+        return redirect()->route('Bahias.index')->with('success', 'Tecnico eliminado correctamente.');
+    }
+     public function asignarBahias($id_servicio){
+        
+        $bahias = Bahia::all(); 
+        return view('Bahias.asignarBahias', compact('bahias'));
     }
 }

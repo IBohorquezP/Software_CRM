@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('componente');
             $table->string('modelo');
             $table->integer('horometro');
-            $table->string('marca');
+            $table->string('marca')->nullable();
             $table->datetime('fecha_llegada');
             $table->datetime('fecha_salida_estimada');
             $table->datetime('fecha_salida_real')->nullable();
@@ -29,8 +29,8 @@ return new class extends Migration
             $table->text('nota')->nullable();
             $table->timestamps();
 
-            $table->foreign('clientes_id_cliente')->references('id_cliente')->on('clientes');
-            $table->foreign('etapas_id_etapa')->references('id_etapa')->on('etapas');
+            $table->foreign('clientes_id_cliente')->references('id_cliente')->on('clientes')->onDelete('cascade');
+            $table->foreign('etapas_id_etapa')->references('id_etapa')->on('etapas')->onDelete('cascade');
         });
     }
 

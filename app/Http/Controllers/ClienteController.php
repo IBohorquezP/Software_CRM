@@ -40,7 +40,8 @@ class ClienteController extends Controller
         $cliente = new Cliente();
         $cliente->nombre =$validateData['nombre'] ;
         $cliente->tipo = $validateData['tipo'];   
-        $cliente->img = $validateData['img']; 
+        $cliente->img = $validateData['img'] ?? null; 
+
 
         if ($request->hasFile('img')) {
             // Obtener el archivo
@@ -48,10 +49,10 @@ class ClienteController extends Controller
             // Crear un nombre único para la imagen
             $filename = time() . '.' . $file->getClientOriginalExtension();
             // Mover el archivo a la carpeta 'public/fotos'
-            $file->move(public_path('img'), $filename);
+            $file->move(public_path('imgs'), $filename);
             // Guardar el nombre de la imagen en la base de datos
-            $cliente->img = 'img/' . $filename; 
-        } 
+            $cliente->img = 'imgs/' . $filename; 
+        }   
         $cliente->save();
 
         return redirect()->route('Clientes.store')->with('success', 'Cliente creado correctamente.');
@@ -106,13 +107,8 @@ class ClienteController extends Controller
     {
         // Encuentra el cliente por su ID
         $cliente = Cliente::find($id_cliente);
-        
-        // Verifica si el cliente existe
-        if (!$cliente) {
-            return redirect()->route('Clientes.index')->with('error', 'Cliente no encontrado.');
-        }
     
-        // Elimina el cliente
+        $cliente->servicios()->delete();
         $cliente->delete();
     
         // Redirige al índice con un mensaje de éxito

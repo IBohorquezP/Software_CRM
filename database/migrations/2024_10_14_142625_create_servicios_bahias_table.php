@@ -15,18 +15,19 @@ return new class extends Migration
             $table->increments('id_servicio_bahia');
             $table->unsignedInteger('servicios_id_servicio'); //Foreign
             $table->unsignedInteger('bahias_id_bahia'); //Foreign
-            $table->string('TRG');
-            $table->datetime('fecha_inico');
-            $table->datetime('fecha_fin');
-            $table->text('alcance');
-            $table->string('herramienta');
-            $table->text('documentacion');
-            $table->text('requerimientos');
-            $table->text('actividad');
+            $table->string('TRG')->nullable();
+            $table->datetime('fecha_inico')->nullable();
+            $table->datetime('fecha_fin')->nullable();
+            $table->text('alcance')->nullable();
+            $table->string('herramienta')->nullable();
+            $table->text('documentacion')->nullable();
+            $table->text('requerimientos')->nullable();
+            $table->text('actividad')->nullable();
             $table->timestamps();
 
             $table->foreign('servicios_id_servicio')->references('id_servicio')->on('servicios')->constrained()->onDelete('cascade');
             $table->foreign('bahias_id_bahia')->references('id_bahia')->on('bahias')->constrained()->onDelete('cascade');
+            $table->unique(['servicios_id_servicio', 'bahias_id_bahia']);
         });
     }
 

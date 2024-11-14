@@ -12,8 +12,8 @@ class EtapaController extends Controller
      */
     public function index()
     {
-        $etapas = Etapa::all(); // Obtiene todos los clientes desde la base de datos
-        return view('Etapas.index', compact('etapas')); // Pasa $clientes a la vista
+        $etapas = Etapa::all(); 
+        return view('Etapas.index', compact('etapas')); 
     }
 
     /**
@@ -41,7 +41,7 @@ class EtapaController extends Controller
         $etapa = new Etapa();
         $etapa->nombre =$validateData['nombre'] ;
         $etapa->descripcion = $validateData['descripcion'];    
-        $etapa->img = $validateData['img']; 
+        $etapa->img = $validateData['img'] ?? null; 
         $etapa->save();
 
         return redirect()->route('Etapas.store')->with('success', 'Etapa creada correctamente.');

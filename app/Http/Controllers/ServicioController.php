@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Servicio;
 use App\Models\Cliente;
 use App\Models\Etapa;
+use App\Models\Bahia;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 
 class ServicioController extends Controller
@@ -14,7 +16,8 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        return view('Servicios.index');
+        $servicios = Servicio::all();
+        return view('Servicios.index',compact('servicios'));
     }
 
     /**
@@ -24,8 +27,9 @@ class ServicioController extends Controller
     {
         $clientes = Cliente::all(); // Obtiene todos los clientes desde la base de datos
         $etapas = Etapa::all(); // Obtiene todas las etapas desde la base de datos
+        $bahias = Bahia::all(); // Obtiene todas las bahias desde la base de datos
         // $tecnicos = Tecnico::all(); //Obtiene todos los tecnicos desde la base de datos
-        return view('Servicios.create', compact('clientes','etapas')); // Pasa todo a la vista de creación de servicios
+        return view('Servicios.create', compact('clientes','etapas','bahias')); // Pasa todo a la vista de creación de servicios
     }
 
     /**
@@ -33,27 +37,33 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-         //Validacion de datos Servicio
+        // Validación de datos del servicio
         $validateData = $request->validate([
             'serial' => 'required|string|max:255',
             'servicio' => 'required|string|max:255',
             'componente' => 'required|string|max:255',
             'modelo' => 'required|string|max:255',
-            'marca' => 'nullable|string|max:255',
+            'marca' => 'nullable|string',
             'horometro' => 'nullable|string',
             'fecha_llegada' => 'required|date_format:Y/m/d|max:255',
             'fecha_salida_estimada' => 'nullable|date_format:Y/m/d|max:255',
             'fecha_salida_real' => 'nullable|date_format:Y/m/d|max:255',
             'contador' => 'nullable|string|max:255',
             'requisito' => 'nullable|string|max:255',
-            'nota'=> 'string|max:255',
-            'id_cliente'=> 'required|exists:clientes,id_cliente',
-            'id_etapa'=>'required|exists:etapas,id_etapa',
-            // 'id_tecnico'=>'required|array',
-            // 'id_tecnicos.*' => 'exists:tecnicos,id'
+            'nota' => 'string|max:255',
+            'id_cliente' => 'required|exists:clientes,id_cliente',
+            'id_etapa' => 'required|exists:etapas,id_etapa',
+            // 'id_bahia' => 'required|exists:bahias,id_bahia', // Validación para múltiples bahías
+            // 'bahias.*.fecha_inicio' => 'nullable|date_format:Y/m/d|max:255',
+            // 'bahias.*.fecha_fin' => 'nullable|date_format:Y/m/d|max:255',
+            // 'bahias.*.alcance' => 'nullable|string',
+            // 'bahias.*.herramienta' => 'nullable|string',
+            // 'bahias.*.documentacion' => 'nullable|string',
+            // 'bahias.*.requerimientos' => 'nullable|string',
+            // 'bahias.*.actividad' => 'nullable|string'
         ]);
-
-        //Crear un Servicio
+    
+        // Crear un Servicio
         $servicio = new Servicio();
         $servicio->serial = $validateData['serial'];
         $servicio->servicio = $validateData['servicio'];
@@ -69,44 +79,93 @@ class ServicioController extends Controller
         $servicio->nota = $validateData['nota'];
         $servicio->clientes_id_cliente = $validateData['id_cliente'];
         $servicio->etapas_id_etapa = $validateData['id_etapa'];
-   
-        // Guardar técnicos seleccionados en la tabla intermedia
-        // $servicio->tecnicos()->sync($validateData['id_tecnicos']);
-        // Guardar servicio
         $servicio->save();
+    
+        // foreach ($validateData['bahias'] as $bahia) {
+        //     $servicio->bahias()->attach($bahia['id_bahia'], [
+        //         'TRG' => $bahia['TRG'],
+        //         'fecha_inicio' => $bahia['fecha_inicio'],
+        //         'fecha_fin' => $bahia['fecha_fin'],
+        //         'alcance' => $bahia['alcance'],
+        //         'herramienta' => $bahia['herramienta'],
+        //         'documentacion' => $bahia['documentacion'],
+        //         'requerimientos' => $bahia['requerimientos'],
+        //         'actividad' => $bahia['actividad'],
+        //     ]);
+        // }
 
-        return redirect()->route('Servicios.index')->with('success', 'Servicio creado correctamente.');
+ return redirect()->route('Servicios.index')->with('success');
     }
+    
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id_servicio)
     {
-        return view('Servicios.show');
+        $servicio = Servicio::with('cliente','etapa')->find($id_servicio);
+        $clientes = Cliente::all();
+        $etapas = Etapa::all();
+
+        return view('Servicios.show', compact('servicio','clientes','etapas')); 
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id_servicio)
     {
-        return view('Servicios.edit');
+        $servicio = Servicio::with('cliente','etapa')->find($id_servicio);
+        $clientes = Cliente::all();
+        $etapas = Etapa::all();
+        return view('Servicios.edit', compact('servicio','clientes','etapas'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Servicio $servicio)
+    public function update(Request $request, $id_servicio)
     {
-        //
+        $validateData = $request->validate([
+            'serial' => 'required|string|max:255',
+            'servicio' => 'required|string|max:255',
+            'componente' => 'required|string|max:255',
+            'modelo' => 'required|string|max:255',
+            'marca' => 'nullable|string',
+            'horometro' => 'nullable|string',
+            'fecha_llegada' => 'required|date_format:Y/m/d|max:255',
+            'fecha_salida_estimada' => 'nullable|date_format:Y/m/d|max:255',
+            'fecha_salida_real' => 'nullable|date_format:Y/m/d|max:255',
+            'contador' => 'nullable|string|max:255',
+            'requisito' => 'nullable|string|max:255',
+            'nota' => 'string|max:255',
+            'clientes_id_cliente' => 'required|exists:clientes,id_cliente',
+            'etapas_id_etapa' => 'required|exists:etapas,id_etapa',
+        ]);
+        
+        $servicio = Servicio::find($id_servicio);
+        
+        if (!$servicio) {
+            return redirect()->route('Servicios.index')->with('error', 'Cliente no encontrado.');
+        }
+    
+        $servicio->update($validateData);
+    
+        return redirect()->route('Servicios.show', $servicio->id_servicio)->with('success', 'Cliente actualizado correctamente.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Servicio $servicio)
+    public function destroy($id_servicio)
     {
-        //
+        // Encuentra el servicio por su ID
+        $servicio = Servicio::find($id_servicio);
+    
+        $servicio->servicios()->delete();
+        $servicio->delete();
+    
+        // Redirige al índice con un mensaje de éxito
+        return redirect()->route('Servicios.index')->with('success', 'Cliente eliminado correctamente.');
     }
 }

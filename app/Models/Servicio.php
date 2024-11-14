@@ -29,8 +29,25 @@ class Servicio extends Model
         'requisitos',
         'nota',
     ];
-    // public function tecnicos(): BelongsToMany
-    // {
-    //     return $this->belongsToMany(Tecnico::class, 'servicio_tecnico'); // 'servicio_tecnico' es el nombre de la tabla intermedia
-    // }
+
+    public function cliente()
+    {
+    return $this->belongsTo(Cliente::class, 'clientes_id_cliente');
+    }
+
+    public function etapa()
+    {
+        return $this->belongsTo(Etapa::class, 'etapas_id_etapa');
+    }
+    
+    public function bahias():BelongsToMany
+    {
+        return $this->belongsToMany(Bahia::class, 'servicios_bahias')
+        ->withPivot(['TRG', 'fecha_inicio', 'fecha_fin', 'alcance', 'herramienta', 'documentacion', 'requerimientos', 'actividad']);
+    }
+
+    public function tecnicos():BelongsToMany
+    {
+        return $this->belongsToMany(Tecnico::class, 'servicios_tecnicos', 'tecnicos_id_tecnico', 'servicios_id_servicio');
+    }
 }

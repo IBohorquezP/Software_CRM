@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Bahia extends Model
 {
@@ -16,4 +17,8 @@ class Bahia extends Model
         'img',
         'descripcion',
     ];
+    public function servicios(): BelongsToMany
+    {
+        return $this->belongsToMany(Servicio::class, 'servicios_bahias','id_servicio','id_bahia');
+    }
 }

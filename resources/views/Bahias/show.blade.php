@@ -24,11 +24,13 @@
                         value="{{ $bahia->descripcion }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name="descripcion"></label>
-                <form action="" class="col-span-2 flex justify-evenly w-full gap-5">
-                    <a href="{{ route('Bahias.index' , $bahia->id_bahia ) }}"
-                        class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">Volver</a>
-                    <a href="{{ route('Bahias.edit' , $bahia->id_bahia) }}"
-                        class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Editar</a>
+                <form action="{{ route('Bahias.destroy', $bahia->id_bahia) }}" method="POST" class="col-span-2 flex justify-evenly w-full gap-5">
+                    @csrf
+                    @method('DELETE')
+                    <a href="{{ route('Bahias.index') }}"
+                        class="font-bold py-2 px-10 text-center rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">Volver</a>
+                        <a href="{{ route('Bahias.edit', $bahia->id_bahia) }}"
+                        class="font-bold py-2 px-10 text-center rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Editar</a>
                     <button type="submit"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-claro-400 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-600">Eliminar</button>
                 </form>

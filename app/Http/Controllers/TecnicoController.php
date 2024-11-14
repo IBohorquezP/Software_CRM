@@ -46,7 +46,7 @@ class TecnicoController extends Controller
             $tecnico->apellido = $validateData['apellido'];    
             $tecnico->cedula = $validateData['cedula'];    
             $tecnico->cargo = $validateData['cargo'];    
-            $tecnico->foto = $validateData['foto']; 
+            $tecnico->foto = $validateData['foto'] ?? null; 
 
             if ($request->hasFile('foto')) {
                 // Obtener el archivo
@@ -112,8 +112,13 @@ class TecnicoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tecnico $tecnico)
+    public function destroy($id_tecnico)
     {
-        //
+        $tecnico = Tecnico::find($id_tecnico);
+
+        $tecnico->delete();
+
+        // Redirige al índice con un mensaje de éxito
+        return redirect()->route('Tecnicos.index')->with('success', 'Tecnico eliminado correctamente.');
     }
 }

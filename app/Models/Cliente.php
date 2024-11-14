@@ -16,4 +16,8 @@ class Cliente extends Model
         'tipo',
         'img',
     ];
+    public function servicios()
+{
+    return $this->hasMany(Servicio::class, 'clientes_id_cliente', 'id_cliente');
+}
 }

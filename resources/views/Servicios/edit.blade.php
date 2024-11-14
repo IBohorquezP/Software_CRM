@@ -6,7 +6,7 @@
         <div class="w-full col-start-2">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Servicio</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Servicios.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('Servicios.update', $servicio->id_servicio) }}" method="POST" enctype="multipart/form-data"
                 class="grid gap-5">
 
                 @csrf
@@ -17,21 +17,25 @@
                             Servicio
                         </span>
                         <input type="text"
+                        value= "{{$servicio->servicio}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=servicio>
                         <span class="text-red-500 text-sm hidden" id="numeroServicioError">Este campo es obligatorio.</span>
                     </label>
 
-                    <label for="id_cliente" class=" flex flex-col gap-2">
-                        <span class="font-bold">
+                <label for="cliente" class="flex flex-col gap-2">
+                    <span class="font-bold">Cliente</span>
+                    
+                    <select name="id_cliente" id="id_cliente"
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                        <option value="">Seleccione un cliente</option>
+                        @foreach ($clientes as $cliente)
+                        <option value="{{ $cliente->id_cliente }}">{{ $cliente->nombre }}</option>
+                        @endforeach
+                    </select>
 
-                            Cliente
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
-                            name=id_cliente>
-                        <span class="text-red-500 text-sm hidden" id="clienteError">Este campo es obligatorio.</span>
-                    </label>
+                    <span class="text-red-500 text-sm hidden" id="clienteError">Este campo es obligatorio.</span>
+                </label>
 
                     <label for="componente" class=" flex flex-col gap-2">
                         <span class="font-bold">
@@ -39,6 +43,7 @@
                             Componente
                         </span>
                         <input type="text"
+                            value= "{{$servicio->componente}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=componente>
                         <span class="text-red-500 text-sm hidden" id="componenteError">Este campo es obligatorio.</span>
@@ -49,6 +54,7 @@
                             Modelo
                         </span>
                         <input type="text"
+                            value= "{{$servicio->modelo}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=modelo>
                         <span class="text-red-500 text-sm hidden" id="modeloError">Este campo es obligatorio.</span>
@@ -59,6 +65,7 @@
                             Serial
                         </span>
                         <input type="text"
+                            value= "{{$servicio->serial}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=serial>
                         <span class="text-red-500 text-sm hidden" id="serialError">Este campo es obligatorio.</span>
@@ -69,6 +76,7 @@
                             Horómetro
                         </span>
                         <input type="text"
+                            value= "{{$servicio->horometro}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=horometro>
                         <span class="text-red-500 text-sm hidden" id="horometroError">Este campo es obligatorio.</span>
@@ -79,6 +87,7 @@
                             Marca
                         </span>
                         <input type="text"
+                            value= "{{$servicio->marca}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=marca>
                         <span class="text-red-500 text-sm hidden" id="marcaError">Este campo es obligatorio.</span>
@@ -89,6 +98,7 @@
                             Fecha Llegada
                         </span>
                         <input type="text"
+                            value= "{{$servicio->fecha_llegada}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=fecha_llegada>
                         <span class="text-red-500 text-sm hidden" id="fechallegadaError">Este campo es obligatorio.</span>
@@ -105,6 +115,7 @@
                             Fecha Salida Estimada
                         </span>
                         <input type="text"
+                            value= "{{$servicio->fecha_salida_estimada}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=fecha_salida_estimada>
                         <span class="text-red-500 text-sm hidden" id="fechaSalidaEstimadaError">Este campo es
@@ -116,6 +127,7 @@
                             Fecha Salida Real
                         </span>
                         <input type="text"
+                            value= "{{$servicio->fecha_salida_real}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=fecha_salida_real>
                         <span class="text-red-500 text-sm hidden" id="fechaSalidaRealError">Este campo es
@@ -127,17 +139,19 @@
                             Requisitos del Trabajo
                         </span>
                         <input type="text"
+                            value= "{{$servicio->requisito}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=requisito>
                         <span class="text-red-500 text-sm hidden" id="requisitosTrabajoError">Este campo es
                             obligatorio.</span>
                     </label>
-                    <label for="Nota" class=" flex flex-col gap-2">
+                    <label for="nota" class=" flex flex-col gap-2">
                         <span class="font-bold">
 
                             Nota
                         </span>
                         <input type="text"
+                            value= "{{$servicio->nota}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=nota>
                         <span class="text-red-500 text-sm hidden" id="notaError">Este campo es obligatorio.</span>
@@ -148,112 +162,26 @@
                             Contador
                         </span>
                         <input type="text"
+                            value= "{{$servicio->contador}}"
                             class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
                             name=contador>
                         <span class="text-red-500 text-sm hidden" id="contadorError">Este campo es obligatorio.</span>
                     </label>
-                    <label for="etapa" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Etapa
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
-                            name=etapa>
-                        <span class="text-red-500 text-sm hidden" id="etapaError">Este campo es obligatorio.</span>
-                    </label>
+                    <label for="id_etapa" class="flex flex-col gap-2">
+                    <span class="font-bold">Etapa</span>
+                    <select name="id_etapa" id="id_etapa"
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                        <option value="">Seleccione una etapa</option>
+                        @foreach ($etapas as $etapa)
+                        <option value="{{ $etapa->id_etapa }}">{{ $etapa->nombre }}</option>
+                        @endforeach
+                    </select>
+                </label>
 
                     <span id="btn-anterior"
                         class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">Anterior</span>
-                    <span id="nextform3"
-                        class="col-start-2 px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 cursor-pointer text-center hover:bg-naranja-industrial-500 hover:text-white">
-                        Siguiente</span>
                 </div>
                 {{-- hasta aca --}}
-                {{-- formulario 3 --}}
-                <div id="form3" class="hidden grid-cols-2 gap-5">
-                    <label for="fecha_estimada" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Fecha Estimada
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
-                            name=fecha_estimada>
-                        <span class="text-red-500 text-sm hidden" id="fechaEstimadaError">Este campo es
-                            obligatorio.</span>
-                    </label>
-                    <label for="fecha_real" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Fecha Real
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
-                            name=fecha__real>
-                        <span class="text-red-500 text-sm hidden" id="fechaRealError">Este campo es
-                            obligatorio.</span>
-                    </label>
-                    <label for="requerimento" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Requerimentos del Trabajo
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
-                            name=requerimento>
-                        <span class="text-red-500 text-sm hidden" id="requerimentosTrabajoError">Este campo es
-                            obligatorio.</span>
-                    </label>
-                    <label for="Herramienta" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Herramienta
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
-                            name=herramienta>
-                        <span class="text-red-500 text-sm hidden" id="herramientaError">Este campo es obligatorio.</span>
-                    </label>
-                    <label for="documentacion" class=" flex flex-col gap-2">
-                        <span class="font-bold">
-
-                            Documentación
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
-                            name=documentacion>
-                        <span class="text-red-500 text-sm hidden" id="documentacionError">Este campo es
-                            obligatorio.</span>
-                    </label>
-                    <label for="alcance" class=" flex flex-col gap-2">
-
-                        <span class="font-bold">
-                            Alcance
-                        </span>
-                        <input type="text"
-                            class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" 
-                            name=alcance>
-                        <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
-                    </label>
-                    <label for="bahia" class=" col-span-2 flex flex-col gap-2">
-
-                        <span class="font-bold">
-                            Seleccione una bahia
-                        </span>
-                        <select
-                            class="w-full col-span-2 p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400" >
-                            <option value="">Seleccione una opción</option>
-                            {{-- @foreach ($servicios as $servicio)
-                                <option value="{{ $servicio->id }}">{{ $servicio->descripcion }}</option>
-                            @endforeach --}}
-                            <option value="Otro">Otro</option>
-                        </select>
-                    </label>
-                    <span id="backform2"
-                        class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">Anterior</span>
-
-                </div>
                 <div class="mt-5 flex justify-evenly w-full">
                     <a href="{{ route('Servicios.index') }}"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
@@ -306,11 +234,10 @@
         // Referencias a los formularios y botones usando jQuery
         const $form1 = $('#form1');
         const $form2 = $('#form2');
-        const $form3 = $('#form3');
         const $nextButton = $('#btn-siguiente');
         const $previousButton = $('#btn-anterior');
         const $backform2 = $('#backform2');
-        const $nextform3 = $('#nextform3');
+
 
 
 
@@ -329,22 +256,6 @@
             // Remover la clase 'grid' del formulario 2 (opcional)
             $form2.removeClass('grid').hide();
             $form2.addClass('hidden').hide();
-        });
-
-        // Manejador de eventos para el botón "Siguiente" del formulario 2
-        $nextform3.click(function() {
-            $form3.show();
-            $form2.hide();
-            $form3.removeClass('hidden').show();
-            document.getElementById('form3').style.display = 'grid';
-        });
-
-        // Manejador de eventos para el botón "Anterior" del formulario 3
-        $backform2.click(function() {
-            $form2.show();
-            $form3.hide();
-            $form1.hide();
-            // Remover la clase 'grid' del formulario 3 (opcional)
         });
     });
 </script>
