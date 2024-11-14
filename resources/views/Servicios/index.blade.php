@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.bootstrap5.css">
 @endsection
 
-@section('main')
+@section('main2')
 <div class="w-full flex justify-between items-center">
     <a href="/Etapas" class="px-6 py-2 self-end rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Volver</a>
     <a href="/Etapas/show" class="px-6 py-2 self-end rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Etapa</a>

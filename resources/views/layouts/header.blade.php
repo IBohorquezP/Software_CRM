@@ -61,6 +61,9 @@
         <div class="w-4/5 flex flex-col justify-center mx-auto mt-10 gap-10">
             @yield('main')
         </div>
+        <div class="w-[90%] flex flex-col justify-center mx-auto mt-10 gap-10">
+            @yield('main2')
+        </div>
         @yield('footer')
     </main>
 </body>
