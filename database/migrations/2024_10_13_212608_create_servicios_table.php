@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('servicio');
             $table->string('componente');
             $table->string('modelo');
-            $table->integer('horometro');
+            $table->string('horometro')->nullable();
             $table->string('marca')->nullable();
             $table->datetime('fecha_llegada');
             $table->datetime('fecha_salida_estimada');
