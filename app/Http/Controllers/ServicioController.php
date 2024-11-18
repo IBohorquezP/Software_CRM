@@ -6,7 +6,6 @@ use App\Models\Servicio;
 use App\Models\Cliente;
 use App\Models\Etapa;
 use App\Models\Bahia;
-use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 
 class ServicioController extends Controller
@@ -53,14 +52,6 @@ class ServicioController extends Controller
             'nota' => 'string|max:255',
             'id_cliente' => 'required|exists:clientes,id_cliente',
             'id_etapa' => 'required|exists:etapas,id_etapa',
-            // 'id_bahia' => 'required|exists:bahias,id_bahia', // Validación para múltiples bahías
-            // 'bahias.*.fecha_inicio' => 'nullable|date_format:Y/m/d|max:255',
-            // 'bahias.*.fecha_fin' => 'nullable|date_format:Y/m/d|max:255',
-            // 'bahias.*.alcance' => 'nullable|string',
-            // 'bahias.*.herramienta' => 'nullable|string',
-            // 'bahias.*.documentacion' => 'nullable|string',
-            // 'bahias.*.requerimientos' => 'nullable|string',
-            // 'bahias.*.actividad' => 'nullable|string'
         ]);
     
         // Crear un Servicio
@@ -80,21 +71,8 @@ class ServicioController extends Controller
         $servicio->clientes_id_cliente = $validateData['id_cliente'];
         $servicio->etapas_id_etapa = $validateData['id_etapa'];
         $servicio->save();
-    
-        // foreach ($validateData['bahias'] as $bahia) {
-        //     $servicio->bahias()->attach($bahia['id_bahia'], [
-        //         'TRG' => $bahia['TRG'],
-        //         'fecha_inicio' => $bahia['fecha_inicio'],
-        //         'fecha_fin' => $bahia['fecha_fin'],
-        //         'alcance' => $bahia['alcance'],
-        //         'herramienta' => $bahia['herramienta'],
-        //         'documentacion' => $bahia['documentacion'],
-        //         'requerimientos' => $bahia['requerimientos'],
-        //         'actividad' => $bahia['actividad'],
-        //     ]);
-        // }
 
- return redirect()->route('Servicios.index')->with('success');
+        return redirect()->route('Bahias.asignarBahias', ['id_servicio' => $servicio->id_servicio])->with('success');
     }
     
 
@@ -139,8 +117,8 @@ class ServicioController extends Controller
             'contador' => 'nullable|string|max:255',
             'requisito' => 'nullable|string|max:255',
             'nota' => 'string|max:255',
-            'clientes_id_cliente' => 'required|exists:clientes,id_cliente',
-            'etapas_id_etapa' => 'required|exists:etapas,id_etapa',
+            'id_cliente' => 'required|exists:clientes,id_cliente',
+            'id_etapa' => 'required|exists:etapas,id_etapa',
         ]);
         
         $servicio = Servicio::find($id_servicio);

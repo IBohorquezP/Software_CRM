@@ -74,8 +74,9 @@ Route::put('/Bahias/{id_bahia}', [BahiaController::class, 'update'])->name('Bahi
 Route::delete('/Bahias/{id_bahia}', [BahiaController::class, 'destroy'])->name('Bahias.destroy');
 
 Route::controller(BahiaController::class)->group(function(){
-    // Route::get('/AsignarBahias','asignarBahias')->name('Bahias.asignarBahias');
     Route::get('/AsignarBahias/{id_servicio}','asignarBahias')->name('Bahias.asignarBahias');
+    Route::post('/AsignarBahias/store', 'attachServicio')->name('Bahias.attachServicio');
+
 });
 
 // //Ruta Repuestos   

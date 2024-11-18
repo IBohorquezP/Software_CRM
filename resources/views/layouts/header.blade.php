@@ -17,7 +17,7 @@
             <div class="flex">
                 <img src="{{ asset('/css/images/Logo1.png') }}" class="w-[100px]">
                 <div class="flex justify-center items-center space-x-3">
-                    <h1 class="font-bold text-5xl">Software de Seguimiento</h1>
+                    <h1 class="font-bold text-5xl">Software de Planificación</h1>
                     <p class="bg-naranja-industrial-500 p-2 text-4xl font-bold">CRM</p>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <ul
-                        class="relative bg-naranja-claro-400 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-claro-500 hover:text-white">
+                        class="relative bg-naranja-claro-300 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-claro-200 hover:text-white">
                         <li>
                           <img src='{{ asset('/css/images/menu.svg') }}' class='w-6 h-6 cursor-pointer menu-icon'>
                         </li>

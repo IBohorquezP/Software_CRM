@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bahia;
+use App\Models\Servicio;
 use Illuminate\Http\Request;
 
 class BahiaController extends Controller
@@ -109,9 +110,50 @@ class BahiaController extends Controller
         // Redirige al índice con un mensaje de éxito
         return redirect()->route('Bahias.index')->with('success', 'Tecnico eliminado correctamente.');
     }
+
+    //Todo asignar bahias
+        
      public function asignarBahias($id_servicio){
         
         $bahias = Bahia::all(); 
-        return view('Bahias.asignarBahias', compact('bahias'));
+        return view('Bahias.asignarBahias', compact('bahias', 'id_servicio'));
+    }
+    public function attachServicio(Request $request)
+    {
+        // Validar los datos enviados
+        $validateData = $request->validate([
+            'id_servicio' => 'required|exists:servicios,id_servicio',
+            'id_bahia' => 'required|exists:bahias,id_bahia',
+            'TRG' => 'nullable|string',
+            'fecha_inicio' => 'nullable|date_format:Y-m-d',
+            'fecha_fin' => 'nullable|date_format:Y-m-d',
+            'alcance' => 'nullable|string',
+            'herramienta' => 'nullable|string',
+            'documentacion' => 'nullable|string',
+            'requerimientos' => 'nullable|string',
+            'actividad' => 'nullable|string',
+        ]);
+    
+        // Buscar el servicio
+        $servicio = Servicio::findOrFail($validateData['id_servicio']);
+        if ($servicio->bahias()->where('bahias_id_bahia', $validateData['id_bahia'])->exists()) {
+            return redirect()->route('Bahias.asignarBahias', ['id_servicio' => $validateData['id_servicio']])
+                             ->with('error', 'La bahía ya está asignada a este servicio.');
+        }
+        // Asignar la bahía al servicio con la información adicional
+        $servicio->bahias()->attach($validateData['id_bahia'], [
+            'TRG' => $validateData['TRG'] ?? null,
+            'fecha_inicio' => $validateData['fecha_inicio'] ?? null,
+            'fecha_fin' => $validateData['fecha_fin'] ?? null,
+            'alcance' => $validateData['alcance'] ?? null,
+            'herramienta' => $validateData['herramienta'] ?? null,
+            'documentacion' => $validateData['documentacion'] ?? null,
+            'requerimientos' => $validateData['requerimientos'] ?? null,
+            'actividad' => $validateData['actividad'] ?? null,
+        ]);
+    
+        // Redirigir con un mensaje de éxito
+        return redirect()->route('Bahias.asignarBahias', ['id_servicio' => $validateData['id_servicio']])
+                         ->with('success', 'Bahía asignada exitosamente al servicio.');
     }
 }

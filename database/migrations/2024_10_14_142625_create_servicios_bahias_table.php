@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedInteger('servicios_id_servicio'); //Foreign
             $table->unsignedInteger('bahias_id_bahia'); //Foreign
             $table->string('TRG')->nullable();
-            $table->datetime('fecha_inico')->nullable();
+            $table->datetime('fecha_inicio')->nullable();
             $table->datetime('fecha_fin')->nullable();
             $table->text('alcance')->nullable();
             $table->string('herramienta')->nullable();

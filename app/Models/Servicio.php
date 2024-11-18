@@ -40,10 +40,14 @@ class Servicio extends Model
         return $this->belongsTo(Etapa::class, 'etapas_id_etapa');
     }
     
-    public function bahias():BelongsToMany
+    public function bahias(): BelongsToMany
     {
-        return $this->belongsToMany(Bahia::class, 'servicios_bahias')
-        ->withPivot(['TRG', 'fecha_inicio', 'fecha_fin', 'alcance', 'herramienta', 'documentacion', 'requerimientos', 'actividad']);
+        return $this->belongsToMany(
+            Bahia::class,
+            'servicios_bahias', 
+            'servicios_id_servicio', 
+            'bahias_id_bahia' 
+        )->withPivot(['TRG', 'fecha_inicio', 'fecha_fin', 'alcance', 'herramienta', 'documentacion', 'requerimientos', 'actividad']);
     }
 
     public function tecnicos():BelongsToMany
