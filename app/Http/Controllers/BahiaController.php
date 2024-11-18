@@ -160,8 +160,8 @@ class BahiaController extends Controller
 
     public function showServicioBahias($id_servicio_bahia){
         $servicio = Servicio::find($id_servicio_bahia);
-        $servicio_existente = ServiciosBahias::where('servicios_id_servicio', $servicio->id_servicio)->get();
+        $servicio_existentes = ServiciosBahias::where('servicios_id_servicio', $servicio->id_servicio)->get();
         // $servicio_bahias = ServiciosBahias::find($id_servicio_bahia); 
-        return view('Bahias.showServicioBahias', compact('servicio_existente', 'servicio'));
+        return view('Bahias.showServicioBahias', compact('servicio_existentes', 'servicio'));
     }
 }
