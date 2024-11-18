@@ -60,7 +60,7 @@
 
                         Fecha Inicio
                     </span>
-                    <input type="text"
+                    <input type="date"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=fecha_inicio>
                     <span class="text-red-500 text-sm hidden" id="fechaEstimadaError">Este campo es
@@ -71,7 +71,7 @@
 
                         Fecha Fin
                     </span>
-                    <input type="text"
+                    <input type="date"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=fecha_fin>
                     <span class="text-red-500 text-sm hidden" id="fechaRealError">Este campo es
@@ -121,7 +121,7 @@
                 </label>
             </div>
             <div class="mt-5 flex justify-evenly w-full">
-                <a href="{{ route('Servicios.index') }}" class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
+                <a href="{{ route('showServicioBahias', $servicio->id_servicio) }}" class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
                 <button type="button" onclick="guardarYAgregar()" class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-400 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>
                 <a href="{{ route('Servicios.index') }}" class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Finalizar</a>
             </div>

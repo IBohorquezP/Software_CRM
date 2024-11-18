@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bahia;
 use App\Models\Servicio;
+use App\Models\ServiciosBahias;
 use Illuminate\Http\Request;
 
 class BahiaController extends Controller
@@ -114,9 +115,9 @@ class BahiaController extends Controller
     //Todo asignar bahias
         
      public function asignarBahias($id_servicio){
-        
+        $servicio = Servicio::find($id_servicio);
         $bahias = Bahia::all(); 
-        return view('Bahias.asignarBahias', compact('bahias', 'id_servicio'));
+        return view('Bahias.asignarBahias', compact('bahias', 'id_servicio', 'servicio'));
     }
     public function attachServicio(Request $request)
     {
@@ -155,5 +156,12 @@ class BahiaController extends Controller
         // Redirigir con un mensaje de éxito
         return redirect()->route('Bahias.asignarBahias', ['id_servicio' => $validateData['id_servicio']])
                          ->with('success', 'Bahía asignada exitosamente al servicio.');
+    }
+
+    public function showServicioBahias($id_servicio_bahia){
+        $servicio = Servicio::find($id_servicio_bahia);
+        $servicio_existente = ServiciosBahias::where('servicios_id_servicio', $servicio->id_servicio)->get();
+        // $servicio_bahias = ServiciosBahias::find($id_servicio_bahia); 
+        return view('Bahias.showServicioBahias', compact('servicio_existente', 'servicio'));
     }
 }

@@ -38,7 +38,7 @@
                     <td class="text-center">{{ $servicio->serial }}</td>
                     <td class="text-center">
                     <a href="{{ route('Servicios.show', ['id_servicio' => $servicio->id_servicio]) }}" class="w-20 h-10 px-6 py-2 self-end rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver</a>
-                    <a href="{{route('Bahias.asignarBahias', ['id_servicio' => $servicio->id_servicio])}}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500/80 bg-naranja-industrial-400 text-white text-center">Bahías</a>
+                    <a href="{{route('showServicioBahias', $servicio->id_servicio)}}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500/80 bg-naranja-industrial-400 text-white text-center">Bahías</a>
                     <a href="{{route('Repuestos.create')}}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gris-industrial-400/80 bg-gris-industrial-400 text-white text-center">Repuestos</a>
                     <a href="" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gris-industrial-500/80 bg-gris-input-500 text-white text-center">Reporte</a>
                     <button type="button" class="w-20 h-10 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80 bg-[#DC3545] text-white">Eliminar</button>
