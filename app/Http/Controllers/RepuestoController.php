@@ -22,7 +22,9 @@ class RepuestoController extends Controller
     {
         //Validacion de datos repuesto
         $validateData = $request->validate([
-            'fecha_inicio_cotizacion' => 'required|date_format:Y/m/d|max:255',
+            'id_servicio' => 'required|exists:servicios,id_servicio',
+            'id_repuesto' => 'required|exists:repuestos,id_repuesto',
+            'fecha_inicio_cotizacion' => 'nullable|date_format:Y/m/d|max:255',
             'fecha_fin_cotizacion' => 'nullable|date_format:Y/m/d|max:255',
             'contador_cotizacion' => 'nullable|string|max:255',
             'nro_orden' => 'nullable|string|max:255',
@@ -59,9 +61,15 @@ class RepuestoController extends Controller
         return view('Repuestos.show', compact('servicio_existentes', 'servicio'));
     }
 
-    public function edit(Request $repuestos)
+    public function edit($id_servicio_repuesto)
     {
-        return view('Repuestos.edit');
+        // Obtener la relación específica en la tabla pivote
+        $servicio_existentes = ServiciosRepuestos::findOrFail($id_servicio_repuesto);
+
+        // Obtener el servicio relacionado
+        $servicio = Servicio::findOrFail($servicio_existentes->servicios_id_servicio);
+
+        return view('Repuestos.edit', compact('servicio', 'servicio_existentes'));
     }
 
     public function update(Request $request)
