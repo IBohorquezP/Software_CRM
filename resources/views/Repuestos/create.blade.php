@@ -5,54 +5,59 @@
     <section class="grid grid-cols-2 gap-10 jus">
         <div>
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Nuevo Repuesto</h1>
-            {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Repuestos.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('Repuestos.store') }}" method="POST" enctype="form-data"
                 class="grid grid-cols-2 gap-5">
-                {{ method_field('PUT') }}
-                @csrf
 
-                <label for="id" class="flex flex-col gap-2">
+                @csrf
+                <label for="fecha_inicio_cotizacion" class="flex flex-col gap-2 w-full">
                     <span class="font-bold">
-                        ID del Repuestos 
-                    </span>
-                    <input type="text"
+                        Fecha Inicio de Cotización
+                        </span>
+                        <input type="date"
+                        name="fecha_inicio_cotizacion"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="Nombre" class="flex flex-col gap-2">
+                <label for="fecha_fin_cotizacion" class="flex flex-col gap-2 w-full">
                     <span class="font-bold">
-                        Nombre
-                    </span>
-                    <input type="text"
+                        Fecha Fin de Cotización
+                        </span>
+                        <input type="date"
+                        name="fecha_fin_cotizacion"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="Proveedor" class="flex flex-col gap-2 w-full">
+                <label for="contador_cotizacion" class="flex flex-col gap-2 w-full">
                     <span class="font-bold">
-                        Proveedor
+                        Contador Cotización
                         </span>
                         <input type="text"
+                        name="contador_cotizacion"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="Precio" class="flex flex-col gap-2 w-full">
+                <label for="nro_orden" class="flex flex-col gap-2 w-full">
                     <span class="font-bold">
-                        Precio
+                        Nro Orden   
                         </span>
                         <input type="text"
+                        name="nro_orden"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="FechaSolicitud" class="flex flex-col gap-2 w-full">
+                <label for="fecha_inicio_cotizacion" class="flex flex-col gap-2 w-full">
                     <span class="font-bold">
-                        Fecha Solicitud
+                        Fecha Inicio Colocación
                         </span>
                         <input
-                        type="text"
+                        type="date"
+                        name="fecha_inicio_colocacion"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="FechaLLegada" class="flex flex-col gap-2 w-full">
+                <label for="fecha_fin_colocación" class="flex flex-col gap-2 w-full">
                     <span class="font-bold">
-                        Fecha Llegada
+                        Fecha Fin Colocación
+                    </span>
+                    <input type="date"
+                        name="fecha_fin_colocacion"
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
+                <label for="contador_colocación" class="flex flex-col gap-2 w-full">
+                    <span class="font-bold">
+                        Contador Colocación
                     </span>
                     <input type="text"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-                <label for="Motor" class="flex flex-col gap-2 w-full">
-                    <span class="font-bold">
-                        Motor
-                    </span>
-                    <input type="text"
+                        name="contador_cotizacion"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
 
                 <div class="col-span-2 flex justify-evenly w-full">
@@ -69,26 +74,4 @@
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        const imageInput = $('.image-input');
-        const imageUpload = $('#imageUpload');
-        const imagePreview = $('#imagePreview');
 
-        imageUpload.change(function() {
-            const file = this.files[0];
-            const allowedTypes = ['image/webp', 'image/jpeg', 'image/png'];
-
-            if (!allowedTypes.includes(file.type)) {
-                alert('Por favor, selecciona un archivo de imagen válido (JPEG, PNG o WebP).');
-                return false; // Prevent default behavior
-            }
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                imagePreview.attr('src', e.target.result);
-            };
-            reader.readAsDataURL(file);
-        });
-    });
-</script>

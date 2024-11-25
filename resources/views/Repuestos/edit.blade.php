@@ -6,10 +6,11 @@
         <div class="col-start-2">
             <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Repuesto</h1>
             {{-- poner el metodo update en la ruta --}}
-            <form action="{{ route('Repuestos.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('Repuestos.update') }}" method="POST" enctype="multipart/form-data"
                 class="grid grid-cols-2 gap-5">
-                {{ method_field('PUT') }}
+                
                 @csrf
+                @method('PUT')
                 <label for="id" class="flex flex-col gap-2">
                     <span class="font-bold">
 

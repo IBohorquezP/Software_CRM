@@ -6,6 +6,7 @@ use App\Http\Controllers\EtapaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MotorController;
+use App\Http\Controllers\RepuestoController;
 use App\Http\Controllers\RepuestosController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\TecnicoController;
@@ -32,7 +33,6 @@ Route::get('/planificacion', function () {
 });
 
 // //Ruta Clientes
-// Route::resource('Clientes', ClienteController::class);
 Route::get('/Clientes', [ClienteController::class, 'index'])->name('Clientes.index');         // Mostrar lista de clientes
 Route::get('/Clientes/create', [ClienteController::class, 'create'])->name('Clientes.create'); // Mostrar formulario de creación
 Route::post('/Clientes', [ClienteController::class, 'store'])->name('Clientes.store');        // Guardar nuevo cliente
@@ -43,7 +43,6 @@ Route::delete('/Clientes/{id_cliente}', [ClienteController::class, 'destroy'])->
 
 
 // //Ruta Tecnicos
-// Route::resource('Tecnicos',TecnicoController::class);
 Route::get('/Tecnicos', [TecnicoController::class, 'index'])->name('Tecnicos.index');
 Route::get('/Tecnicos/create', [TecnicoController::class, 'create'])->name('Tecnicos.create');
 Route::post('/Tecnicos', [TecnicoController::class, 'store'])->name('Tecnicos.store');
@@ -53,7 +52,6 @@ Route::put('/Tecnicos/{id_tecnico}', [TecnicoController::class, 'update'])->name
 Route::delete('/Tecnicos/{id_tecnico}', [TecnicoController::class, 'destroy'])->name('Tecnicos.destroy');
 
 // //Ruta Etapas
-// Route::resource('Etapas', EtapaController::class);
 Route::get('/Etapas', [EtapaController::class, 'index'])->name('Etapas.index');
 Route::get('/Etapas/create', [EtapaController::class, 'create'])->name('Etapas.create');
 Route::post('/Etapas', [EtapaController::class, 'store'])->name('Etapas.store');
@@ -63,34 +61,35 @@ Route::put('/Etapas/{id_etapa}', [EtapaController::class, 'update'])->name('Etap
 Route::delete('/Etapas/{id_etapa}', [EtapaController::class, 'destroy'])->name('Etapas.destroy');
 
 
-// //Ruta Bahia
-// Route::resource('Bahias', BahiaController::class);
-Route::get('/Bahias', [BahiaController::class, 'index'])->name('Bahias.index');
-Route::get('/Bahias/create', [BahiaController::class, 'create'])->name('Bahias.create');
-Route::post('/Bahias', [BahiaController::class, 'store'])->name('Bahias.store');
-Route::get('/Bahias/{id_bahia}', [BahiaController::class, 'show'])->name('Bahias.show');
-Route::get('/Bahias/{id_bahia}/edit', [BahiaController::class, 'edit'])->name('Bahias.edit');
-Route::put('/Bahias/{id_bahia}', [BahiaController::class, 'update'])->name('Bahias.update');
-Route::delete('/Bahias/{id_bahia}', [BahiaController::class, 'destroy'])->name('Bahias.destroy');
 
-Route::controller(BahiaController::class)->group(function(){
-    Route::get('/Servicio/Bahias/{id_servicio_bahia}','showServicioBahias')->name('showServicioBahias');
-    Route::get('/AsignarBahias/{id_servicio}','asignarBahias')->name('Bahias.asignarBahias');
+Route::controller(BahiaController::class)->group(function () {
+    //Ruta Bahia
+    Route::get('/Bahias', 'index')->name('Bahias.index');
+    Route::get('/Bahias/create', 'create')->name('Bahias.create');
+    Route::post('/Bahias', 'store')->name('Bahias.store');
+    Route::get('/Bahias/{id_bahia}', 'show')->name('Bahias.show');
+    Route::get('/Bahias/{id_bahia}/edit', 'edit')->name('Bahias.edit');
+    Route::put('/Bahias/{id_bahia}', 'update')->name('Bahias.update');
+    Route::delete('/Bahias/{id_bahia}', 'destroy')->name('Bahias.destroy');
+
+    //Rutas AsignarBahias
+    Route::get('/AsignarBahias/{id_servicio}', 'asignarBahias')->name('Bahias.asignarBahias');
     Route::post('/AsignarBahias/store', 'attachServicio')->name('Bahias.attachServicio');
+    Route::get('/Servicio/Bahias/{id_servicio_bahia}', 'showServicioBahias')->name('showServicioBahias');
+    Route::get('/Servicio/Bahias/{id_servicio_bahia}/edit', 'editServicioBahias')->name('Bahias.editServicioBahias');
+    Route::put('/Servicio/Bahias/{id_servicio_bahia}', 'updateServicioBahias')->name('Bahias.updateServicioBahias');
+    Route::delete('/Servicio/Bahias/{id_servicio_bahia}', 'destroyServicioBahias')->name('Bahias.destroyServicioBahias');
 });
 
 // //Ruta Repuestos   
-// Route::resource('Repuestos', RepuestosController::class);
-Route::get('/Repuestos', [RepuestosController::class, 'index'])->name('Repuestos.index');
-Route::get('/Repuestos/create', [RepuestosController::class, 'create'])->name('Repuestos.create');
-Route::post('/Repuestos', [RepuestosController::class, 'store'])->name('Repuestos.store');
-Route::get('/Repuestos/{id_repuesto}', [RepuestosController::class, 'show'])->name('Repuestos.show');
-Route::get('/Repuestos/{id_repuesto}/edit', [RepuestosController::class, 'edit'])->name('Repuestos.edit');
-Route::put('/Repuestos/{id_repuesto}', [RepuestosController::class, 'update'])->name('Repuestos.update');
-Route::delete('/Repuestos/{id_repuesto}', [RepuestosController::class, 'destroy'])->name('Repuestos.destroy');
+Route::get('/Servicio/Repuestos/{id_servicio}', [RepuestoController::class, 'create'])->name('Repuestos.create');
+Route::post('/Servicio/Repuestos', [RepuestoController::class, 'store'])->name('Repuestos.store');
+Route::get('/Servicio/Repuestos/{id_servicio_repuesto}', [RepuestoController::class, 'show'])->name('Repuestos.show');
+Route::get('/Servicio/Repuestos/{id_servicio_repuesto}/edit', [RepuestoController::class, 'edit'])->name('Repuestos.edit');
+Route::put('/Servicio/Repuestos/{id_servicio_repuesto}', [RepuestoController::class, 'update'])->name('Repuestos.update');
+Route::delete('/Servicio/Repuestos/{id_servicio_repuesto}', [RepuestoController::class, 'destroy'])->name('Repuestos.destroy');
 
 // //Ruta Servicios
-// Route::resource('Servicios', ServicioController::class);
 Route::get('/Servicios', [ServicioController::class, 'index'])->name('Servicios.index');
 Route::get('/Servicios/create', [ServicioController::class, 'create'])->name('Servicios.create');
 Route::post('/Servicios', [ServicioController::class, 'store'])->name('Servicios.store');

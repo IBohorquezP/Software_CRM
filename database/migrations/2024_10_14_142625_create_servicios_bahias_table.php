@@ -6,13 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('servicios_bahias', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_servicio_bahia');
             $table->unsignedInteger('servicios_id_servicio'); //Foreign
             $table->unsignedInteger('bahias_id_bahia'); //Foreign
             $table->string('TRG')->nullable();
@@ -27,7 +25,7 @@ return new class extends Migration
 
             $table->foreign('servicios_id_servicio')->references('id_servicio')->on('servicios')->constrained()->onDelete('cascade');
             $table->foreign('bahias_id_bahia')->references('id_bahia')->on('bahias')->constrained()->onDelete('cascade');
-            $table->unique(['servicios_id_servicio', 'bahias_id_bahia']);
+
         });
     }
 

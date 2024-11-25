@@ -19,6 +19,6 @@ class Bahia extends Model
     ];
     public function servicios(): BelongsToMany
     {
-        return $this->belongsToMany(Servicio::class, 'servicios_bahias','id_servicio','id_bahia');
+        return $this->belongsToMany(Servicio::class, 'servicios_bahias', 'id_servicio', 'id_bahia');
     }
 }

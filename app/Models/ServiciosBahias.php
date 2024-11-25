@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ServiciosBahias extends Model
 {
     protected $table = 'servicios_bahias';
-
+    protected $primaryKey = 'id_servicio_bahia';
+    
     protected $fillable = [
-        'id',
-        'servicios_id_bahia',
+        'id_servicio_bahia',
+        'bahias_id_bahia',
         'servicios_id_servicio',
         'TRG', 
         'fecha_inicio', 

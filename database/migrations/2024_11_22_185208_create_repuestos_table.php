@@ -9,11 +9,8 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('etapas', function (Blueprint $table) {
-            $table->increments('id_etapa');
-            $table->string('nombre');
-            $table->string('descripcion');
-            $table->string('img')->nullable();
+        Schema::create('repuestos', function (Blueprint $table) {
+            $table->increments('id_repuesto');
             $table->timestamps();
         });
     }
@@ -23,6 +20,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('etapas');
+        Schema::dropIfExists('repuestos');
     }
 };

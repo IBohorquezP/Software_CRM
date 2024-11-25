@@ -17,7 +17,7 @@
     </section>
     <section class="grid grid-cols-5 gap-10">
     @foreach ($etapas as $etapa)  
-        <a href="{{ route('Servicios.index' , $etapa->id_etapa)}}"
+        <a href="{{ route('Servicios.index', $etapa->id_etapa)}}"
             class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{ asset('/css/images/planificacion/Motor.png') }}" class="w-[150px]">
             <p class="text-xl text-center font-bold">{{ $etapa->nombre }}</p>
