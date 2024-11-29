@@ -37,7 +37,7 @@
                     <span class="font-bold">Foto</span>
                     <span class="custom-file-upload-text">Seleccione una imagen...</span>
                 </div>
-                <input type="file" name="image" id="imageUpload" accept="image/*" style="display: none;">
+                <input type="file" name="foto" id="imageUpload" accept="image/*" style="display: none;">
                 <img id="imagePreview" src="" class="w-[135px] h-[135px] object-cover border-4 border-black">
             </label>
 
@@ -49,6 +49,6 @@
             </div>
         </form>
     </div>
-    <img src="{{ asset($bahias->img) }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
+    <img src="{{ asset($bahias->foto) }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
 </section>
 @endsection

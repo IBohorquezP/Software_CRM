@@ -11,7 +11,7 @@
 
             @csrf
             @method ('PUT')
-            
+
             @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -23,14 +23,17 @@
             @endif
 
             <div id="form" class="grid grid-cols-2 gap-5">
-                <label for="bahia" class=" col-span-2 flex flex-col gap-2">
-
-                    <span class="font-bold">
-                        Seleccione una bahia
-                    </span>
+                <label for="bahia" class="col-span-2 flex flex-col gap-2">
+                    <span class="font-bold">Seleccione una bahía</span>
                     <select name="id_bahia" id="id_bahia"
                         class="w-full col-span-2 p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                         <option value="">Seleccione una bahía</option>
+                        @foreach ($bahias as $item)
+                        <option value="{{ $item->id_bahia }}"
+                            {{ $item->id_bahia == $bahia->id_bahia ? 'selected' : '' }}>
+                            {{ $item->nombre }}
+                        </option>
+                        @endforeach
                     </select>
                 </label>
                 <label for="TRG" class=" flex flex-col gap-2">

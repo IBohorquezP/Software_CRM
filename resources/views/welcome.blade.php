@@ -9,7 +9,7 @@
         <div class="flex flex-col gap-5 items-center p-5">   
             <h1 class="text-naranja-industrial-500 text-5xl font-bold drop-shadow-xl ">BIENVENIDOS</h1>
             <p class="text-4xl font-semilight text-center">
-                Este es el Software de Planificación del Centro de Reconstrucción de Motores (CRM)
+                Este es el Sistema de Planificación del Centro de Reconstrucción de Motores (CRM)
                 del Consorcio de Cogestión Venequip
             </p>
         </div>

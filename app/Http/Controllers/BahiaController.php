@@ -160,7 +160,7 @@ class BahiaController extends Controller
             ->with('success', 'Bahía asignada exitosamente al servicio.');
     }
 
-    
+
     public function showServicioBahias($id_servicio_bahia)
     {
 
@@ -175,9 +175,11 @@ class BahiaController extends Controller
         // Encontrar el servicio por el ID proporcionado
         $servicio = Servicio::findOrFail($id_servicio);
         
-        $bahia = $servicio->bahias()->where('id_bahia', $id_bahia)->first(); 
-    
-        return view('Bahias.editServicioBahias', compact('bahia', 'servicio'));
+        $bahia = $servicio->bahias()->where('id_bahia', $id_bahia)->first();
+        
+        $bahias = Bahia::all();
+        
+        return view('Bahias.editServicioBahias', compact('bahia','bahias', 'servicio'));
     }
     public function updateServicioBahias(Request $request, $id_servicio, $id_bahia)
     {
@@ -192,16 +194,16 @@ class BahiaController extends Controller
             'requerimientos' => 'nullable|string',
             'actividad' => 'nullable|string',
         ]);
-    
+
         // Encontrar el servicio por el ID proporcionado
         $servicio = Servicio::findOrFail($id_servicio);
-    
+
         // Encontrar la relación en la tabla pivote
         $servicioBahia = $servicio->bahias()->where('id_bahia', $id_bahia)->firstOrFail();
-    
+
         // Actualizar los datos de la relación
         $servicioBahia->pivot->update($validateData);
-    
+
         // Redirigir con un mensaje de éxito
         return redirect()->route('showServicioBahias', ['id_servicio_bahia' => $id_servicio])
             ->with('success', 'Información de la bahía actualizada exitosamente.');
@@ -210,13 +212,13 @@ class BahiaController extends Controller
     {
         // Encontrar el servicio por el ID proporcionado
         $servicio = Servicio::findOrFail($id_servicio);
-    
+
         // Buscar la bahía en la relación pivote
         $servicioBahia = $servicio->bahias()->where('id_bahia', $id_bahia)->firstOrFail();
-    
+
         // Eliminar la relación en la tabla pivote
         $servicio->bahias()->detach($id_bahia);
-    
+
         // Redirigir con un mensaje de éxito
         return redirect()->route('showServicioBahias', ['id_servicio_bahia' => $id_servicio])
             ->with('success', 'Bahía eliminada exitosamente del servicio.');
