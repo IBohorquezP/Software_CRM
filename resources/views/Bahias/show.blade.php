@@ -5,7 +5,7 @@
 
     <section class="grid grid-cols-2 gap-10 justify-center items-center justify-items-center">
         <div class="col-start-2">
-            <h1 class="text-bold font-bold text-4xl text-center mb-10">Bahías</h1>
+            <h1 class="text-bold font-bold text-4xl text-center mb-10">{{$bahias->nombre}}</h1>
             <div class="grid grid-cols-2 gap-5 ">
                 <label for="Numero" class="flex flex-col gap-2 col-span-2">
                     <span class="font-bold">
@@ -36,7 +36,7 @@
                 </form>
             </div>
         </div>
-        <img src="{{ asset($bahias->img) }}"
+        <img src="{{ asset($bahias->foto) }}"
             class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
     </section>
 @endsection

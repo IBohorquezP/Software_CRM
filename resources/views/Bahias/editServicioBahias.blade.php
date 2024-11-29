@@ -6,7 +6,7 @@
     <div class="w-full">
         <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Bahia</h1>
         {{-- poner el metodo update en la ruta --}}
-        <form action="{{ route('Bahias.updateServicioBahias', $servicio_existentes->id_servicio_bahia) }}" method="POST" enctype="multipart/form-data"
+        <form action="{{ route('Bahias.updateServicioBahias', ['id_servicio' => $bahia->pivot->servicios_id_servicio, 'id_bahia' => $bahia->id_bahia]) }}" method="POST" enctype="multipart/form-data"
             class="grid gap-5">
 
             @csrf
@@ -31,7 +31,6 @@
                     <select name="id_bahia" id="id_bahia"
                         class="w-full col-span-2 p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                         <option value="">Seleccione una bahía</option>
-
                     </select>
                 </label>
                 <label for="TRG" class=" flex flex-col gap-2">
@@ -40,7 +39,7 @@
                         TRG
                     </span>
                     <input type="text"
-                        value="{{$servicio_existentes->TRG}}"
+                        value="{{$bahia->pivot->TRG}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=TRG>
                     <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
@@ -51,7 +50,7 @@
                         Actividad
                     </span>
                     <input type="text"
-                        value="{{$servicio_existentes->actividad}}"
+                        value="{{$bahia->pivot->actividad}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=actividad>
                     <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
@@ -62,7 +61,7 @@
                         Fecha Inicio
                     </span>
                     <input type="date"
-                        value="{{$servicio_existentes->fecha_inicio}}"
+                        value="{{$bahia->pivot->fecha_inicio}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=fecha_inicio>
                     <span class="text-red-500 text-sm hidden" id="fechaEstimadaError">Este campo es
@@ -74,7 +73,7 @@
                         Fecha Fin
                     </span>
                     <input type="date"
-                        value="{{$servicio_existentes->fecha_real}}"
+                        value="{{$bahia->pivot->fecha_real}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=fecha_fin>
                     <span class="text-red-500 text-sm hidden" id="fechaRealError">Este campo es
@@ -86,7 +85,7 @@
                         Requerimientos del Trabajo
                     </span>
                     <input type="text"
-                        value="{{$servicio_existentes->requerimientos}}"
+                        value="{{$bahia->pivot->requerimientos}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=requerimientos>
                     <span class="text-red-500 text-sm hidden" id="requerimentosTrabajoError">Este campo es
@@ -98,7 +97,7 @@
                         Herramienta
                     </span>
                     <input type="text"
-                        value="{{$servicio_existentes->herramienta}}"
+                        value="{{$bahia->pivot->herramienta}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=herramienta>
                     <span class="text-red-500 text-sm hidden" id="herramientaError">Este campo es obligatorio.</span>
@@ -109,7 +108,7 @@
                         Documentación
                     </span>
                     <input type="text"
-                        value="{{$servicio_existentes->documentacion}}"
+                        value="{{$bahia->pivot->documentacion}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=documentacion>
                     <span class="text-red-500 text-sm hidden" id="documentacionError">Este campo es
@@ -121,7 +120,7 @@
                         Alcance
                     </span>
                     <input type="text"
-                        value="{{$servicio_existentes->alcance}}"
+                        value="{{$bahia->pivot->alcance}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=alcance>
                     <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>

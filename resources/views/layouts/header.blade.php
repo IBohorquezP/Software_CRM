@@ -47,8 +47,6 @@
                                   class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Técnicos</a></li>
                           <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group "><a href="/Etapas"
                                   class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Servicios</a></li>
-                          <li class="transition-all duration-300 ease-in-out rounded-b-md  hover:bg-naranja-industrial-500 group "><a href="/Repuestos"
-                                  class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Repuestos</a></li>
                         </div>
                     </ul>
                   </ul>

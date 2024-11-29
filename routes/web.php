@@ -5,13 +5,9 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EtapaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MotorController;
 use App\Http\Controllers\RepuestoController;
-use App\Http\Controllers\RepuestosController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\TecnicoController;
-use App\Models\Servicio;
-use App\Models\Tecnico;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,18 +72,18 @@ Route::controller(BahiaController::class)->group(function () {
     Route::get('/AsignarBahias/{id_servicio}', 'asignarBahias')->name('Bahias.asignarBahias');
     Route::post('/AsignarBahias/store', 'attachServicio')->name('Bahias.attachServicio');
     Route::get('/Servicio/Bahias/{id_servicio_bahia}', 'showServicioBahias')->name('showServicioBahias');
-    Route::get('/Servicio/Bahias/{id_servicio_bahia}/edit', 'editServicioBahias')->name('Bahias.editServicioBahias');
-    Route::put('/Servicio/Bahias/{id_servicio_bahia}', 'updateServicioBahias')->name('Bahias.updateServicioBahias');
-    Route::delete('/Servicio/Bahias/{id_servicio_bahia}', 'destroyServicioBahias')->name('Bahias.destroyServicioBahias');
+    Route::get('/Servicio/{id_servicio}/Bahias/{id_bahia}/edit', 'editServicioBahias')->name('Bahias.editServicioBahias');
+    Route::put('/Servicio/{id_servicio}/Bahias/{id_bahia}', 'updateServicioBahias')->name('Bahias.updateServicioBahias');
+    Route::delete('/Servicio/{id_servicio}/Bahias/{id_bahia}', 'destroyServicioBahias')->name('Bahias.destroyServicioBahias');
 });
 
 // //Ruta Repuestos   
 Route::get('/Repuestos/{id_servicio}', [RepuestoController::class, 'create'])->name('Repuestos.create');
 Route::post('/Servicio/Repuestos', [RepuestoController::class, 'store'])->name('Repuestos.store');
-Route::get('/Servicio/Repuestos/{id_servicio_repuesto}', [RepuestoController::class, 'show'])->name('Repuestos.show');
-Route::get('/Servicio/Repuestos/{id_servicio_repuesto}/edit', [RepuestoController::class, 'edit'])->name('Repuestos.edit');
-Route::put('/Servicio/Repuestos/{id_servicio_repuesto}', [RepuestoController::class, 'update'])->name('Repuestos.update');
-Route::delete('/Servicio/Repuestos/{id_servicio_repuesto}', [RepuestoController::class, 'destroy'])->name('Repuestos.destroy');
+Route::get('/Servicio/Repuestos/{id_servicio}', [RepuestoController::class, 'show'])->name('Repuestos.show');
+Route::get('/Servicio/{id_servicio}/Repuestos/{id_repuesto}/edit', [RepuestoController::class, 'edit'])->name('Repuestos.edit');
+Route::put('/Servicio/{id_servicio}/Repuestos/{id_repuesto}', [RepuestoController::class, 'update'])->name('Repuestos.update');
+Route::delete('/Servicio/{id_servicio}/Repuestos/{id_repuesto}', [RepuestoController::class, 'destroy'])->name('Repuestos.destroy');
 
 // //Ruta Servicios
 Route::get('/Servicios', [ServicioController::class, 'index'])->name('Servicios.index');

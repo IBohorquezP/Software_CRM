@@ -67,7 +67,7 @@
                     Contador Colocación
                 </span>
                 <input type="text"
-                    name="contador_cotizacion"
+                    name="contador_colocacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
 
             <div class="col-span-2 flex justify-evenly w-full">

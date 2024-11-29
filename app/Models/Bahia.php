@@ -14,7 +14,7 @@ class Bahia extends Model
 
     protected $fillable = [
         'nombre',
-        'img',
+        'foto',
         'descripcion',
     ];
     public function servicios(): BelongsToMany

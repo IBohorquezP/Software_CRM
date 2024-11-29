@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id_cliente');
             $table->string('nombre');
             $table->string('tipo');
-            $table->string('img')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

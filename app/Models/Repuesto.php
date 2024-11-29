@@ -12,8 +12,19 @@ class Repuesto extends Model
     protected $table = 'repuestos';
     protected $primaryKey = 'id_repuesto';
 
-    public function servicios(): BelongsToMany
+    protected $fillable = [
+        'fecha_inicio_cotizacion',
+        'fecha_fin_cotizacion',
+        'contador_cotizacion',
+        'nro_orden',
+        'fecha_inicio_colocacion',
+        'fecha_fin_colocacion',
+        'contador_colocacion',
+        'servicios_id_servicio',
+    ];
+
+    public function servicios()
     {
-        return $this->belongsToMany(Servicio::class, 'servicios_repuestos', 'id_servicio', 'id_repuesto');
+        return $this->belongsTo(Servicio::class, 'servicios_id_servicio', 'id_servicio');
     }
 }

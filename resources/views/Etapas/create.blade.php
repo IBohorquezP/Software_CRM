@@ -35,7 +35,7 @@
                         <span class="font-bold">Foto</span>
                         <span class="custom-file-upload-text">Seleccione una imagen...</span>
                     </div>
-                    <input type="file" name="img" id="imageUpload" accept="image/*" style="display: none;">
+                    <input type="file" name="foto" id="imageUpload" accept="image/*" style="display: none;">
                     <img id="imagePreview" src="" class="w-[135px] h-[135px] object-cover border-4 border-black">
                 </label>
 

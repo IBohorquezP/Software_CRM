@@ -101,7 +101,7 @@
 
                         Fecha Llegada
                     </span>
-                    <input type="text"
+                    <input type="date"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=fecha_llegada>
                     <span class="text-red-500 text-sm hidden" id="fechallegadaError">Este campo es obligatorio.</span>
@@ -117,7 +117,7 @@
 
                         Fecha Salida Estimada
                     </span>
-                    <input type="text"
+                    <input type="date"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=fecha_salida_estimada>
                     <span class="text-red-500 text-sm hidden" id="fechaSalidaEstimadaError">Este campo es
@@ -128,7 +128,7 @@
 
                         Fecha Salida Real
                     </span>
-                    <input type="text"
+                    <input type="date"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=fecha_salida_real>
                     <span class="text-red-500 text-sm hidden" id="fechaSalidaRealError">Este campo es

@@ -13,7 +13,7 @@ return new class extends Migration
             $table->increments('id_etapa');
             $table->string('nombre');
             $table->string('descripcion');
-            $table->string('img')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

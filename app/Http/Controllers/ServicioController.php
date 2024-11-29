@@ -15,7 +15,7 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        $servicios = Servicio::all();
+        $servicios = Servicio::with(['etapa', 'cliente', 'bahias'])->get();
         return view('Servicios.index',compact('servicios'));
     }
 
@@ -44,9 +44,9 @@ class ServicioController extends Controller
             'modelo' => 'required|string|max:255',
             'marca' => 'nullable|string',
             'horometro' => 'nullable|string',
-            'fecha_llegada' => 'required|date_format:Y/m/d|max:255',
-            'fecha_salida_estimada' => 'nullable|date_format:Y/m/d|max:255',
-            'fecha_salida_real' => 'nullable|date_format:Y/m/d|max:255',
+            'fecha_llegada' => 'required|date_format:Y-m-d|max:255',
+            'fecha_salida_estimada' => 'nullable|date_format:Y-m-d|max:255',
+            'fecha_salida_real' => 'nullable|date_format:Y-m-d|max:255',
             'contador' => 'nullable|string|max:255',
             'requisito' => 'nullable|string|max:255',
             'nota' => 'string|max:255',
@@ -137,13 +137,14 @@ class ServicioController extends Controller
      */
     public function destroy($id_servicio)
     {
-        // Encuentra el servicio por su ID
         $servicio = Servicio::find($id_servicio);
     
-        $servicio->servicios()->delete();
+        if (!$servicio) {
+            return redirect()->route('Servicios.index')->with('error', 'El servicio no existe.');
+        }
+    
         $servicio->delete();
     
-        // Redirige al índice con un mensaje de éxito
-        return redirect()->route('Servicios.index')->with('success', 'Cliente eliminado correctamente.');
+        return redirect()->route('Servicios.index')->with('success', 'El servicio ha sido eliminado correctamente.');
     }
 }

@@ -41,7 +41,7 @@
                 </form>
             </div>
         </div>
-        <img src="{{ asset($cliente->img) }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
+        <img src="{{ asset($cliente->foto) }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-content">
     </section>
 @endsection
 

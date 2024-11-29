@@ -11,7 +11,7 @@
 @section('main2')
 <div class="w-full flex justify-between items-center">
     <a href="/Etapas" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Volver</a>
-    <a href="/Etapas/show" class="text-[45px] font-bold drop-shadow-xl ">Etapa</a>
+    <h class="text-[60px] font-bold drop-shadow-xl ">Servicios</h>
     <a href="/Servicios/create" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Agregar</a>
 </div>
 <div class="card p-4">
@@ -30,19 +30,23 @@
             </thead>
             <tbody>
                 @foreach ($servicios as $servicio)
-                    <td class="text-center">{{ $servicio->etapa->nombre }}</td>
-                    <td class="text-center">{{ $servicio->cliente->nombre }}</td>
-                    <td class="text-center">{{ $servicio->servicio }}</td>
-                    <td class="text-center">{{ $servicio->componente }}</td>
-                    <td class="text-center">{{ $servicio->modelo }}</td>
-                    <td class="text-center">{{ $servicio->serial }}</td>
-                    <td class="text-center">
+                <td class="text-center">{{ $servicio->etapa->nombre }}</td>
+                <td class="text-center">{{ $servicio->cliente->nombre }}</td>
+                <td class="text-center">{{ $servicio->servicio }}</td>
+                <td class="text-center">{{ $servicio->componente }}</td>
+                <td class="text-center">{{ $servicio->modelo }}</td>
+                <td class="text-center">{{ $servicio->serial }}</td>
+                <td class="text-center">
                     <a href="{{ route('Servicios.show', ['id_servicio' => $servicio->id_servicio]) }}" class="w-20 h-10 px-6 py-2 self-end rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Ver</a>
                     <a href="{{route('showServicioBahias', $servicio->id_servicio)}}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500/80 bg-naranja-industrial-400 text-white text-center">Bahías</a>
                     <a href="{{route('Repuestos.show', $servicio->id_servicio)}}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gris-industrial-400/80 bg-gris-industrial-400 text-white text-center">Repuestos</a>
                     <a href="" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gris-industrial-500/80 bg-gris-input-500 text-white text-center">Reporte</a>
-                    <button type="button" class="w-20 h-10 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80 bg-[#DC3545] text-white">Eliminar</button>
-                    </td>
+                    <form action="{{ route('Servicios.destroy', $servicio->id_servicio) }}" method="POST" class="inline-block">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este servicio?')" class="w-20 h-10 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-[#dc3545]/80 bg-[#DC3545] text-white">Eliminar</button>
+                    </form>
+                </td>
                 </tr>
                 @endforeach
             </tbody>

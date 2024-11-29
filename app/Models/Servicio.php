@@ -47,16 +47,11 @@ class Servicio extends Model
             'servicios_bahias', 
             'servicios_id_servicio', 
             'bahias_id_bahia' 
-        )->withPivot(['TRG', 'fecha_inicio', 'fecha_fin', 'alcance', 'herramienta', 'documentacion', 'requerimientos', 'actividad']);
+        )->withPivot(['TRG', 'fecha_inicio', 'fecha_fin', 'alcance', 'herramienta', 'documentacion', 'requerimientos', 'actividad', 'servicios_id_servicio']);
     }
-    public function repuestos(): BelongsToMany
+    public function repuestos()
     {
-        return $this->belongsToMany(
-            Repuesto::class,
-            'servicios_repuestos', 
-            'servicios_id_servicio', 
-            'repuestos_id_repuesto' 
-        )->withPivot([ 'fecha_inicio_cotizacion', 'fecha_fin_cotizacion', 'contador_cotizacion', 'nro_orden', 'fecha_inicio_colocacion', 'fecha_fin_colocacion', 'contador_colocacion', ]);
+        return $this->hasMany(Repuesto::class, 'servicios_id_servicio', 'id_servicio');
     }
 
     public function tecnicos():BelongsToMany

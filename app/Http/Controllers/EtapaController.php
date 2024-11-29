@@ -41,7 +41,18 @@ class EtapaController extends Controller
         $etapa = new Etapa();
         $etapa->nombre =$validateData['nombre'] ;
         $etapa->descripcion = $validateData['descripcion'];    
-        $etapa->img = $validateData['img'] ?? null; 
+        $etapa->foto = $validateData['foto'] ?? null; 
+
+        if ($request->hasFile('foto')) {
+            // Obtener el archivo
+            $file = $request->file('foto');
+            // Crear un nombre único para la imagen
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            // Mover el archivo a la carpeta 'public/fotos'
+            $file->move(public_path('fotos'), $filename);
+            // Guardar el nombre de la imagen en la base de datos
+            $etapa->foto = 'fotos/' . $filename;
+        }
         $etapa->save();
 
         return redirect()->route('Etapas.store')->with('success', 'Etapa creada correctamente.');

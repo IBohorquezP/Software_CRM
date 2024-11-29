@@ -4,7 +4,7 @@
 @section('main')
     <section class="grid grid-cols-2 gap-10 justify-items-center">
         <div class="w-full col-start-2">
-            <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Servicio</h1>
+            <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Servicio {{$servicio->servicio}}</h1>
             {{-- poner el metodo update en la ruta --}}
             <form action="{{ route('Servicios.update', $servicio->id_servicio) }}" method="POST" enctype="multipart/form-data"
                 class="grid gap-5">

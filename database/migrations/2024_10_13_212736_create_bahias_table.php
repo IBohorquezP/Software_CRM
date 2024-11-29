@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('bahias', function (Blueprint $table) {
             $table->increments('id_bahia');
             $table->string('nombre');
-            $table->string('img')->nullable();
             $table->string('descripcion');
+            $table->string('foto')->nullable();
             $table->timestamps();
 
         });

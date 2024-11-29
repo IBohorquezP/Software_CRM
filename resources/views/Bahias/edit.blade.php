@@ -4,7 +4,7 @@
 @section('main')
 <section class="grid grid-cols-2 gap-10 items-center">
     <div class="col-start-2">
-        <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Bahía</h1>
+        <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar bahía de {{$bahias->nombre}}</h1>
         {{-- poner el metodo update en la ruta --}}
         <form action="{{ route('Bahias.update' , $bahias->id_bahia) }}" method="POST" enctype="multipart/form-data"
             class="flex flex-col gap-5">

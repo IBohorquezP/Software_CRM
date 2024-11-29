@@ -12,7 +12,7 @@
     @foreach ($clientes as $cliente)
         <a href="{{ route('Clientes.show', $cliente->id_cliente) }}"
             class="border-4 border-black p-10 flex flex-col items-center gap-5 transition-all ease-in-out duration-300 hover:shadow-lg hover:shadow-naranja-industrial-600 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{ asset($cliente->img) }}" class="w-[300px] h-[220px] object-cover ">
+            <img src="{{ asset($cliente->foto) }}" class="w-[300px] h-[180px] object-content ">
             <p class="text-xl text-center font-bold">{{ $cliente->nombre }}</p>
             <p class="text-lg text-center text-gray-600">{{ $cliente->tipo }}</p>
         </a>

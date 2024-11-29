@@ -14,7 +14,7 @@ class Etapa extends Model
     protected $fillable = [
         'nombre',
         'descripcion',  
-        'img',
+        'foto',
 
     ];
 }

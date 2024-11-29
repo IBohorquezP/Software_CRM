@@ -6,10 +6,11 @@
     <div>
         <h1 class="text-bold font-bold text-4xl text-center my-10">Nuevo Cliente</h1>
         {{-- poner el metodo update en la ruta --}}
-        <form action="{{ route('Clientes.store') }}" method="POST" enctype="form-data"
-            class="flex flex-col gap-5">
-            @csrf
 
+        <form action="{{ route('Clientes.store') }}" method="POST" enctype="multipart/form-data"
+            class="flex flex-col gap-5">
+
+        @csrf
             <label for="nombre" class="flex flex-col gap-2">
                 <span class="font-bold">
                     Nombre
@@ -29,13 +30,13 @@
                 <span class="text-red-500 text-sm hidden" id="tipoError">Este campo es obligatorio.</span>
             </label>
             <label for="imageUpload" class="flex hover:cursor-pointer justify-center items-center ">
-                    <div class="flex flex-col gap-2 justify-center items-center">
-                        <span class="font-bold">Foto</span>
-                        <span class="custom-file-upload-text">Seleccione una imagen...</span>
-                    </div>
-                    <input type="file" name="img" id="imageUpload" accept="image/*" style="display: none;">
-                    <img id="imagePreview" src="" class="w-[135px] h-[135px] object-cover border-4 border-black">
-                </label>
+                <div class="flex flex-col gap-2 justify-center items-center">
+                    <span class="font-bold">Foto</span>
+                    <span class="custom-file-upload-text">Seleccione una imagen...</span>
+                </div>
+                <input type="file" name="foto" id="imageUpload" accept="image/*" style="display: none;">
+                <img id="imagePreview" src="" class="w-[135px] h-[135px] object-cover border-4 border-black">
+            </label>
             <div class="col-span-2 flex justify-evenly w-full">
                 <a href="{{ route('Clientes.index') }}"
                     class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>

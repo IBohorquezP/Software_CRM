@@ -4,9 +4,9 @@
 @section('main')
 <section class="grid grid-cols-2 gap-10 justify-items-center">
     <div class="w-full">
-        <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Bahia</h1>
+        <h1 class="text-bold font-bold text-4xl text-center mb-10">Editar Repuesto {{$repuesto->nro_orden}}</h1>
         {{-- poner el metodo update en la ruta --}}
-        <form action="{{ route('Repuestos.update', $servicio_existentes->id_servicio_repuesto) }}" method="POST" enctype="multipart/form-data"
+        <form action="{{ route('Repuestos.update', ['id_servicio' => $servicio->id_servicio, 'id_repuesto' => $repuesto->id_repuesto]) }}" method="POST" enctype="multipart/form-data"
             class="grid gap-5">
 
             @csrf
@@ -27,7 +27,7 @@
                     Fecha Inicio de Cotización
                 </span>
                 <input type="date"
-                    value="{{$servicio_existentes->fecha_inicio_cotizacion}}"
+                    value="{{$repuesto->fecha_inicio_cotizacion}}"
                     name="fecha_inicio_cotizacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="fecha_fin_cotizacion" class="flex flex-col gap-2 w-full">
@@ -35,7 +35,7 @@
                     Fecha Fin de Cotización
                 </span>
                 <input type="date"
-                    value="{{$servicio_existentes->fecha_fin_cotizacion}}"
+                    value="{{$repuesto->fecha_fin_cotizacion}}"
                     name="fecha_fin_cotizacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="contador_cotizacion" class="flex flex-col gap-2 w-full">
@@ -43,7 +43,7 @@
                     Contador Cotización
                 </span>
                 <input type="text"
-                    value="{{$servicio_existentes->contador_cotizacion}}"
+                    value="{{$repuesto->contador_cotizacion}}"
                     name="contador_cotizacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="nro_orden" class="flex flex-col gap-2 w-full">
@@ -51,7 +51,7 @@
                     Nro Orden
                 </span>
                 <input type="text"
-                    value="{{$servicio_existentes->nro_orden}}"
+                    value="{{$repuesto->nro_orden}}"
                     name="nro_orden"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="fecha_inicio_cotizacion" class="flex flex-col gap-2 w-full">
@@ -60,7 +60,7 @@
                 </span>
                 <input
                     type="date"
-                    value="{{$servicio_existentes->fecha_inicio_colocacion}}"
+                    value="{{$repuesto->fecha_inicio_colocacion}}"
                     name="fecha_inicio_colocacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="fecha_fin_colocación" class="flex flex-col gap-2 w-full">
@@ -68,7 +68,7 @@
                     Fecha Fin Colocación
                 </span>
                 <input type="date"
-                    value="{{$servicio_existentes->fecha_fin_colocacion}}"
+                    value="{{$repuesto->fecha_fin_colocacion}}"
                     name="fecha_fin_colocacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="contador_colocación" class="flex flex-col gap-2 w-full">
@@ -76,8 +76,8 @@
                     Contador Colocación
                 </span>
                 <input type="text"
-                    value="{{$servicio_existentes->contador_cotizacion}}"
-                    name="contador_cotizacion"
+                    value="{{$repuesto->contador_colocacion}}"
+                    name="contador_colocacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
 
             <div class="col-span-2 flex justify-evenly w-full">

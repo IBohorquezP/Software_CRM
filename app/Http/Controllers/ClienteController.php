@@ -31,28 +31,28 @@ class ClienteController extends Controller
     {
         //Validacion de datos cliente
         $validateData = $request->validate([
-        'nombre'=> 'required|string|max:255', 
-        'tipo'=> 'required|string|max:255',
-        'img'=> 'nullable',
+            'nombre' => 'required|string|max:255',
+            'tipo' => 'required|string|max:255',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         //Crear un Cliente
         $cliente = new Cliente();
-        $cliente->nombre =$validateData['nombre'] ;
-        $cliente->tipo = $validateData['tipo'];   
-        $cliente->img = $validateData['img'] ?? null; 
+        $cliente->nombre = $validateData['nombre'];
+        $cliente->tipo = $validateData['tipo'];
+        $cliente->foto = $validateData['foto'] ?? null;
 
 
-        if ($request->hasFile('img')) {
+        if ($request->hasFile('foto')) {
             // Obtener el archivo
-            $file = $request->file('img');
+            $file = $request->file('foto');
             // Crear un nombre único para la imagen
             $filename = time() . '.' . $file->getClientOriginalExtension();
             // Mover el archivo a la carpeta 'public/fotos'
-            $file->move(public_path('imgs'), $filename);
+            $file->move(public_path('fotos'), $filename);
             // Guardar el nombre de la imagen en la base de datos
-            $cliente->img = 'imgs/' . $filename; 
-        }   
+            $cliente->foto = 'fotos/' . $filename;
+        }
         $cliente->save();
 
         return redirect()->route('Clientes.store')->with('success', 'Cliente creado correctamente.');
@@ -61,12 +61,12 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show ($id_cliente)
+    public function show($id_cliente)
     {
         $cliente = Cliente::find($id_cliente);
 
         // Devuelve la vista 'clientes.show' pasando el cliente encontrado
-        return view('Clientes.show', compact('cliente')); 
+        return view('Clientes.show', compact('cliente'));
     }
 
     /**
@@ -84,19 +84,19 @@ class ClienteController extends Controller
     public function update(Request $request, $id_cliente)
     {
         $validateData = $request->validate([
-            'nombre'=> 'required|string|max:255', 
-            'tipo'=> 'required|string|max:255',
-            'img'=> 'nullable',
+            'nombre' => 'required|string|max:255',
+            'tipo' => 'required|string|max:255',
+            'img' => 'nullable',
         ]);
-    
+
         $cliente = Cliente::find($id_cliente);
-        
+
         if (!$cliente) {
             return redirect()->route('Clientes.index')->with('error', 'Cliente no encontrado.');
         }
-    
+
         $cliente->update($validateData);
-    
+
         return redirect()->route('Clientes.show', $cliente->id_cliente)->with('success', 'Cliente actualizado correctamente.');
     }
 
@@ -107,10 +107,10 @@ class ClienteController extends Controller
     {
         // Encuentra el cliente por su ID
         $cliente = Cliente::find($id_cliente);
-    
+
         $cliente->servicios()->delete();
         $cliente->delete();
-    
+
         // Redirige al índice con un mensaje de éxito
         return redirect()->route('Clientes.index')->with('success', 'Cliente eliminado correctamente.');
     }

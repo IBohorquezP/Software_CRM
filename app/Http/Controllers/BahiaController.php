@@ -34,25 +34,25 @@ class BahiaController extends Controller
         //Validacion de datos bahias
         $validateData = $request->validate([
             'nombre' => 'required|string|max:255',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'descripcion' => 'required|string|max:255',
         ]);
 
         //Crear un Cliente
         $bahias = new Bahia();
         $bahias->nombre = $validateData['nombre'];
-        $bahias->img = $validateData['img'] ?? null;
+        $bahias->foto = $validateData['foto'] ?? null;
         $bahias->descripcion = $validateData['descripcion'];
 
-        if ($request->hasFile('img')) {
+        if ($request->hasFile('foto')) {
             // Obtener el archivo
-            $file = $request->file('img');
+            $file = $request->file('foto');
             // Crear un nombre único para la imagen
             $filename = time() . '.' . $file->getClientOriginalExtension();
             // Mover el archivo a la carpeta 'public/fotos'
-            $file->move(public_path('img'), $filename);
+            $file->move(public_path('fotos'), $filename);
             // Guardar el nombre de la imagen en la base de datos
-            $bahias->img = 'img/' . $filename;
+            $bahias->foto = 'fotos/' . $filename;
         }
         $bahias->save();
 
@@ -160,24 +160,26 @@ class BahiaController extends Controller
             ->with('success', 'Bahía asignada exitosamente al servicio.');
     }
 
+    
     public function showServicioBahias($id_servicio_bahia)
     {
 
         $servicio = Servicio::find($id_servicio_bahia);
-        $servicio_existentes = ServiciosBahias::where('servicios_id_servicio', $servicio->id_servicio)->get();
-        return view('Bahias.showServicioBahias', compact('servicio_existentes', 'servicio'));
+        $bahias = $servicio->bahias()->get();
+        return view('Bahias.showServicioBahias', compact('bahias', 'servicio'));
     }
-    public function editServicioBahias($id_servicio_bahia)
+
+
+    public function editServicioBahias($id_servicio, $id_bahia)
     {
-        // Obtener la relación específica en la tabla pivote
-        $servicio_existentes = ServiciosBahias::findOrFail($id_servicio_bahia);
-
-        // Obtener el servicio relacionado
-        $servicio = Servicio::findOrFail($servicio_existentes->servicios_id_servicio);
-
-        return view('Bahias.editServicioBahias', compact('servicio', 'servicio_existentes'));
+        // Encontrar el servicio por el ID proporcionado
+        $servicio = Servicio::findOrFail($id_servicio);
+        
+        $bahia = $servicio->bahias()->where('id_bahia', $id_bahia)->first(); 
+    
+        return view('Bahias.editServicioBahias', compact('bahia', 'servicio'));
     }
-    public function updateServicioBahias(Request $request, $id_servicio_bahia)
+    public function updateServicioBahias(Request $request, $id_servicio, $id_bahia)
     {
         // Validar los datos enviados
         $validateData = $request->validate([
@@ -190,27 +192,33 @@ class BahiaController extends Controller
             'requerimientos' => 'nullable|string',
             'actividad' => 'nullable|string',
         ]);
-
-        // Buscar la relación en la tabla pivote
-        $servicioBahia = ServiciosBahias::findOrFail($id_servicio_bahia);
-
+    
+        // Encontrar el servicio por el ID proporcionado
+        $servicio = Servicio::findOrFail($id_servicio);
+    
+        // Encontrar la relación en la tabla pivote
+        $servicioBahia = $servicio->bahias()->where('id_bahia', $id_bahia)->firstOrFail();
+    
         // Actualizar los datos de la relación
-        $servicioBahia->update($validateData);
-
+        $servicioBahia->pivot->update($validateData);
+    
         // Redirigir con un mensaje de éxito
-        return redirect()->route('showServicioBahias', ['id_servicio_bahia' => $id_servicio_bahia])
+        return redirect()->route('showServicioBahias', ['id_servicio_bahia' => $id_servicio])
             ->with('success', 'Información de la bahía actualizada exitosamente.');
     }
-    public function destroyServicioBahias($id_servicio_bahia)
+    public function destroyServicioBahias($id_servicio, $id_bahia)
     {
-        // Buscar la relación en la tabla pivote
-        $servicioBahia = ServiciosBahias::findOrFail($id_servicio_bahia);
-
-        // Eliminar la relación
-        $servicioBahia->delete();
-
+        // Encontrar el servicio por el ID proporcionado
+        $servicio = Servicio::findOrFail($id_servicio);
+    
+        // Buscar la bahía en la relación pivote
+        $servicioBahia = $servicio->bahias()->where('id_bahia', $id_bahia)->firstOrFail();
+    
+        // Eliminar la relación en la tabla pivote
+        $servicio->bahias()->detach($id_bahia);
+    
         // Redirigir con un mensaje de éxito
-        return redirect()->route('showServicioBahias', ['id_servicio_bahia' => $servicioBahia->servicios_id_servicio])
+        return redirect()->route('showServicioBahias', ['id_servicio_bahia' => $id_servicio])
             ->with('success', 'Bahía eliminada exitosamente del servicio.');
     }
 }

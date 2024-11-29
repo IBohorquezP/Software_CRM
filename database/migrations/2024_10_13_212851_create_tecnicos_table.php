@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->unsignedInteger('cedula');
-            $table->string('foto')->nullable();
             $table->string('cargo');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }
