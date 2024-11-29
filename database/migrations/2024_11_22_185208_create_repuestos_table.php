@@ -20,6 +20,7 @@ return new class extends Migration
             $table->datetime('fecha_fin_colocacion')->nullable();
             $table->string('contador_colocacion')->nullable();
             $table->timestamps();
+            $table->softDeletes();
             
             $table->foreign('servicios_id_servicio')->references('id_servicio')->on('servicios')->constrained()->onDelete('cascade');
         });

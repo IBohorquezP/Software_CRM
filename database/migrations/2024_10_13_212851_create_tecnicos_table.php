@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('cargo');
             $table->string('foto')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

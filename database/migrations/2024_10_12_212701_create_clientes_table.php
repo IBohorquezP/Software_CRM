@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('tipo');
             $table->string('foto')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

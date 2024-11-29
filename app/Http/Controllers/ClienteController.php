@@ -7,26 +7,21 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+ 
+    
     public function index()
     {
         $clientes = Cliente::all(); // Obtiene todos los clientes desde la base de datos
         return view('Clientes.index', compact('clientes')); // Pasa $clientes a la vista
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+ 
     public function create()
     {
         return view('Clientes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         //Validacion de datos cliente
@@ -58,9 +53,7 @@ class ClienteController extends Controller
         return redirect()->route('Clientes.store')->with('success', 'Cliente creado correctamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show($id_cliente)
     {
         $cliente = Cliente::find($id_cliente);
@@ -69,18 +62,14 @@ class ClienteController extends Controller
         return view('Clientes.show', compact('cliente'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit($id_cliente)
     {
         $cliente = Cliente::findorFail($id_cliente);
         return view('Clientes.edit', compact('cliente'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, $id_cliente)
     {
         $validateData = $request->validate([
@@ -100,17 +89,15 @@ class ClienteController extends Controller
         return redirect()->route('Clientes.show', $cliente->id_cliente)->with('success', 'Cliente actualizado correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy($id_cliente)
     {
         // Encuentra el cliente por su ID
-        $cliente = Cliente::find($id_cliente);
-
-        $cliente->servicios()->delete();
+        $cliente = Cliente::findOrFail($id_cliente);
+    
+        // Realiza un Soft Delete
         $cliente->delete();
-
+    
         // Redirige al índice con un mensaje de éxito
         return redirect()->route('Clientes.index')->with('success', 'Cliente eliminado correctamente.');
     }

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->text('requisito')->nullable();
             $table->text('nota')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('clientes_id_cliente')->references('id_cliente')->on('clientes')->onDelete('cascade');
             $table->foreign('etapas_id_etapa')->references('id_etapa')->on('etapas')->onDelete('cascade');

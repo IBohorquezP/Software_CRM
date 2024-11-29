@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedInteger('servicios_id_servicio'); //Foreign
             $table->unsignedInteger('tecnicos_id_tecnico'); //Foreign
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('servicios_id_servicio')->references('id_servicio')->on('servicios')->constrained()->onDelete('cascade');
             $table->foreign('tecnicos_id_tecnico')->references('id_tecnico')->on('tecnicos')->constrained()->onDelete('cascade');

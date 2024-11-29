@@ -16,6 +16,7 @@ class RepuestoController extends Controller
         return view('Repuestos.create', compact('id_servicio', 'servicio'));
     }
 
+
     public function store(Request $request)
     {
         //Validacion de datos repuesto
@@ -47,6 +48,7 @@ class RepuestoController extends Controller
         ]);
     }
 
+
     public function show($id_servicio)
     {
         $servicio = Servicio::find($id_servicio);
@@ -57,6 +59,7 @@ class RepuestoController extends Controller
         // Pasar el servicio y los repuestos a la vista
         return view('Repuestos.show', compact('servicio', 'repuestos'));
     }
+
 
     public function edit($id_servicio, $id_repuesto)
     {
@@ -69,6 +72,7 @@ class RepuestoController extends Controller
         // Pasar tanto el servicio como el repuesto a la vista
         return view('Repuestos.edit', compact('servicio', 'repuesto'));
     }
+
 
     public function update(Request $request, $id_servicio, $id_repuesto)
     {
@@ -104,6 +108,7 @@ class RepuestoController extends Controller
             ->with('success', 'Repuesto actualizado correctamente.');
     }
 
+    
     public function destroy($id_servicio, $id_repuesto)
     {
         // Buscar el repuesto

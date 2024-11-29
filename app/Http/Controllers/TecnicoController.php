@@ -7,26 +7,21 @@ use Illuminate\Http\Request;
 
 class TecnicoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
+
     public function index()
     {
         $tecnicos = Tecnico::all(); // Obtiene todos los clientes desde la base de datos
         return view('Tecnicos.index', compact('tecnicos')); // Pasa $clientes a la vista
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         return view('Tecnicos.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+  
     public function store(Request $request)
     {
         //Validacion de datos tecnico
@@ -63,9 +58,7 @@ class TecnicoController extends Controller
         return redirect()->route('Tecnicos.store')->with('success', 'Tecnico creado correctamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show($id_tecnico)
     {
         $tecnico = Tecnico::find($id_tecnico);
@@ -73,18 +66,14 @@ class TecnicoController extends Controller
         return view('Tecnicos.show', compact('tecnico'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+ 
     public function edit($id_tecnico)
     {
         $tecnico = Tecnico::findorFail($id_tecnico);
         return view('Tecnicos.edit', compact('tecnico'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, $id_tecnico)
     {
         $validateData = $request->validate([
@@ -108,9 +97,6 @@ class TecnicoController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id_tecnico)
     {
         $tecnico = Tecnico::find($id_tecnico);

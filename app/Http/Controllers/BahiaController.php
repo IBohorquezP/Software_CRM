@@ -4,31 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Bahia;
 use App\Models\Servicio;
-use App\Models\ServiciosBahias;
 use Illuminate\Http\Request;
 
 class BahiaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+
     public function index()
     {
         $bahias = Bahia::all(); // Obtiene todos los clientes desde la base de datos
         return view('Bahias.index', compact('bahias')); // Pasa $clientes a la vista
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         return view('Bahias.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         //Validacion de datos bahias
@@ -59,27 +53,21 @@ class BahiaController extends Controller
         return redirect()->route('Bahias.store')->with('success', 'Cliente creado correctamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show($id_bahia)
     {
         $bahias = Bahia::find($id_bahia);
         return view('Bahias.show', compact('bahias'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+  
     public function edit($id_bahia)
     {
         $bahias = Bahia::findorFail($id_bahia);
         return view('Bahias.edit', compact('bahias'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, $id_bahia)
     {
         $validateData = $request->validate([
@@ -99,9 +87,7 @@ class BahiaController extends Controller
         return redirect()->route('Bahias.show', $bahias->id_bahia)->with('success', 'Bahia actualizada correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+ 
     public function destroy($id_bahia)
     {
         $bahias = Bahia::find($id_bahia);
@@ -121,6 +107,8 @@ class BahiaController extends Controller
 
         return view('Bahias.asignarBahias', compact('bahias', 'id_servicio', 'servicio'));
     }
+
+
     public function attachServicio(Request $request)
     {
         // Validar los datos enviados
@@ -174,13 +162,15 @@ class BahiaController extends Controller
     {
         // Encontrar el servicio por el ID proporcionado
         $servicio = Servicio::findOrFail($id_servicio);
-        
+
         $bahia = $servicio->bahias()->where('id_bahia', $id_bahia)->first();
-        
+
         $bahias = Bahia::all();
-        
-        return view('Bahias.editServicioBahias', compact('bahia','bahias', 'servicio'));
+
+        return view('Bahias.editServicioBahias', compact('bahia', 'bahias', 'servicio'));
     }
+
+
     public function updateServicioBahias(Request $request, $id_servicio, $id_bahia)
     {
         // Validar los datos enviados
@@ -208,6 +198,8 @@ class BahiaController extends Controller
         return redirect()->route('showServicioBahias', ['id_servicio_bahia' => $id_servicio])
             ->with('success', 'Información de la bahía actualizada exitosamente.');
     }
+
+    
     public function destroyServicioBahias($id_servicio, $id_bahia)
     {
         // Encontrar el servicio por el ID proporcionado

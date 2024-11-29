@@ -10,18 +10,15 @@ use Illuminate\Http\Request;
 
 class ServicioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+ 
+    
     public function index()
     {
         $servicios = Servicio::with(['etapa', 'cliente', 'bahias'])->get();
         return view('Servicios.index',compact('servicios'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+ 
     public function create()
     {
         $clientes = Cliente::all(); // Obtiene todos los clientes desde la base de datos
@@ -31,9 +28,7 @@ class ServicioController extends Controller
         return view('Servicios.create', compact('clientes','etapas','bahias')); // Pasa todo a la vista de creación de servicios
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         // Validación de datos del servicio
@@ -76,9 +71,6 @@ class ServicioController extends Controller
     }
     
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id_servicio)
     {
         $servicio = Servicio::with('cliente','etapa')->find($id_servicio);
@@ -88,9 +80,7 @@ class ServicioController extends Controller
         return view('Servicios.show', compact('servicio','clientes','etapas')); 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+ 
     public function edit($id_servicio)
     {
         $servicio = Servicio::with('cliente','etapa')->find($id_servicio);
@@ -99,9 +89,7 @@ class ServicioController extends Controller
         return view('Servicios.edit', compact('servicio','clientes','etapas'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, $id_servicio)
     {
         $validateData = $request->validate([
@@ -131,10 +119,8 @@ class ServicioController extends Controller
     
         return redirect()->route('Servicios.show', $servicio->id_servicio)->with('success', 'Cliente actualizado correctamente.');
     }
+ 
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id_servicio)
     {
         $servicio = Servicio::find($id_servicio);
