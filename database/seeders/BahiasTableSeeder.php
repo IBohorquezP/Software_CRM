@@ -18,7 +18,7 @@ class BahiasTableSeeder extends Seeder
         $bahia1->save();
 
         $bahia2 = new Bahia;
-        $bahia2->nombre = 'Dinamometros';
+        $bahia2->nombre = 'Dinamometro';
         $bahia2->foto = 'fotos/1732810961.jpg';
         $bahia2->descripcion = 'Se hace la prueba de dinamometro al motor';
         $bahia2->save();

@@ -9,10 +9,10 @@
         <div class="w-full flex justify-between items-center">
             <a href="/planificacion"
                 class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Volver</a>
-                <a href="{{ route('Etapas.create') }}"
-                    class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-industrial-500 hover:bg-naranja-claro-400 ">Agregar</a>
+                <!-- <a href="{{ route('Etapas.create') }}"
+                    class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-industrial-500 hover:bg-naranja-claro-400 ">Agregar</a> -->
             <a href="{{route('Bahias.index')}}"
-                class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Bahías</a>
+                class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-industrial-500 hover:bg-naranja-claro-400 ">Bahías</a>
         </div>
     </section>
     <section class="grid grid-cols-5 gap-10">
