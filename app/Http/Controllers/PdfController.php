@@ -19,7 +19,7 @@ class PdfController extends Controller
             ],
         ];
 
-        $pdf = Pdf::loadView('Servicios.reporteServicioBahias', $data, compact('servicio', 'bahia'))
+        $pdf = Pdf::loadView('Bahias.reporteServicioBahias', $data, compact('servicio', 'bahia'))
         ->setPaper('a4', 'landscape');
     
         return $pdf->stream('ReporteBahia.pdf');
