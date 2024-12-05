@@ -7,130 +7,134 @@ use App\Models\Cliente;
 use App\Models\Etapa;
 use App\Models\Bahia;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ServicioController extends Controller
 {
- 
-    
     public function index()
     {
         $servicios = Servicio::with(['etapa', 'cliente', 'bahias'])->get();
-        return view('Servicios.index',compact('servicios'));
+
+        return view('Servicios.index', compact('servicios'));
     }
 
- 
     public function create()
     {
-        $clientes = Cliente::all(); // Obtiene todos los clientes desde la base de datos
-        $etapas = Etapa::all(); // Obtiene todas las etapas desde la base de datos
-        $bahias = Bahia::all(); // Obtiene todas las bahias desde la base de datos
-        // $tecnicos = Tecnico::all(); //Obtiene todos los tecnicos desde la base de datos
-        return view('Servicios.create', compact('clientes','etapas','bahias')); // Pasa todo a la vista de creación de servicios
-    }
+        $clientes = Cliente::all();
+        $etapas = Etapa::all();
+        $bahias = Bahia::all();
 
+        return view('Servicios.create', compact('clientes', 'etapas', 'bahias'));
+    }
 
     public function store(Request $request)
     {
-        // Validación de datos del servicio
-        $validateData = $request->validate([
+        $validatedData = $request->validate([
             'serial' => 'required|string|max:255',
             'servicio' => 'required|string|max:255',
             'componente' => 'required|string|max:255',
             'modelo' => 'required|string|max:255',
             'marca' => 'nullable|string',
             'horometro' => 'nullable|string',
-            'fecha_llegada' => 'required|date_format:Y-m-d|max:255',
-            'fecha_salida_estimada' => 'nullable|date_format:Y-m-d|max:255',
-            'fecha_salida_real' => 'nullable|date_format:Y-m-d|max:255',
-            'contador' => 'nullable|string|max:255',
+            'fecha_llegada' => 'required|date_format:Y-m-d',
+            'fecha_salida_estimada' => 'nullable|date_format:Y-m-d',
+            'fecha_salida_real' => 'nullable|date_format:Y-m-d',
             'requisito' => 'nullable|string|max:255',
-            'nota' => 'string|max:255',
+            'nota' => 'nullable|string|max:255',
             'id_cliente' => 'required|exists:clientes,id_cliente',
             'id_etapa' => 'required|exists:etapas,id_etapa',
         ]);
-    
-        // Crear un Servicio
-        $servicio = new Servicio();
-        $servicio->serial = $validateData['serial'];
-        $servicio->servicio = $validateData['servicio'];
-        $servicio->componente = $validateData['componente'];
-        $servicio->modelo = $validateData['modelo'];
-        $servicio->horometro = $validateData['horometro'];
-        $servicio->marca = $validateData['marca'];
-        $servicio->fecha_llegada = $validateData['fecha_llegada'];
-        $servicio->fecha_salida_estimada = $validateData['fecha_salida_estimada'];
-        $servicio->fecha_salida_real = $validateData['fecha_salida_real'];
-        $servicio->contador = $validateData['contador'];
-        $servicio->requisito = $validateData['requisito'];
-        $servicio->nota = $validateData['nota'];
-        $servicio->clientes_id_cliente = $validateData['id_cliente'];
-        $servicio->etapas_id_etapa = $validateData['id_etapa'];
+
+        $servicio = new Servicio($validatedData);
+
+        // Calcular el campo 'contador' como la diferencia entre fechas
+        $servicio->contador = $this->calcularDiferenciaDias(
+            $validatedData['fecha_salida_estimada'] ?? null,
+            $validatedData['fecha_salida_real'] ?? null
+        );
+
         $servicio->save();
 
-        return redirect()->route('Bahias.asignarBahias', ['id_servicio' => $servicio->id_servicio])->with('success');
+        return redirect()->route('Bahias.asignarBahias', ['id_servicio' => $servicio->id_servicio])
+            ->with('success', 'Servicio creado correctamente.');
     }
-    
 
     public function show($id_servicio)
     {
-        $servicio = Servicio::with('cliente','etapa')->find($id_servicio);
+        $servicio = Servicio::with('cliente', 'etapa')->findOrFail($id_servicio);
         $clientes = Cliente::all();
         $etapas = Etapa::all();
 
-        return view('Servicios.show', compact('servicio','clientes','etapas')); 
+        return view('Servicios.show', compact('servicio', 'clientes', 'etapas'));
     }
 
- 
     public function edit($id_servicio)
     {
-        $servicio = Servicio::with('cliente','etapa')->find($id_servicio);
+        $servicio = Servicio::with('cliente', 'etapa')->findOrFail($id_servicio);
         $clientes = Cliente::all();
         $etapas = Etapa::all();
-        return view('Servicios.edit', compact('servicio','clientes','etapas'));
-    }
 
+        return view('Servicios.edit', compact('servicio', 'clientes', 'etapas'));
+    }
 
     public function update(Request $request, $id_servicio)
     {
-        $validateData = $request->validate([
+        $validatedData = $request->validate([
             'serial' => 'required|string|max:255',
             'servicio' => 'required|string|max:255',
             'componente' => 'required|string|max:255',
             'modelo' => 'required|string|max:255',
             'marca' => 'nullable|string',
             'horometro' => 'nullable|string',
-            'fecha_llegada' => 'required|date_format:Y/m/d|max:255',
-            'fecha_salida_estimada' => 'nullable|date_format:Y/m/d|max:255',
-            'fecha_salida_real' => 'nullable|date_format:Y/m/d|max:255',
-            'contador' => 'nullable|string|max:255',
+            'fecha_llegada' => 'required|date_format:Y-m-d',
+            'fecha_salida_estimada' => 'nullable|date_format:Y-m-d',
+            'fecha_salida_real' => 'nullable|date_format:Y-m-d',
             'requisito' => 'nullable|string|max:255',
-            'nota' => 'string|max:255',
+            'nota' => 'nullable|string|max:255',
             'id_cliente' => 'required|exists:clientes,id_cliente',
             'id_etapa' => 'required|exists:etapas,id_etapa',
         ]);
-        
-        $servicio = Servicio::find($id_servicio);
-        
-        if (!$servicio) {
-            return redirect()->route('Servicios.index')->with('error', 'Cliente no encontrado.');
-        }
-    
-        $servicio->update($validateData);
-    
-        return redirect()->route('Servicios.show', $servicio->id_servicio)->with('success', 'Cliente actualizado correctamente.');
+
+        $servicio = Servicio::findOrFail($id_servicio);
+        $servicio->fill($validatedData);
+
+        // Recalcular el campo 'contador' como la diferencia entre fechas
+        $servicio->contador = $this->calcularDiferenciaDias(
+            $validatedData['fecha_salida_estimada'] ?? null,
+            $validatedData['fecha_salida_real'] ?? null
+        );
+
+        $servicio->save();
+
+        return redirect()->route('Servicios.show', $servicio->id_servicio)
+            ->with('success', 'Servicio actualizado correctamente.');
     }
- 
 
     public function destroy($id_servicio)
     {
-        $servicio = Servicio::find($id_servicio);
-    
-        if (!$servicio) {
-            return redirect()->route('Servicios.index')->with('error', 'El servicio no existe.');
-        }
-    
+        $servicio = Servicio::findOrFail($id_servicio);
         $servicio->delete();
-    
-        return redirect()->route('Servicios.index')->with('success', 'El servicio ha sido eliminado correctamente.');
+
+        return redirect()->route('Servicios.index')
+            ->with('success', 'El servicio ha sido eliminado correctamente.');
+    }
+
+    /**
+     * Calcula la diferencia de días entre dos fechas.
+     *
+     * @param string|null $fechaEstimada
+     * @param string|null $fechaReal
+     * @return int|null
+     */
+    private function calcularDiferenciaDias($fechaEstimada, $fechaReal)
+    {
+        if ($fechaEstimada && $fechaReal) {
+            $fechaEstimada = Carbon::create($fechaEstimada);
+            $fechaReal = Carbon::create($fechaReal);
+
+            return $fechaReal->diffInDays($fechaEstimada, false); // False para diferencias negativas
+        }
+
+        return null;
     }
 }

@@ -11,7 +11,7 @@
 
             @csrf
             @method ('PUT')
-            
+
             @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -42,10 +42,15 @@
                 <span class="font-bold">
                     Contador Cotización
                 </span>
-                <input type="text"
-                    value="{{$repuesto->contador_cotizacion}}"
-                    name="contador_cotizacion"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
+                <span
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                    @if($repuesto->fecha_inicio_cotizacion && $repuesto->fecha_fin_cotizacion)
+                    {{ \Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->diffInDays($repuesto->fecha_inicio_cotizacion, false) }} días
+                    @else
+                    {{ $repuesto->contador_cotizacion }} días
+                    @endif
+                </span>
+            </label>
             <label for="nro_orden" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
                     Nro Orden
@@ -71,14 +76,19 @@
                     value="{{$repuesto->fecha_fin_colocacion}}"
                     name="fecha_fin_colocacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="contador_colocación" class="flex flex-col gap-2 w-full">
+            <label for="contador_colocacion" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
                     Contador Colocación
                 </span>
-                <input type="text"
-                    value="{{$repuesto->contador_colocacion}}"
-                    name="contador_colocacion"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
+                <span
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                    @if($repuesto->fecha_inicio_colocacion && $repuesto->fecha_fin_colocacion)
+                    {{ \Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->diffInDays($repuesto->fecha_inicio_colocacion, false) }} días
+                    @else
+                    {{ $repuesto->contador_colocacion }} días
+                    @endif
+                </span>
+            </label>
 
             <div class="col-span-2 flex justify-evenly w-full">
                 <a href="{{ route('Repuestos.show', $servicio->id_servicio) }}"

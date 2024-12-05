@@ -5,6 +5,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EtapaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\RepuestoController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\TecnicoController;
@@ -93,3 +94,7 @@ Route::get('/Servicios/{id_servicio}', [ServicioController::class, 'show'])->nam
 Route::get('/Servicios/{id_servicio}/edit', [ServicioController::class, 'edit'])->name('Servicios.edit');
 Route::put('/Servicios/{id_servicio}', [ServicioController::class, 'update'])->name('Servicios.update');
 Route::delete('/Servicios/{id_servicio}', [ServicioController::class, 'destroy'])->name('Servicios.destroy');
+
+// Ruta Reporte PDF
+
+Route::get('/Servicios/{id_servicio}/Bahias/{id_bahia}/Reporte', [PdfController::class, 'reporteServicioBahias'])->name('Servicios.reporteServicioBahias');
