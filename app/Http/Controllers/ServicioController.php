@@ -47,7 +47,9 @@ class ServicioController extends Controller
 
         $servicio = new Servicio($validatedData);
 
-        // Calcular el campo 'contador' como la diferencia entre fechas
+        $servicio->clientes_id_cliente = $validatedData['id_cliente'];
+        $servicio->etapas_id_etapa = $validatedData['id_etapa'];
+
         $servicio->contador = $this->calcularDiferenciaDias(
             $validatedData['fecha_salida_estimada'] ?? null,
             $validatedData['fecha_salida_real'] ?? null
@@ -97,6 +99,7 @@ class ServicioController extends Controller
 
         $servicio = Servicio::findOrFail($id_servicio);
         $servicio->fill($validatedData);
+
 
         // Recalcular el campo 'contador' como la diferencia entre fechas
         $servicio->contador = $this->calcularDiferenciaDias(
