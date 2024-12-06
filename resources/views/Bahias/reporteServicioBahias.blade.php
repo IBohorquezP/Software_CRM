@@ -79,7 +79,6 @@
             padding-left: 1.5rem;
             margin: 0;
             border: 1px solid #e5e7eb;
-            border-radius: 8px;
             max-width: 100%;
             word-wrap: break-word;
             overflow-wrap: break-word;

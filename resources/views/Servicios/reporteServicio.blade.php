@@ -72,20 +72,18 @@
             font-size: 1.25rem;
             font-weight: bold;
             color: #000000;
-            margin-top: 2rem;
+            margin-top: 1rem;
             margin-bottom: 0rem;
-            text-align: left;
+            text-align: center;
             margin-left: 1rem;
         }
 
         .list {
             list-style-type: disc;
-
             padding: 1.5rem;
-            margin: 0;
             border: 1px solid #e5e7eb;
-            border-radius: 8px;
             max-width: 100%;
+            margin: 0;
             word-wrap: break-word;
             overflow-wrap: break-word;
             margin-left: 1rem;
