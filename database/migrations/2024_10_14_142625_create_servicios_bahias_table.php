@@ -17,7 +17,7 @@ return new class extends Migration
             $table->datetime('fecha_inicio')->nullable();
             $table->datetime('fecha_fin')->nullable();
             $table->text('alcance')->nullable();
-            $table->string('herramienta')->nullable();
+            $table->text('herramienta')->nullable();
             $table->text('documentacion')->nullable();
             $table->text('requerimientos')->nullable();
             $table->text('actividad')->nullable();

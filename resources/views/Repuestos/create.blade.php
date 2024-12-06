@@ -35,7 +35,7 @@
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="contador_cotizacion" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
-                    Contador Cotización
+                    Duración Cotización
                 </span>
                 <input type="text"
                     name="contador_cotizacion"
@@ -64,7 +64,7 @@
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="contador_colocación" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
-                    Contador Colocación
+                    Duración Colocación
                 </span>
                 <input type="text"
                     name="contador_colocacion"

@@ -34,7 +34,7 @@
 
                 <label for="cliente" class="flex flex-col gap-2">
                     <span class="font-bold">Cliente</span>
-                    
+
                     <select name="id_cliente" id="id_cliente"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                         <option value="">Seleccione un cliente</option>
@@ -134,6 +134,16 @@
                     <span class="text-red-500 text-sm hidden" id="fechaSalidaRealError">Este campo es
                         obligatorio.</span>
                 </label>
+                <label for="contador" class="flex flex-col gap-2">
+                    <span class="font-bold">
+                        Duración
+                    </span>
+                    <span id="contador"
+                        class="p-2 bg-gray-100 border-4 border-black">
+                        0
+                    </span>
+                    <span class="text-red-500 text-sm hidden" id="contadorError">Este campo es obligatorio.</span>
+                </label>
                 <label for="requisito" class=" flex flex-col gap-2">
                     <span class="font-bold">
 
@@ -155,17 +165,6 @@
                         name=nota>
                     <span class="text-red-500 text-sm hidden" id="notaError">Este campo es obligatorio.</span>
                 </label>
-                <label for="contador" class=" flex flex-col gap-2">
-                    <span class="font-bold">
-
-                        Contador
-                    </span>
-                    <input type="text"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name=contador>
-                    <span class="text-red-500 text-sm hidden" id="contadorError">Este campo es obligatorio.</span>
-                </label>
-
                 <label for="id_etapa" class="flex flex-col gap-2">
                     <span class="font-bold">Etapa</span>
                     <select name="id_etapa" id="id_etapa"
@@ -179,14 +178,14 @@
                 <span id="btn-anterior"
                     class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">
                     Anterior</span>
-                </div>
-                <div class="mt-5 flex justify-evenly w-full">
+            </div>
+            <div class="mt-5 flex justify-evenly w-full">
                 <a href="{{ route('Servicios.index') }}"
                     class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
                 <button type="submit"
                     class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>
-                    
-                    </div>
+
+            </div>
             {{-- hasta aca --}}
         </form>
     </div>

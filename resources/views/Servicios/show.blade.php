@@ -121,7 +121,7 @@
                 </label>
                 <label for="contador" class="flex flex-col gap-2">
                     <span class="font-bold">
-                        Contador
+                        Duración
                     </span>
                     <span
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">

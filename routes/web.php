@@ -96,5 +96,5 @@ Route::put('/Servicios/{id_servicio}', [ServicioController::class, 'update'])->n
 Route::delete('/Servicios/{id_servicio}', [ServicioController::class, 'destroy'])->name('Servicios.destroy');
 
 // Ruta Reporte PDF
-
+Route::get('/Servicios/{id_servicio}/Reporte', [PdfController::class, 'reporteServicio'])->name('Servicios.reporteServicio');
 Route::get('/Servicios/{id_servicio}/Bahias/{id_bahia}/Reporte', [PdfController::class, 'reporteServicioBahias'])->name('Servicios.reporteServicioBahias');

@@ -23,8 +23,6 @@
                     <th class="text-center">TRG</th>
                     <th class="text-center">Fecha Inicio</th>
                     <th class="text-center">Fecha Fin</th>
-                    <th class="text-center">Alcance</th>
-                    <th class="text-center">Herramienta</th>
                     <th class="text-center">Acciones</th>
                 </tr>
             </thead>
@@ -35,8 +33,6 @@
                     <td class="text-center">{{ $bahia->pivot->TRG }}</td>
                     <td class="text-center">{{ $bahia->pivot->fecha_inicio }}</td>
                     <td class="text-center">{{ $bahia->pivot->fecha_fin }}</td>
-                    <td class="text-center">{{ $bahia->pivot->alcance }}</td>
-                    <td class="text-center">{{ $bahia->pivot->herramienta }}</td>
                     <td class="flex justify-center space-x-2">
                         <a href="{{ route('Bahias.editServicioBahias', ['id_servicio' => $bahia->pivot->servicios_id_servicio, 'id_bahia' => $bahia->id_bahia]) }}" class="w-20 h-10 py-2 text-center rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Editar</a>
                         <a href="{{ route('Servicios.reporteServicioBahias', ['id_servicio' => $bahia->pivot->servicios_id_servicio, 'id_bahia' => $bahia->id_bahia]) }}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gris-industrial-500/80 bg-gris-input-500 text-white text-center">Reporte</a>

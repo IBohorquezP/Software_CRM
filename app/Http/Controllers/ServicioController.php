@@ -39,8 +39,8 @@ class ServicioController extends Controller
             'fecha_llegada' => 'required|date_format:Y-m-d',
             'fecha_salida_estimada' => 'nullable|date_format:Y-m-d',
             'fecha_salida_real' => 'nullable|date_format:Y-m-d',
-            'requisito' => 'nullable|string|max:255',
-            'nota' => 'nullable|string|max:255',
+            'requisito' => 'nullable|string',
+            'nota' => 'nullable|string',
             'id_cliente' => 'required|exists:clientes,id_cliente',
             'id_etapa' => 'required|exists:etapas,id_etapa',
         ]);
