@@ -40,7 +40,7 @@
                     <span class="font-bold">
                         TRG
                     </span>
-                    <input type="text"
+                    <input type="number"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=TRG>
                     <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
