@@ -5,6 +5,7 @@ FROM php:8.1-fpm-alpine
 RUN apk update \
     && apk add --no-cache --update linux-headers ${PHPIZE_DEPS} \
     && apk add libzip-dev \
+    && apk add nodejs npm \
        freetype-dev \
        libjpeg-turbo-dev \
        libpng-dev \

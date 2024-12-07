@@ -3,6 +3,9 @@
 use App\Http\Controllers\BahiaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EtapaController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PdfController;
@@ -16,13 +19,16 @@ use App\Http\Controllers\TecnicoController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the aaaaaaaRouteServiceProvider and all of them will
+| routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// TODO: mover a rutas de auth
+Route::get('/', [AuthenticatedSessionController::class, 'create']);
+
 
 //Ruta Home
-Route::get('/', HomeController::class);
+Route::get('/dashboard', HomeController::class)->name('dashboard');
 
 //Ruta Planificación
 Route::get('/planificacion', function () {
@@ -78,7 +84,7 @@ Route::controller(BahiaController::class)->group(function () {
     Route::delete('/Servicio/{id_servicio}/Bahias/{id_bahia}', 'destroyServicioBahias')->name('Bahias.destroyServicioBahias');
 });
 
-// //Ruta Repuestos   
+// //Ruta Repuestos
 Route::get('/Repuestos/{id_servicio}', [RepuestoController::class, 'create'])->name('Repuestos.create');
 Route::post('/Servicio/Repuestos', [RepuestoController::class, 'store'])->name('Repuestos.store');
 Route::get('/Servicio/Repuestos/{id_servicio}', [RepuestoController::class, 'show'])->name('Repuestos.show');
@@ -98,3 +104,11 @@ Route::delete('/Servicios/{id_servicio}', [ServicioController::class, 'destroy']
 // Ruta Reporte PDF
 Route::get('/Servicios/{id_servicio}/Reporte', [PdfController::class, 'reporteServicio'])->name('Servicios.reporteServicio');
 Route::get('/Servicios/{id_servicio}/Bahias/{id_bahia}/Reporte', [PdfController::class, 'reporteServicioBahias'])->name('Servicios.reporteServicioBahias');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

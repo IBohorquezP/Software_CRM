@@ -37,7 +37,7 @@
                     </li>
                     <li
                         class=" bg-naranja-industrial-300 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-industrial-300 hover:text-white">
-                        <a href="" class="flex space-x-3 gap-2.5">Login
+                        <a href="/login" class="flex space-x-3 gap-2.5">Login
                             <img src='{{ asset('/css/images/user.png') }}' class='w-6 h-6'>
                         </a>
                     </li>

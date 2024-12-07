@@ -7,15 +7,19 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
- 
-    
+
+//    public function __construct() {
+//        $this->middleware('auth');
+//
+//    }
+
     public function index()
     {
         $clientes = Cliente::all(); // Obtiene todos los clientes desde la base de datos
         return view('Clientes.index', compact('clientes')); // Pasa $clientes a la vista
     }
 
- 
+
     public function create()
     {
         return view('Clientes.create');
@@ -94,10 +98,10 @@ class ClienteController extends Controller
     {
         // Encuentra el cliente por su ID
         $cliente = Cliente::findOrFail($id_cliente);
-    
+
         // Realiza un Soft Delete
         $cliente->delete();
-    
+
         // Redirige al índice con un mensaje de éxito
         return redirect()->route('Clientes.index')->with('success', 'Cliente eliminado correctamente.');
     }
