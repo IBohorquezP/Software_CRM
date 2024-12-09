@@ -150,7 +150,7 @@
             <p><strong>Bahias:</strong> {{ $bahias }}</p>
             
             <h2 class="section-title">Técnicos Asignados</h2>
-            <p><strong>Técnicos:</strong> {{ $bahias }}</p>
+            <p><strong>Técnicos:</strong> {{ $tecnicos }}</p>
     </div>
 </body>
 

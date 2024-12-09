@@ -68,7 +68,7 @@
             </nav>
         </header>
         <div>
-            <span class="h-[12px] w-[60%] bg-naranja-industrial-500 inline-block rounded-full"></span>
+            <span class="h-[12px] w-[75%] bg-naranja-industrial-500 inline-block rounded-full"></span>
             <span class="h-[12px] w-[15%] bg-naranja-claro-300 inline-block rounded-full"></span>
         </div>
         <div class="w-4/5 flex flex-col justify-center mx-auto mt-10 gap-10">

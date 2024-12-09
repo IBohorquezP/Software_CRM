@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <span class="h-[12px] w-[60%] bg-naranja-industrial-500 inline-block rounded-full"></span>
-        <span class="h-[12px] w-[15%] bg-naranja-claro-300 inline-block rounded-full"></span>
+        <span class="h-[12px] w-[75%] bg-naranja-industrial-500 inline-block rounded-full"></span>
+        <span class="h-[12px] w-[20%] bg-naranja-claro-300 inline-block rounded-full"></span>
     </x-slot>
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 bg-cover bg-center" style="background-image: url('{{ asset('css/images/Venequip1.jpeg') }}');">
         <div class="py-12">

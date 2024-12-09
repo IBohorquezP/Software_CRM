@@ -132,6 +132,12 @@
     <img src="{{ asset('/css/images/CRM1.jpeg') }}"
         class="justify-self-center border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">
 </section>
+@if (session('success'))
+<script>
+    // Mostrar alerta si hay un mensaje de éxito
+    alert("{{ session('success') }}");
+</script>
+@endif
 @endsection
 
 <script>

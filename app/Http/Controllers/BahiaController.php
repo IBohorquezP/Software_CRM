@@ -195,7 +195,7 @@ class BahiaController extends Controller
         $servicioBahia->pivot->update($validateData);
 
         // Redirigir con un mensaje de éxito
-        return redirect()->route('showServicioBahias', ['id_servicio_bahia' => $id_servicio])
+        return redirect()->route('Bahias.showServicioBahias', ['id_servicio_bahia' => $id_servicio])
             ->with('success', 'Información de la bahía actualizada exitosamente.');
     }
 

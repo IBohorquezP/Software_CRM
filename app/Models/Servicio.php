@@ -30,7 +30,7 @@ class Servicio extends Model
         'fecha_salida_estimada',
         'fecha_salida_real',
         'contador',
-        'requisitos',
+        'requisito',
         'nota',
     ];
 

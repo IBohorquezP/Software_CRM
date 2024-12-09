@@ -12,7 +12,7 @@ class PdfController extends Controller
     {
         $servicio = Servicio::findOrFail($id_servicio);
         $bahias = $servicio->bahias; // Obtener las bahías asociadas al servicio
-
+        $tecnicos = $servicio->tecnicos;
         $data = [
             'nombre_cliente' => $servicio->cliente->nombre,
             'nombre_etapa' => $servicio->etapa->nombre,
@@ -31,6 +31,8 @@ class PdfController extends Controller
                 'nota' => $servicio->nota,
             ],
             'bahias' => implode(', ', $servicio->bahias->pluck('nombre')->toArray()), // Concatenar las bahías con comas
+            'tecnicos' => implode(', ', $servicio->tecnicos->map(function ($tecnico) {
+                return $tecnico->nombre . ' ' . $tecnico->apellido;})->toArray()), // Concatenar las bahías con comas
         ];
 
         // Asegúrate de pasar correctamente los datos a la vista

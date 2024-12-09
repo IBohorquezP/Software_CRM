@@ -11,8 +11,9 @@
                     <h1 class="font-bold text-5xl">Sistema de Planificación</h1>
                     <p class="bg-naranja-industrial-500 p-2 text-4xl font-bold">CRM</p>
                 </div>
-            </div>
 
+            </div>
+            
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6 font-bold">
                 <form method="POST" action="{{ route('logout') }}">
