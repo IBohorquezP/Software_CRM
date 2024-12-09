@@ -25,7 +25,7 @@
                 <ul class="flex gap-5">
                     <li
                         class=" bg-naranja-industrial-500 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-industrial-600 hover:text-white">
-                        <a href="/" class="flex space-x-3 gap-2.5">Inicio
+                        <a href="/dashboard" class="flex space-x-3 gap-2.5">Inicio
                             <img src='{{ asset('/css/images/house.svg') }}' class='w-6 h-6'>
                         </a>
                     </li>
@@ -35,12 +35,21 @@
                             <img src='{{ asset('/css/images/pen.svg') }}' class='w-6 h-6'>
                         </a>
                     </li>
+                    @if (!auth())
                     <li
                         class=" bg-naranja-industrial-300 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-industrial-300 hover:text-white">
                         <a href="/login" class="flex space-x-3 gap-2.5">Login
                             <img src='{{ asset('/css/images/user.png') }}' class='w-6 h-6'>
                         </a>
                     </li>
+                    @else
+                    <li class=" bg-naranja-industrial-300 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-industrial-300 hover:text-white">
+                        <a href="/profile" class="flex space-x-3 gap-2.5">
+                            {{auth()->user()->name}}
+                            <img src='{{ asset('/css/images/user.png') }}' class='w-6 h-6'>
+                        </a>
+                    </li>
+                    @endif
                     <ul
                         class="relative bg-naranja-claro-200 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-claro-300 hover:text-white">
                         <li>

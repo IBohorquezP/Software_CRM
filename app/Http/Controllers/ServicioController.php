@@ -6,6 +6,7 @@ use App\Models\Servicio;
 use App\Models\Cliente;
 use App\Models\Etapa;
 use App\Models\Bahia;
+use App\Models\Tecnico;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -23,8 +24,9 @@ class ServicioController extends Controller
         $clientes = Cliente::all();
         $etapas = Etapa::all();
         $bahias = Bahia::all();
+        $tecnicos = Tecnico::all();
 
-        return view('Servicios.create', compact('clientes', 'etapas', 'bahias'));
+        return view('Servicios.create', compact('clientes', 'etapas', 'bahias', 'tecnicos'));
     }
 
     public function store(Request $request)

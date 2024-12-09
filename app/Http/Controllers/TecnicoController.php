@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tecnico;
+use App\Models\Servicio;
 use Illuminate\Http\Request;
 
 class TecnicoController extends Controller
 {
-    
+
 
     public function index()
     {
@@ -21,7 +22,7 @@ class TecnicoController extends Controller
         return view('Tecnicos.create');
     }
 
-  
+
     public function store(Request $request)
     {
         //Validacion de datos tecnico
@@ -66,7 +67,7 @@ class TecnicoController extends Controller
         return view('Tecnicos.show', compact('tecnico'));
     }
 
- 
+
     public function edit($id_tecnico)
     {
         $tecnico = Tecnico::findorFail($id_tecnico);
@@ -105,5 +106,75 @@ class TecnicoController extends Controller
 
         // Redirige al índice con un mensaje de éxito
         return redirect()->route('Tecnicos.index')->with('success', 'Tecnico eliminado correctamente.');
+    }
+
+    //Todo Asignar tecnicos a servicios
+    public function asignarTecnicos($id_servicio)
+    {
+        $tecnicos = Tecnico::all();
+        $servicio = Servicio::findOrFail($id_servicio);
+
+        return view('Tecnicos.asignarTecnicos', compact('tecnicos', 'id_servicio', 'servicio'));
+    }
+
+    public function attachServicio(Request $request)
+    {
+        $validatedData = $request->validate([
+            'id_servicio' => 'required|exists:servicios,id_servicio',
+            'id_tecnico' => 'required|exists:tecnicos,id_tecnico',
+        ]);
+    
+        $servicio = Servicio::findOrFail($validatedData['id_servicio']);
+    
+        // Verifica si el técnico ya está asignado al servicio
+        if ($servicio->tecnicos()->where('id_tecnico', $validatedData['id_tecnico'])->exists()) {
+            return redirect()->route('Tecnicos.asignarTecnicos', ['id_servicio' => $validatedData['id_servicio']])
+                ->with('error', 'El técnico ya está asignado a este servicio.');
+        }
+    
+        // Asigna el técnico al servicio
+        $servicio->tecnicos()->attach($validatedData['id_tecnico']);
+    
+        return redirect()->route('Tecnicos.showServicioTecnicos', ['id_servicio_tecnico' => $validatedData['id_servicio']])
+            ->with('success', 'Técnico asignado exitosamente al servicio.');
+    }
+
+
+    public function showServicioTecnicos($id_servicio_tecnico)
+    {
+        $servicio = Servicio::findOrFail($id_servicio_tecnico);
+        $tecnicos = $servicio->tecnicos; // Obtener los técnicos asignados directamente
+
+        return view('Tecnicos.showServicioTecnicos', compact('tecnicos', 'servicio'));
+    }
+
+    public function editServicioTecnicos($id_servicio, $id_tecnico)
+    {
+        $servicio = Servicio::findOrFail($id_servicio);
+        $tecnico = $servicio->tecnicos()->where('id_tecnico', $id_tecnico)->firstOrFail();
+        $tecnicos = Tecnico::all();
+
+        return view('Tecnicos.editServicioTecnicos', compact('tecnico', 'tecnicos', 'servicio'));
+    }
+
+    public function updateServicioTecnicos(Request $request, $id_servicio, $id_tecnico)
+    {
+        // Si no hay información adicional en la tabla pivote, no es necesario actualizar nada.
+        return redirect()->route('showServicioTecnicos', ['id_servicio' => $id_servicio])
+            ->with('success', 'Información del técnico actualizada exitosamente.');
+    }
+
+    public function destroyServicioTecnicos($id_servicio, $id_tecnico)
+    {
+        // Encuentra el servicio por su ID
+        $servicio = Servicio::findOrFail($id_servicio);
+
+        // Eliminar la relación en la tabla pivote
+        $servicio->tecnicos()->detach($id_tecnico);
+
+        // Si necesitas id_servicio_tecnico, obténlo de la relación (opcional)
+        // Si solo usas id_servicio, ajusta la ruta en web.php
+        return redirect()->route('Tecnicos.showServicioTecnicos', ['id_servicio_tecnico' => $id_servicio])
+            ->with('success', 'Técnico eliminado exitosamente del servicio.');
     }
 }

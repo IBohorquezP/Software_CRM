@@ -66,7 +66,7 @@ class Servicio extends Model
 
     public function tecnicos():BelongsToMany
     {
-        return $this->belongsToMany(Tecnico::class, 'servicios_tecnicos', 'tecnicos_id_tecnico', 'servicios_id_servicio');
+        return $this->belongsToMany(Tecnico::class, 'servicios_tecnicos', 'servicios_id_servicio', 'tecnicos_id_tecnico');
     }
 
     public function diferenciaFechasSalida()

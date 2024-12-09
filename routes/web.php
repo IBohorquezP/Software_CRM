@@ -5,7 +5,6 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EtapaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PdfController;
@@ -44,15 +43,24 @@ Route::get('/Clientes/{id_cliente}/edit', [ClienteController::class, 'edit'])->n
 Route::put('/Clientes/{id_cliente}', [ClienteController::class, 'update'])->name('Clientes.update');  // Actualizar cliente
 Route::delete('/Clientes/{id_cliente}', [ClienteController::class, 'destroy'])->name('Clientes.destroy'); // Eliminar cliente
 
-
+Route::controller(TecnicoController::class)->group(function () {
 // //Ruta Tecnicos
-Route::get('/Tecnicos', [TecnicoController::class, 'index'])->name('Tecnicos.index');
-Route::get('/Tecnicos/create', [TecnicoController::class, 'create'])->name('Tecnicos.create');
-Route::post('/Tecnicos', [TecnicoController::class, 'store'])->name('Tecnicos.store');
-Route::get('/Tecnicos/{id_tecnico}', [TecnicoController::class, 'show'])->name('Tecnicos.show');
-Route::get('/Tecnicos/{id_tecnico}/edit', [TecnicoController::class, 'edit'])->name('Tecnicos.edit');
-Route::put('/Tecnicos/{id_tecnico}', [TecnicoController::class, 'update'])->name('Tecnicos.update');
-Route::delete('/Tecnicos/{id_tecnico}', [TecnicoController::class, 'destroy'])->name('Tecnicos.destroy');
+Route::get('/Tecnicos', 'index')->name('Tecnicos.index');
+Route::get('/Tecnicos/create', 'create')->name('Tecnicos.create');
+Route::post('/Tecnicos', 'store')->name('Tecnicos.store');
+Route::get('/Tecnicos/{id_tecnico}', 'show')->name('Tecnicos.show');
+Route::get('/Tecnicos/{id_tecnico}/edit', 'edit')->name('Tecnicos.edit');
+Route::put('/Tecnicos/{id_tecnico}', 'update')->name('Tecnicos.update');
+Route::delete('/Tecnicos/{id_tecnico}', 'destroy')->name('Tecnicos.destroy');
+
+ //Rutas AsignarBahias
+ Route::get('/AsignarTecnicos/{id_servicio}', 'asignarTecnicos')->name('Tecnicos.asignarTecnicos');
+ Route::post('/AsignarTecnicos/store', 'attachServicio')->name('Tecnicos.attachServicio');
+ Route::get('/Servicio/Tecnicos/{id_servicio_tecnico}', 'showServicioTecnicos')->name('Tecnicos.showServicioTecnicos');
+ Route::get('/Servicio/{id_servicio}/Tecnicos/{id_tecnico}/edit', 'editServicioTecnicos')->name('Tecnicos.editServicioTecnicos');
+ Route::put('/Servicio/{id_servicio}/Tecnicos/{id_tecnico}', 'updateServicioTecnicos')->name('Tecnicos.updateServicioTecnicos');
+ Route::delete('/Servicio/{id_servicio}/Tecnicos/{id_tecnico}', 'destroyServicioTecnicos')->name('Tecnicos.destroyServicioTecnicos');
+});
 
 // //Ruta Etapas
 Route::get('/Etapas', [EtapaController::class, 'index'])->name('Etapas.index');
@@ -78,7 +86,7 @@ Route::controller(BahiaController::class)->group(function () {
     //Rutas AsignarBahias
     Route::get('/AsignarBahias/{id_servicio}', 'asignarBahias')->name('Bahias.asignarBahias');
     Route::post('/AsignarBahias/store', 'attachServicio')->name('Bahias.attachServicio');
-    Route::get('/Servicio/Bahias/{id_servicio_bahia}', 'showServicioBahias')->name('showServicioBahias');
+    Route::get('/Servicio/Bahias/{id_servicio_bahia}', 'showServicioBahias')->name('Bahias.showServicioBahias');
     Route::get('/Servicio/{id_servicio}/Bahias/{id_bahia}/edit', 'editServicioBahias')->name('Bahias.editServicioBahias');
     Route::put('/Servicio/{id_servicio}/Bahias/{id_bahia}', 'updateServicioBahias')->name('Bahias.updateServicioBahias');
     Route::delete('/Servicio/{id_servicio}/Bahias/{id_bahia}', 'destroyServicioBahias')->name('Bahias.destroyServicioBahias');
@@ -103,7 +111,7 @@ Route::delete('/Servicios/{id_servicio}', [ServicioController::class, 'destroy']
 
 // Ruta Reporte PDF
 Route::get('/Servicios/{id_servicio}/Reporte', [PdfController::class, 'reporteServicio'])->name('Servicios.reporteServicio');
-Route::get('/Servicios/{id_servicio}/Bahias/{id_bahia}/Reporte', [PdfController::class, 'reporteServicioBahias'])->name('Servicios.reporteServicioBahias');
+Route::get('/Servicios/{id_servicio}/Bahias /{id_bahia}/Reporte', [PdfController::class, 'reporteServicioBahias'])->name('Servicios.reporteServicioBahias');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

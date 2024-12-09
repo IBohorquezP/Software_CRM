@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('horometro')->nullable();
             $table->string('marca')->nullable();
             $table->datetime('fecha_llegada');
-            $table->datetime('fecha_salida_estimada');
+            $table->datetime('fecha_salida_estimada')->nullable();
             $table->datetime('fecha_salida_real')->nullable();
             $table->integer('contador')->nullable();
             $table->text('requisito')->nullable();

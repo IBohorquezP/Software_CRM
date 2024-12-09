@@ -18,10 +18,6 @@
             <img src="{{asset('/css/images/planificacion/Tecnico.png')}}" class="w-[150px]">
             <p class="text-xl  font-bold">Técnicos</p>
         </a>
-        <!-- <a href="#" class="border-4 border-black p-10 text-center items-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500 hover:scale-105">
-            <img src="{{asset('/css/images/planificacion/Repuestos.png')}}" class="w-[150px]">
-            <p class="text-xl  font-semibold">Repuestos</p>
-        </a> -->
         <img src="{{ asset('css/images/etapas/desarme.webp') }}" class="w-full h-full object-cover  row-start-1">
         <img src="{{ asset('css/images/etapas/armado.webp') }}" class="w-full h-full object-cover ">
     </section>
