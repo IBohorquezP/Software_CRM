@@ -1,9 +1,10 @@
 @extends('layouts.header')
 @extends('layouts.footer')
 @section('title', 'Clientes')
+<link rel="icon" href="{{ asset('css/images/Logoi.ico') }}" type="image/x-icon">
 @section('main')
     <section class="w-full flex items-center justify-between ">
-        <a href="/planificacion" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Volver</a>
+        <a href="/Planificacion" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Volver</a>
         <h1 class="text-[60px] font-bold drop-shadow-xl mx-auto">Clientes</h1>
         <a href="{{ route('Clientes.create') }}"
             class=" px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-industrial-500 hover:bg-naranja-claro-400 ">Agregar</a>

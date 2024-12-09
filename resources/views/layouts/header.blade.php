@@ -2,10 +2,11 @@
 <html lang="es">
 
 <head>
+    <link rel="icon" href="{{ asset('css/images/Logoi.ico') }}" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
+    <title>@yield('Sistema CRM')</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     @yield('css')
     @vite('resources/css/app.css')
@@ -31,7 +32,7 @@
                     </li>
                     <li
                         class=" bg-naranja-claro-400 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-claro-500 hover:text-white">
-                        <a href="/planificacion" class="flex space-x-3 gap-2.5 relative group:">Planificación
+                        <a href="/Planificacion" class="flex space-x-3 gap-2.5 relative group:">Planificación
                             <img src='{{ asset('/css/images/pen.svg') }}' class='w-6 h-6'>
                         </a>
                     </li>

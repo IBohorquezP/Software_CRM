@@ -42,11 +42,22 @@ class RepuestoController extends Controller
             'id_repuesto' => $repuesto->id_repuesto,
         ]);
     }
-
+    
     public function show($id_servicio)
     {
         $servicio = Servicio::find($id_servicio);
-        $repuestos = Repuesto::where('servicios_id_servicio', $id_servicio)->get();
+
+        // Obtener los repuestos para el servicio y formatear las fechas
+        $repuestos = Repuesto::where('servicios_id_servicio', $id_servicio)->get()->map(function ($repuesto) {
+            // Formateo de las fechas en el formato Y-m-d
+            $repuesto->fecha_inicio_cotizacion = \Carbon\Carbon::parse($repuesto->fecha_inicio_cotizacion)->format('Y-m-d');
+            $repuesto->fecha_fin_cotizacion = \Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->format('Y-m-d');
+            $repuesto->fecha_inicio_colocacion = \Carbon\Carbon::parse($repuesto->fecha_inicio_colocacion)->format('Y-m-d');
+            $repuesto->fecha_fin_colocacion = \Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->format('Y-m-d');
+            return $repuesto;
+        });
+
+        // Pasar los datos a la vista
         return view('Repuestos.show', compact('servicio', 'repuestos'));
     }
 

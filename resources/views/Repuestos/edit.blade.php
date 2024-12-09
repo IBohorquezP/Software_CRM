@@ -23,27 +23,24 @@
             @endif
 
             <label for="fecha_inicio_cotizacion" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">
-                    Fecha Inicio de Cotización
-                </span>
+                <span class="font-bold">Fecha Inicio de Cotización</span>
                 <input type="date"
-                    value="{{$repuesto->fecha_inicio_cotizacion}}"
+                    value="{{ \Carbon\Carbon::parse($repuesto->fecha_inicio_cotizacion)->format('Y-m-d') }}"
                     name="fecha_inicio_cotizacion"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="fecha_fin_cotizacion" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">
-                    Fecha Fin de Cotización
-                </span>
-                <input type="date"
-                    value="{{$repuesto->fecha_fin_cotizacion}}"
-                    name="fecha_fin_cotizacion"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="contador_cotizacion" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">
-                    Duración Cotización
-                </span>
-                <span
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+            </label>
+
+            <label for="fecha_fin_cotizacion" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">Fecha Fin de Cotización</span>
+                <input type="date"
+                    value="{{ \Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->format('Y-m-d') }}"
+                    name="fecha_fin_cotizacion"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+            </label>
+
+            <label for="contador_cotizacion" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">Duración Cotización</span>
+                <span class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                     @if($repuesto->fecha_inicio_cotizacion && $repuesto->fecha_fin_cotizacion)
                     {{ \Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->diffInDays($repuesto->fecha_inicio_cotizacion, false) }} días
                     @else
@@ -51,37 +48,34 @@
                     @endif
                 </span>
             </label>
+
             <label for="nro_orden" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">
-                    Nro Orden
-                </span>
+                <span class="font-bold">Nro Orden</span>
                 <input type="text"
-                    value="{{$repuesto->nro_orden}}"
+                    value="{{ $repuesto->nro_orden }}"
                     name="nro_orden"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="fecha_inicio_cotizacion" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">
-                    Fecha Inicio Colocación
-                </span>
-                <input
-                    type="date"
-                    value="{{$repuesto->fecha_inicio_colocacion}}"
-                    name="fecha_inicio_colocacion"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="fecha_fin_colocación" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">
-                    Fecha Fin Colocación
-                </span>
-                <input type="date"
-                    value="{{$repuesto->fecha_fin_colocacion}}"
-                    name="fecha_fin_colocacion"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="contador_colocacion" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">
-                    Duración Colocación
-                </span>
-                <span
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+            </label>
+
+            <label for="fecha_inicio_colocacion" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">Fecha Inicio Colocación</span>
+                <input type="date"
+                    value="{{ \Carbon\Carbon::parse($repuesto->fecha_inicio_colocacion)->format('Y-m-d') }}"
+                    name="fecha_inicio_colocacion"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+            </label>
+
+            <label for="fecha_fin_colocacion" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">Fecha Fin Colocación</span>
+                <input type="date"
+                    value="{{ \Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->format('Y-m-d') }}"
+                    name="fecha_fin_colocacion"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+            </label>
+
+            <label for="contador_colocacion" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">Duración Colocación</span>
+                <span class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                     @if($repuesto->fecha_inicio_colocacion && $repuesto->fecha_fin_colocacion)
                     {{ \Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->diffInDays($repuesto->fecha_inicio_colocacion, false) }} días
                     @else

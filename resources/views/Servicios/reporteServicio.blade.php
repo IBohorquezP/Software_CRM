@@ -76,6 +76,7 @@
             margin-bottom: 0rem;
             text-align: center;
             margin-left: 1rem;
+            padding-top: 0.5rem;;
         }
 
         .list {
@@ -151,6 +152,9 @@
             
             <h2 class="section-title">Técnicos Asignados</h2>
             <p><strong>Técnicos:</strong> {{ $tecnicos }}</p>
+
+            <h2 class="section-title">Ordenes de Repuesto</h2>
+            <p><strong>Número de Orden:</strong> {{ $repuestos }}</p>
     </div>
 </body>
 

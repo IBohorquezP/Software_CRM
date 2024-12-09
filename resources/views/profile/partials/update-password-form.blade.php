@@ -1,3 +1,4 @@
+<link rel="icon" href="{{ asset('css/images/Logoi.ico') }}" type="image/x-icon">
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">

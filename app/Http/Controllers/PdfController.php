@@ -11,8 +11,12 @@ class PdfController extends Controller
     public function reporteServicio($id_servicio)
     {
         $servicio = Servicio::findOrFail($id_servicio);
-        $bahias = $servicio->bahias; // Obtener las bahías asociadas al servicio
-        $tecnicos = $servicio->tecnicos;
+
+        // Formatear las fechas antes de incluirlas en el arreglo
+        $fecha_llegada = \Carbon\Carbon::parse($servicio->fecha_llegada)->format('d/m/Y');
+        $fecha_salida_estimada = \Carbon\Carbon::parse($servicio->fecha_salida_estimada)->format('d/m/Y');
+        $fecha_salida_real = \Carbon\Carbon::parse($servicio->fecha_salida_real)->format('d/m/Y');
+
         $data = [
             'nombre_cliente' => $servicio->cliente->nombre,
             'nombre_etapa' => $servicio->etapa->nombre,
@@ -23,19 +27,21 @@ class PdfController extends Controller
                 'modelo' => $servicio->modelo,
                 'marca' => $servicio->marca,
                 'horometro' => $servicio->horometro,
-                'fecha_llegada' => $servicio->fecha_llegada,
-                'fecha_salida_estimada' => $servicio->fecha_salida_estimada,
-                'fecha_salida_real' => $servicio->fecha_salida_real,
+                'fecha_llegada' => $fecha_llegada,
+                'fecha_salida_estimada' => $fecha_salida_estimada,
+                'fecha_salida_real' => $fecha_salida_real,
                 'contador' => $servicio->contador,
                 'requisito' => $servicio->requisito,
                 'nota' => $servicio->nota,
             ],
-            'bahias' => implode(', ', $servicio->bahias->pluck('nombre')->toArray()), // Concatenar las bahías con comas
+            'bahias' => implode(', ', $servicio->bahias->pluck('nombre')->toArray()), // Bahías
             'tecnicos' => implode(', ', $servicio->tecnicos->map(function ($tecnico) {
-                return $tecnico->nombre . ' ' . $tecnico->apellido;})->toArray()), // Concatenar las bahías con comas
+                return $tecnico->nombre . ' ' . $tecnico->apellido;
+            })->toArray()), // Técnicos
+            'repuestos' => implode(', ', $servicio->repuestos->pluck('nro_orden')->toArray()), // Solo nro_orden de los repuestos
         ];
 
-        // Asegúrate de pasar correctamente los datos a la vista
+        // Generar el PDF
         $pdf = Pdf::loadView('Servicios.reporteServicio', $data);
 
         return $pdf->stream('ReporteServicio.pdf');

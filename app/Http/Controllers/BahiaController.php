@@ -60,7 +60,7 @@ class BahiaController extends Controller
         return view('Bahias.show', compact('bahias'));
     }
 
-  
+
     public function edit($id_bahia)
     {
         $bahias = Bahia::findorFail($id_bahia);
@@ -87,7 +87,7 @@ class BahiaController extends Controller
         return redirect()->route('Bahias.show', $bahias->id_bahia)->with('success', 'Bahia actualizada correctamente.');
     }
 
- 
+
     public function destroy($id_bahia)
     {
         $bahias = Bahia::find($id_bahia);
@@ -102,8 +102,11 @@ class BahiaController extends Controller
 
     public function asignarBahias($id_servicio)
     {
-        $bahias = Bahia::all();
-        $servicio = Servicio::find($id_servicio);
+        $servicio = Servicio::findOrFail($id_servicio);
+
+        // Obtener las bahías no asignadas al servicio
+        $bahiasAsignadas = $servicio->bahias()->pluck('id_bahia')->toArray(); // Obtener IDs de bahías asignadas
+        $bahias = Bahia::whereNotIn('id_bahia', $bahiasAsignadas)->get(); // Excluir bahías asignadas
 
         return view('Bahias.asignarBahias', compact('bahias', 'id_servicio', 'servicio'));
     }
@@ -199,7 +202,7 @@ class BahiaController extends Controller
             ->with('success', 'Información de la bahía actualizada exitosamente.');
     }
 
-    
+
     public function destroyServicioBahias($id_servicio, $id_bahia)
     {
         // Encontrar el servicio por el ID proporcionado
@@ -212,7 +215,7 @@ class BahiaController extends Controller
         $servicio->bahias()->detach($id_bahia);
 
         // Redirigir con un mensaje de éxito
-        return redirect()->route('showServicioBahias', ['id_servicio_bahia' => $id_servicio])
+        return redirect()->route('Bahias.showServicioBahias', ['id_servicio_bahia' => $id_servicio])
             ->with('success', 'Bahía eliminada exitosamente del servicio.');
     }
 }

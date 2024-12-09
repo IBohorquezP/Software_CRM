@@ -35,15 +35,16 @@
 
                 <label for="cliente" class="flex flex-col gap-2">
                     <span class="font-bold">Cliente</span>
-
                     <select name="id_cliente" id="id_cliente"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                         <option value="">Seleccione un cliente</option>
                         @foreach ($clientes as $cliente)
-                        <option value="{{ $cliente->id_cliente }}">{{ $cliente->nombre }}</option>
+                        <option value="{{ $cliente->id_cliente }}"
+                            {{ $cliente->id_cliente == $servicio->clientes_id_cliente ? 'selected' : '' }}>
+                            {{ $cliente->nombre }}
+                        </option>
                         @endforeach
                     </select>
-
                     <span class="text-red-500 text-sm hidden" id="clienteError">Este campo es obligatorio.</span>
                 </label>
 
@@ -102,15 +103,12 @@
                         name=marca>
                     <span class="text-red-500 text-sm hidden" id="marcaError">Este campo es obligatorio.</span>
                 </label>
-                <label for="fecha_llegada" class=" flex flex-col gap-2">
-                    <span class="font-bold">
-
-                        Fecha Llegada
-                    </span>
+                <label for="fecha_llegada" class="flex flex-col gap-2">
+                    <span class="font-bold">Fecha Llegada</span>
                     <input type="date"
-                        value="{{$servicio->fecha_llegada}}"
+                        value="{{ \Carbon\Carbon::parse($servicio->fecha_llegada)->format('Y-m-d') }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name=fecha_llegada>
+                        name="fecha_llegada">
                     <span class="text-red-500 text-sm hidden" id="fechallegadaError">Este campo es obligatorio.</span>
                 </label>
                 <span id="btn-siguiente"
@@ -119,29 +117,21 @@
             </div>
             {{-- aqui es el otro formulario --}}
             <div id="form2" class="hidden grid-cols-2 gap-5">
-                <label for="fecha_salida_estimada" class=" flex flex-col gap-2">
-                    <span class="font-bold">
-
-                        Fecha Salida Estimada
-                    </span>
+                <label for="fecha_salida_estimada" class="flex flex-col gap-2">
+                    <span class="font-bold">Fecha Salida Estimada</span>
                     <input type="date"
-                        value="{{$servicio->fecha_salida_estimada}}"
+                        value="{{ \Carbon\Carbon::parse($servicio->fecha_salida_estimada)->format('Y-m-d') }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name=fecha_salida_estimada>
-                    <span class="text-red-500 text-sm hidden" id="fechaSalidaEstimadaError">Este campo es
-                        obligatorio.</span>
+                        name="fecha_salida_estimada">
+                    <span class="text-red-500 text-sm hidden" id="fechaSalidaEstimadaError">Este campo es obligatorio.</span>
                 </label>
-                <label for="fecha_salida_real" class=" flex flex-col gap-2">
-                    <span class="font-bold">
-
-                        Fecha Salida Real
-                    </span>
+                <label for="fecha_salida_real" class="flex flex-col gap-2">
+                    <span class="font-bold">Fecha Salida Real</span>
                     <input type="date"
-                        value="{{$servicio->fecha_salida_real}}"
+                        value="{{ \Carbon\Carbon::parse($servicio->fecha_salida_real)->format('Y-m-d') }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name=fecha_salida_real>
-                    <span class="text-red-500 text-sm hidden" id="fechaSalidaRealError">Este campo es
-                        obligatorio.</span>
+                        name="fecha_salida_real">
+                    <span class="text-red-500 text-sm hidden" id="fechaSalidaRealError">Este campo es obligatorio.</span>
                 </label>
                 <label for="contador" class="flex flex-col gap-2">
                     <span class="font-bold">
@@ -186,9 +176,13 @@
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                         <option value="">Seleccione una etapa</option>
                         @foreach ($etapas as $etapa)
-                        <option value="{{ $etapa->id_etapa }}">{{ $etapa->nombre }}</option>
+                        <option value="{{ $etapa->id_etapa }}"
+                            {{ $etapa->id_etapa == $servicio->etapas_id_etapa ? 'selected' : '' }}>
+                            {{ $etapa->nombre }}
+                        </option>
                         @endforeach
                     </select>
+                    <span class="text-red-500 text-sm hidden" id="etapaError">Este campo es obligatorio.</span>
                 </label>
 
                 <span id="btn-anterior"

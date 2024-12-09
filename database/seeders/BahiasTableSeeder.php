@@ -64,5 +64,65 @@ class BahiasTableSeeder extends Seeder
         $bahia9->foto = 'fotos/1732890964.jpeg';
         $bahia9->descripcion = 'Se trabajan los tubos y tornillos del motor';
         $bahia9->save();
+
+        $bahia10 = new Bahia;
+        $bahia10->nombre = 'Bombas y Turbos (Desarme)';
+        $bahia10->foto = 'fotos/1733760017.jpeg';
+        $bahia10->descripcion = 'Se trabaja las bombas y los turbos en desarme';
+        $bahia10->save();
+
+        $bahia11 = new Bahia;
+        $bahia11->nombre = 'Cylinder Pack (Desarme)';
+        $bahia11->foto = 'fotos/1733760055.jpeg';
+        $bahia11->descripcion = 'Se trabajan los cilindros en desarme';
+        $bahia11->save();
+
+        $bahia12 = new Bahia;
+        $bahia12->nombre = 'Camaras (Desarme)';
+        $bahia12->foto = 'fotos/1733760108.jpeg';
+        $bahia12->descripcion = 'Se trabajan las camaras en desarme';
+        $bahia12->save();
+
+        $bahia13 = new Bahia;
+        $bahia13->nombre = 'Lavado Externo (Desarme)';
+        $bahia13->foto = 'fotos/1733760154.jpeg';
+        $bahia13->descripcion = 'Se hace el lavado del motor externamente';
+        $bahia13->save();
+
+        $bahia14 = new Bahia;
+        $bahia14->nombre = 'Lavado Interno (Desarme)';
+        $bahia14->foto = 'fotos/1733760201.jpeg';
+        $bahia14->descripcion = 'Se lava internamente el motor';
+        $bahia14->save();
+
+        $bahia15 = new Bahia;
+        $bahia15->nombre = 'Despaquetizado';
+        $bahia15->foto = 'fotos/1733760238.jpeg';
+        $bahia15->descripcion = 'Se hace el despaquetizado del motor';
+        $bahia15->save();
+
+        $bahia16 = new Bahia;
+        $bahia16->nombre = 'Embragues';
+        $bahia16->foto = 'fotos/1733760260.jpeg';
+        $bahia16->descripcion = 'Se trabajan los embragues del motor';
+        $bahia16->save();
+
+        $bahia17 = new Bahia;
+        $bahia17->nombre = 'Cuarto de Pinturas';
+        $bahia17->foto = 'fotos/1733760310.jpeg';
+        $bahia17->descripcion = 'Se pinta el motor';
+        $bahia17->save();
+
+        $bahia18 = new Bahia;
+        $bahia18->nombre = 'Transito Entrante';
+        $bahia18->foto = 'fotos/1733760359.jpeg';
+        $bahia18->descripcion = 'Entrada de los servicios';
+        $bahia18->save();
+
+        $bahia19 = new Bahia;
+        $bahia19->nombre = 'Transito Saliente';
+        $bahia19->foto = 'fotos/1733760379.jpeg';
+        $bahia19->descripcion = 'Servicios saliendos';
+        $bahia19->save();
     }
 }

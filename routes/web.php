@@ -30,8 +30,8 @@ Route::get('/', [AuthenticatedSessionController::class, 'create']);
 Route::get('/dashboard', HomeController::class)->name('dashboard');
 
 //Ruta Planificación
-Route::get('/planificacion', function () {
-    return view('planificacion');
+Route::get('/Planificacion', function () {
+    return view('Planificacion');
 });
 
 // //Ruta Clientes

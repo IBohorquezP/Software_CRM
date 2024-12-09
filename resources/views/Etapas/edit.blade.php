@@ -1,6 +1,7 @@
 @extends('layouts.header')
 @extends('layouts.footer')
 @section('title', 'Editar Etapa')
+<link rel="icon" href="{{ asset('css/images/Logoi.ico') }}" type="image/x-icon">
 @section('main')
     <section class="grid grid-cols-2 gap-10 justify-items-center items-center">
         <div class="w-full">

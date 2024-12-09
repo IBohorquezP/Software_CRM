@@ -111,8 +111,11 @@ class TecnicoController extends Controller
     //Todo Asignar tecnicos a servicios
     public function asignarTecnicos($id_servicio)
     {
-        $tecnicos = Tecnico::all();
         $servicio = Servicio::findOrFail($id_servicio);
+
+        // Obtener los técnicos no asignados al servicio
+        $tecnicosAsignados = $servicio->tecnicos()->pluck('id_tecnico')->toArray(); // IDs de técnicos asignados
+        $tecnicos = Tecnico::whereNotIn('id_tecnico', $tecnicosAsignados)->get(); // Excluir técnicos asignados
 
         return view('Tecnicos.asignarTecnicos', compact('tecnicos', 'id_servicio', 'servicio'));
     }
@@ -123,18 +126,18 @@ class TecnicoController extends Controller
             'id_servicio' => 'required|exists:servicios,id_servicio',
             'id_tecnico' => 'required|exists:tecnicos,id_tecnico',
         ]);
-    
+
         $servicio = Servicio::findOrFail($validatedData['id_servicio']);
-    
+
         // Verifica si el técnico ya está asignado al servicio
         if ($servicio->tecnicos()->where('id_tecnico', $validatedData['id_tecnico'])->exists()) {
             return redirect()->route('Tecnicos.asignarTecnicos', ['id_servicio' => $validatedData['id_servicio']])
                 ->with('error', 'El técnico ya está asignado a este servicio.');
         }
-    
+
         // Asigna el técnico al servicio
         $servicio->tecnicos()->attach($validatedData['id_tecnico']);
-    
+
         return redirect()->route('Tecnicos.showServicioTecnicos', ['id_servicio_tecnico' => $validatedData['id_servicio']])
             ->with('success', 'Técnico asignado exitosamente al servicio.');
     }

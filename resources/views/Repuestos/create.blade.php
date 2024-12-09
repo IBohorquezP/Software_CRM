@@ -37,9 +37,11 @@
                 <span class="font-bold">
                     Duración Cotización
                 </span>
-                <input type="text"
-                    name="contador_cotizacion"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
+                <span id="contador_cotizacion"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                    0 días
+                </span>
+            </label>
             <label for="nro_orden" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
                     Nro Orden
@@ -62,14 +64,15 @@
                 <input type="date"
                     name="fecha_fin_colocacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="contador_colocación" class="flex flex-col gap-2 w-full">
+            <label for="contador_colocacion" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
                     Duración Colocación
                 </span>
-                <input type="text"
-                    name="contador_colocacion"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-
+                <span id="contador_colocacion"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                    0 días
+                </span>
+            </label>
             <div class="col-span-2 flex justify-evenly w-full">
                 <a href="{{ route('Repuestos.show', $servicio->id_servicio) }}"
                     class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
