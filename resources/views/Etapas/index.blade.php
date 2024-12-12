@@ -24,7 +24,7 @@
             <p class="text-xl text-center font-bold">{{ $etapa->nombre }}</p>
         </a>
     @endforeach 
-        <img src="{{ asset('css/images/etapas/desarme.webp') }}" class="w-full h-full object-cover  row-start-1">
-        <img src="{{ asset('css/images/etapas/armado.webp') }}" class="w-full h-full object-cover ">
+        <img src="{{ asset('css/images/Motores3.jpg') }}" class="w-full h-full object-cover  row-start-1">
+        <img src="{{ asset('css/images/Motores4.jpg') }}" class="w-full h-full object-cover ">
     </section>
 @endsection

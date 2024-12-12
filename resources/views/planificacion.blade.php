@@ -18,7 +18,7 @@
             <img src="{{asset('/css/images/planificacion/Tecnico.png')}}" class="w-[150px]">
             <p class="text-xl  font-bold">Técnicos</p>
         </a>
-        <img src="{{ asset('css/images/etapas/desarme.webp') }}" class="w-full h-full object-cover  row-start-1">
-        <img src="{{ asset('css/images/etapas/armado.webp') }}" class="w-full h-full object-cover ">
+        <img src="{{ asset('css/images/Motores1.jpeg') }}" class="w-full h-full object-cover  row-start-1">
+        <img src="{{ asset('css/images/Motores2.jpeg') }}" class="w-full h-full object-cover ">
     </section>
 @endsection
