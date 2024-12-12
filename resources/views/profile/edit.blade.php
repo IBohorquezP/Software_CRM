@@ -1,3 +1,4 @@
+<title>Perfil</title>
 <x-app-layout>
     <x-slot name="header">
         <span class="h-[12px] w-[75%] bg-naranja-industrial-500 inline-block rounded-full"></span>

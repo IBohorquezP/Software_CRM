@@ -102,8 +102,11 @@ class ServicioController extends Controller
         $servicio = Servicio::findOrFail($id_servicio);
         $servicio->fill($validatedData);
 
+        // Asignar manualmente
+        $servicio->clientes_id_cliente = $validatedData['id_cliente'];
+        $servicio->etapas_id_etapa = $validatedData['id_etapa'];
 
-        // Recalcular el campo 'contador' como la diferencia entre fechas
+        // Recalcular el campo 'contador'
         $servicio->contador = $this->calcularDiferenciaDias(
             $validatedData['fecha_salida_estimada'] ?? null,
             $validatedData['fecha_salida_real'] ?? null
