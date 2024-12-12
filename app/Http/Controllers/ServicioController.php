@@ -12,6 +12,11 @@ use Carbon\Carbon;
 
 class ServicioController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('role:Admin')->only('create', 'edit', 'destroy');
+    // }
+
     public function index()
     {
         $servicios = Servicio::with(['etapa', 'cliente', 'bahias'])->get();

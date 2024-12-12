@@ -44,7 +44,7 @@
             </label>
             <label for="nro_orden" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
-                    Nro Orden
+                    Número de Orden
                 </span>
                 <input type="text"
                     name="nro_orden"

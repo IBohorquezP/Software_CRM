@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class RepuestoController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('role:Admin')->only('create', 'edit', 'destroy');
+    // }
+
     public function create($id_servicio)
     {
         $servicio = Servicio::find($id_servicio);
@@ -42,7 +47,7 @@ class RepuestoController extends Controller
             'id_repuesto' => $repuesto->id_repuesto,
         ]);
     }
-    
+
     public function show($id_servicio)
     {
         $servicio = Servicio::find($id_servicio);

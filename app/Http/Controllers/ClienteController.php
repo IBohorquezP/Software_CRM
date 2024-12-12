@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 class ClienteController extends Controller
 {
 
-//    public function __construct() {
-//        $this->middleware('auth');
-
-//    }
+    // public function __construct()
+    // {
+    //     $this->middleware('role:Admin')->only('create','edit','destroy');
+    // }
 
     public function index()
     {
+
         $clientes = Cliente::all(); // Obtiene todos los clientes desde la base de datos
         return view('Clientes.index', compact('clientes')); // Pasa $clientes a la vista
     }

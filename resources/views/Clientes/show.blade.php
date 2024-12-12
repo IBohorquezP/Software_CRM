@@ -35,11 +35,15 @@
                     @method('DELETE')
                     <a href="{{ route('Clientes.index') }}"
                         class="font-bold py-2 px-10 text-center rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">Volver</a>
+                        @can('Clientes.edit')
                         <a href="{{ route('Clientes.edit', $cliente->id_cliente) }}"
                         class="font-bold py-2 px-10 text-center rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Editar</a>
-                    <button type="submit"
+                        @endcan
+                        @can('Clientes.destroy')
+                        <button type="submit"
                         class="font-bold py-2 px-10 rounded-sm bg-naranja-claro-400 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-600">Eliminar</button>
-                </form>
+                        @endcan
+                    </form>
             </div>
         </div>
         <img src="{{ asset($cliente->foto) }}" class="justify-self-center row-start-1 border-4 border-black p-5 bg-gray-200 h-[500px] object-content">

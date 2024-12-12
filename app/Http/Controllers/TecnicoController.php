@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 
 class TecnicoController extends Controller
 {
-
+    // public function __construct()
+    // {
+    //     $this->middleware('role:Admin')->only('create', 'edit', 'destroy');
+    // }
 
     public function index()
     {

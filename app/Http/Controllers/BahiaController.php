@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 class BahiaController extends Controller
 {
 
+    // public function __construct()
+    // {
+    //     $this->middleware('role:Admin')->only('create','edit','destroy');
+    // }
 
     public function index()
     {

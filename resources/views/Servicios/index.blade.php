@@ -11,8 +11,10 @@
 @section('main2')
 <div class="w-full flex justify-between items-center">
     <a href="/Etapas" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Volver</a>
-    <h class="text-[60px] font-bold drop-shadow-xl ">Servicios</h>
+    <h1 class="text-[60px] font-bold drop-shadow-xl mx-auto">Servicios</h1>
+    @can('Servicios.create')
     <a href="/Servicios/create" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Agregar</a>
+    @endcan
 </div>
 <div class="card p-4">
     <div class="card-body">

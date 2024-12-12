@@ -142,7 +142,7 @@
                 <li><strong>Fecha llegada:</strong> <span>{{ $servicio['fecha_llegada'] }}</span></li>
                 <li><strong>Fecha Salida Estimada:</strong> <span>{{ $servicio['fecha_salida_estimada'] }}</span></li>
                 <li><strong>Fecha Salida Real:</strong> <span>{{ $servicio['fecha_salida_real'] }}</span></li>
-                <li><strong>Contador:</strong> <span>{{ $servicio['contador'] }}</span></li>
+                <li><strong>Duración:</strong> <span>{{ $servicio['contador'] }}</span></li>
                 <li><strong>Requisito:</strong> <span>{{ $servicio['requisito'] }}</span></li>
                 <li><strong>Observación:</strong> <span>{{ $servicio['nota'] }}</span></li>
             </ul>

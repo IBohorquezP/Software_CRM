@@ -16,7 +16,9 @@ class DatabaseSeeder extends Seeder
             ClientesTableSeeder::class,
             TecnicosTableSeeder::class,
             EtapasTableSeeder::class,
-            BahiasTableSeeder::class
+            BahiasTableSeeder::class,
+            RoleSeeder::class,
+            UserSeeder::class
         ]);
     }
 }
