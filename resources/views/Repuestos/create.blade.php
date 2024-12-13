@@ -33,6 +33,13 @@
                 <input type="date"
                     name="fecha_fin_cotizacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
+            <label for="nro_cotizacion" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">
+                    Número de Cotización
+                </span>
+                <input type="text"
+                    name="nro_cotizacion"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="contador_cotizacion" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
                     Duración Cotización
@@ -42,13 +49,6 @@
                     0 días
                 </span>
             </label>
-            <label for="nro_orden" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">
-                    Número de Orden
-                </span>
-                <input type="text"
-                    name="nro_orden"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="fecha_inicio_cotizacion" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
                     Fecha Inicio Colocación
@@ -63,6 +63,13 @@
                 </span>
                 <input type="date"
                     name="fecha_fin_colocacion"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
+            <label for="nro_orden" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">
+                    Número de Orden
+                </span>
+                <input type="text"
+                    name="nro_orden"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="contador_colocacion" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">

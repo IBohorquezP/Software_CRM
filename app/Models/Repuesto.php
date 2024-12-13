@@ -17,10 +17,11 @@ class Repuesto extends Model
     protected $fillable = [
         'fecha_inicio_cotizacion',
         'fecha_fin_cotizacion',
+        'nro_cotizacion',
         'contador_cotizacion',
-        'nro_orden',
         'fecha_inicio_colocacion',
         'fecha_fin_colocacion',
+        'nro_orden',
         'contador_colocacion',
         'servicios_id_servicio',
     ];

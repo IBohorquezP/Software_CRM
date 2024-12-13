@@ -21,22 +21,25 @@
         <table id="repuestos" class="table" style="width:100%">
             <thead>
                 <tr>
-                    <th class="text-center">Nro Orden</th>
                     <th class="text-center">Fecha Inicio Cotización</th>
                     <th class="text-center">Fecha Fin Cotización</th>
+                    <th class="text-center">Nro Cotización</th>
                     <th class="text-center">Fecha Inicio Colocación</th>
                     <th class="text-center">Fecha Fin Colocación</th>
+                    <th class="text-center">Nro Orden</th>
                     <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($repuestos as $repuesto)
                 <tr>
-                    <td class="text-center">{{$repuesto->nro_orden}}</td>
                     <td class="text-center">{{$repuesto->fecha_inicio_cotizacion}}</td>
                     <td class="text-center">{{$repuesto->fecha_fin_cotizacion}}</td>
+                    <td class="text-center">{{$repuesto->nro_cotizacion}}</td>
                     <td class="text-center">{{$repuesto->fecha_inicio_colocacion}}</td>
                     <td class="text-center">{{$repuesto->fecha_fin_colocacion}}</td>
+                    <td class="text-center">{{$repuesto->nro_orden}}</td>
+
                     <td class="flex justify-center space-x-2">
                         @can('Repuestos.edit')
                         <a href="{{ route('Repuestos.edit', ['id_servicio' => $servicio->id_servicio, 'id_repuesto' => $repuesto->id_repuesto]) }}" class="w-20 h-10 py-2 text-center rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Editar</a>

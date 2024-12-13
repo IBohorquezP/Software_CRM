@@ -25,19 +25,21 @@ class RepuestoController extends Controller
         $validateData = $request->validate([
             'fecha_inicio_cotizacion' => 'nullable|date_format:Y-m-d|max:255',
             'fecha_fin_cotizacion' => 'nullable|date_format:Y-m-d|max:255',
-            'nro_orden' => 'nullable|string|max:255',
+            'nro_cotizacion' => 'nullable|string|max:255',
             'fecha_inicio_colocacion' => 'nullable|date_format:Y-m-d|max:255',
             'fecha_fin_colocacion' => 'nullable|date_format:Y-m-d|max:255',
+            'nro_orden' => 'nullable|string|max:255',
             'id_servicio' => 'required|exists:servicios,id_servicio',
         ]);
 
         $repuesto = new Repuesto();
         $repuesto->fecha_inicio_cotizacion = $validateData['fecha_inicio_cotizacion'];
         $repuesto->fecha_fin_cotizacion = $validateData['fecha_fin_cotizacion'];
+        $repuesto->nro_cotizacion = $validateData['nro_cotizacion'];
         $repuesto->contador_cotizacion = $this->calculateCounter($validateData['fecha_inicio_cotizacion'], $validateData['fecha_fin_cotizacion']);
-        $repuesto->nro_orden = $validateData['nro_orden'];
         $repuesto->fecha_inicio_colocacion = $validateData['fecha_inicio_colocacion'];
         $repuesto->fecha_fin_colocacion = $validateData['fecha_fin_colocacion'];
+        $repuesto->nro_orden = $validateData['nro_orden'];
         $repuesto->contador_colocacion = $this->calculateCounter($validateData['fecha_inicio_colocacion'], $validateData['fecha_fin_colocacion']);
         $repuesto->servicios_id_servicio = $validateData['id_servicio'];
         $repuesto->save();
@@ -78,9 +80,10 @@ class RepuestoController extends Controller
         $validateData = $request->validate([
             'fecha_inicio_cotizacion' => 'nullable|date_format:Y-m-d|max:255',
             'fecha_fin_cotizacion' => 'nullable|date_format:Y-m-d|max:255',
-            'nro_orden' => 'nullable|string|max:255',
+            'nro_cotizacion' => 'nullable|string|max:255',
             'fecha_inicio_colocacion' => 'nullable|date_format:Y-m-d|max:255',
             'fecha_fin_colocacion' => 'nullable|date_format:Y-m-d|max:255',
+            'nro_orden' => 'nullable|string|max:255',
         ]);
 
         $repuesto = Repuesto::find($id_repuesto);
@@ -91,10 +94,11 @@ class RepuestoController extends Controller
 
         $repuesto->fecha_inicio_cotizacion = $validateData['fecha_inicio_cotizacion'];
         $repuesto->fecha_fin_cotizacion = $validateData['fecha_fin_cotizacion'];
+        $repuesto->nro_cotizacion = $validateData['nro_cotizacion'];
         $repuesto->contador_cotizacion = $this->calculateCounter($validateData['fecha_inicio_cotizacion'], $validateData['fecha_fin_cotizacion']);
-        $repuesto->nro_orden = $validateData['nro_orden'];
         $repuesto->fecha_inicio_colocacion = $validateData['fecha_inicio_colocacion'];
         $repuesto->fecha_fin_colocacion = $validateData['fecha_fin_colocacion'];
+        $repuesto->nro_orden = $validateData['nro_orden'];
         $repuesto->contador_colocacion = $this->calculateCounter($validateData['fecha_inicio_colocacion'], $validateData['fecha_fin_colocacion']);
         $repuesto->save();
 
