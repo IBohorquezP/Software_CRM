@@ -40,6 +40,10 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=> 'Repuestos.edit'])->assignRole($role1);
         Permission::create(['name'=> 'Repuestos.destroy'])->assignRole($role1);
 
+        Permission::create(['name'=> 'Externos.create'])->assignRole($role1);
+        Permission::create(['name'=> 'Externos.edit'])->assignRole($role1);
+        Permission::create(['name'=> 'Externos.destroy'])->assignRole($role1);
+
         Permission::create(['name'=> 'Servicios.create'])->assignRole($role1);
         Permission::create(['name'=> 'Servicios.edit'])->assignRole($role1);
         Permission::create(['name'=> 'Servicios.destroy'])->assignRole($role1);

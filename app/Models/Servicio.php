@@ -63,6 +63,12 @@ class Servicio extends Model
         return $this->hasMany(Repuesto::class, 'servicios_id_servicio', 'id_servicio');
     }
 
+    public function externos()
+    {
+        return $this->hasMany(Externo::class, 'servicios_id_servicio', 'id_servicio');
+    }
+
+
 
     public function tecnicos():BelongsToMany
     {

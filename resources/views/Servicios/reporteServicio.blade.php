@@ -155,6 +155,10 @@
 
             <h2 class="section-title">Ordenes de Repuesto</h2>
             <p><strong>Número de Orden:</strong> {{ $repuestos }}</p>
+
+            <h2 class="section-title">Trabajos Externos</h2>
+            <p><strong>Componentes:</strong> {{ $externos }}</p>
+            
     </div>
 </body>
 

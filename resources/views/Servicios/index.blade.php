@@ -34,16 +34,17 @@
                 @foreach ($servicios as $servicio)
                 <td class="text-center">{{ $servicio->etapa->nombre }}</td>
                 <td class="text-center">{{ $servicio->cliente->nombre }}</td>
-                <td class="text-center">{{ $servicio->servicio }}</td>
+                <td class="text-center">{{ $servicio->servicio }}</td>  
                 <td class="text-center">{{ $servicio->componente }}</td>
                 <td class="text-center">{{ $servicio->modelo }}</td>
                 <td class="text-center">{{ $servicio->serial }}</td>
-                <td class="text-center">
+                <td class="">
                     <a href="{{ route('Servicios.show', ['id_servicio' => $servicio->id_servicio]) }}" class="w-20 h-10 px-6 py-2 self-end rounded-md transition-all duration-300 ease-in-out hover:bg-naranja-industrial-600/80 bg-[#F0A21C] text-white">Ver</a>
-                    <a href="{{route('Bahias.showServicioBahias', $servicio->id_servicio)}}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500/80 bg-naranja-industrial-400 text-white text-center">Bahías</a>
-                    <a href="{{route('Tecnicos.showServicioTecnicos', $servicio->id_servicio)}}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-naranja-industrial-400/80 bg-naranja-industrial-300 text-white text-center">Técnicos</a>
-                    <a href="{{route('Repuestos.show', $servicio->id_servicio)}}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gris-industrial-400/80 bg-gris-industrial-400 text-white text-center">Repuestos</a>
-                    <a href="{{ route('Servicios.reporteServicio', ['id_servicio' => $servicio->id_servicio]) }}" type="button" target="_blank" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gris-industrial-500/80 bg-gris-input-500 text-white text-center">Reporte</a>
+                    <a href="{{ route('Bahias.showServicioBahias', $servicio->id_servicio) }}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500/80 bg-naranja-industrial-400 text-white text-center">Bahías</a>
+                    <a href="{{ route('Tecnicos.showServicioTecnicos', $servicio->id_servicio) }}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-naranja-industrial-400/80 bg-naranja-industrial-300 text-white text-center">Técnicos</a>
+                    <a href="{{ route('Repuestos.show', $servicio->id_servicio) }}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gris-industrial-400/80 bg-gris-industrial-400 text-white text-center">Repuestos</a>
+                    <a href="{{ route('Externos.show', $servicio->id_servicio) }}" type="button" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gris-industrial-400/80 bg-gris-industrial-500 text-white text-center">T. Externos</a>
+                    <a href="{{ route('Servicios.reporteServicio', ['id_servicio' => $servicio->id_servicio]) }}" type="button" target="_blank" class="w-20 h-10px-6 py-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gris-industrial-500/80 bg-gris-input-700 text-white text-center">Reporte</a>
                 </td>
                 </tr>
                 @endforeach

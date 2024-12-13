@@ -10,7 +10,7 @@
 <div class="w-full flex justify-between items-center">
     <a href="/Servicios"
         class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Volver</a>
-        <h1 class="text-[50px] font-bold drop-shadow-xl mx-auto">Repuestos del Servicio {{$servicio->servicio}}</h1>
+    <h1 class="text-[40px] font-bold drop-shadow-xl mx-auto">Repuestos del Servicio {{$servicio->servicio}}</h1>
     @can('Repuestos.create')
     <a href="{{ route('Repuestos.create', $servicio->id_servicio) }}"
         class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Agregar</a>

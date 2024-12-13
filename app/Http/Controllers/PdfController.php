@@ -39,6 +39,7 @@ class PdfController extends Controller
                 return $tecnico->nombre . ' ' . $tecnico->apellido;
             })->toArray()), // Técnicos
             'repuestos' => implode(', ', $servicio->repuestos->pluck('nro_orden')->toArray()), // Solo nro_orden de los repuestos
+            'externos' => implode(', ', $servicio->externos->pluck('componente')->toArray()), // Solo nro_orden de los repuestos
         ];
 
         // Generar el PDF

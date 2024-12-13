@@ -5,6 +5,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EtapaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ExternoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PdfController;
@@ -99,6 +100,14 @@ Route::get('/Servicio/Repuestos/{id_servicio}', [RepuestoController::class, 'sho
 Route::get('/Servicio/{id_servicio}/Repuestos/{id_repuesto}/edit', [RepuestoController::class, 'edit'])->name('Repuestos.edit');
 Route::put('/Servicio/{id_servicio}/Repuestos/{id_repuesto}', [RepuestoController::class, 'update'])->name('Repuestos.update');
 Route::delete('/Servicio/{id_servicio}/Repuestos/{id_repuesto}', [RepuestoController::class, 'destroy'])->name('Repuestos.destroy');
+
+// //Ruta Externos
+Route::get('/Externos/{id_servicio}', [ExternoController::class, 'create'])->name('Externos.create');
+Route::post('/Servicio/Externos', [ExternoController::class, 'store'])->name('Externos.store');
+Route::get('/Servicio/Externos/{id_servicio}', [ExternoController::class, 'show'])->name('Externos.show');
+Route::get('/Servicio/{id_servicio}/Externos/{id_externo}/edit', [ExternoController::class, 'edit'])->name('Externos.edit');
+Route::put('/Servicio/{id_servicio}/Externos/{id_externo}', [ExternoController::class, 'update'])->name('Externos.update');
+Route::delete('/Servicio/{id_servicio}/Externos/{id_externo}', [ExternoController::class, 'destroy'])->name('Externos.destroy');
 
 // //Ruta Servicios
 Route::get('/Servicios', [ServicioController::class, 'index'])->name('Servicios.index');
