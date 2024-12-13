@@ -19,6 +19,7 @@ class Externo extends Model
         'componente',
         'serial',
         'cantidad',
+        'descripcion',
         'ot',
         'fecha_salida',
         'fecha_recepcion',

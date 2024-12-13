@@ -22,6 +22,7 @@ class ExternoController extends Controller
             'componente' => 'nullable|string|max:255',
             'serial' => 'nullable|string|max:255',
             'cantidad' => 'nullable|string|max:255',
+            'descripcion' => 'nullable|string|max:255',
             'ot' => 'nullable|string|max:255',
             'fecha_salida' => 'nullable|date_format:Y-m-d|max:255',
             'fecha_llegada' => 'nullable|date_format:Y-m-d|max:255',
@@ -34,6 +35,7 @@ class ExternoController extends Controller
         $externo->componente = $validateData['componente'];
         $externo->serial = $validateData['serial'];
         $externo->cantidad = $validateData['cantidad'];
+        $externo->descripcion = $validateData['descripcion'];
         $externo->ot = $validateData['ot'];
         $externo->fecha_salida = $validateData['fecha_salida'];
         $externo->fecha_llegada = $validateData['fecha_llegada'];
@@ -82,6 +84,7 @@ class ExternoController extends Controller
             'componente' => 'nullable|string|max:255',
             'serial' => 'nullable|string|max:255',
             'cantidad' => 'nullable|string|max:255',
+            'descripcion' => 'nullable|string|max:255',
             'ot' => 'nullable|string|max:255',
             'fecha_salida' => 'nullable|date_format:Y-m-d|max:255',
             'fecha_llegada' => 'nullable|date_format:Y-m-d|max:255',
@@ -99,6 +102,7 @@ class ExternoController extends Controller
         $externo->componente = $validateData['componente'];
         $externo->serial = $validateData['serial'];
         $externo->cantidad = $validateData['cantidad'];
+        $externo->descripcion = $validateData['descripcion'];
         $externo->ot = $validateData['ot'];
         $externo->fecha_salida = $validateData['fecha_salida'];
         $externo->fecha_llegada = $validateData['fecha_llegada'];

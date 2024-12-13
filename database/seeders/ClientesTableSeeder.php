@@ -36,5 +36,11 @@ class ClientesTableSeeder extends Seeder
         $cliente4->tipo = 'Lubricantes';
         $cliente4->foto = 'fotos/1732811179.png';
         $cliente4->save();
+
+        $cliente5 = new Cliente;
+        $cliente5->nombre = 'Ferrominera';
+        $cliente5->tipo = 'Minería';
+        $cliente5->foto = 'fotos/1734115799.png';
+        $cliente5->save();
     }
 }

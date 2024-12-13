@@ -45,6 +45,13 @@
                     value="{{$externo->serial}}"
                     name="serial"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
+            <label for="descripcion" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">
+                    Descripción
+                </span>
+                <input type="text"
+                    name="descripcion"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="cantidad" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
                     Cantidad
@@ -76,7 +83,7 @@
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
             </label>
             <label for="contador_cotizacion" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">Duración Cotización</span>
+                <span class="font-bold">Duración</span>
                 <span class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                     @if($externo->fecha_salida && $externo->fecha_llegada)
                     {{ \Carbon\Carbon::parse($externo->fecha_llegada)->diffInDays($externo->fecha_salida, false) }} días

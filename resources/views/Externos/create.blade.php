@@ -39,6 +39,13 @@
                 <input type="text"
                     name="serial"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
+            <label for="descripcion" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">
+                    Descripción
+                </span>
+                <input type="text"
+                    name="descripcion"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="cantidad" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
                     Cantidad
@@ -46,7 +53,14 @@
                 <input type="number"
                     name="cantidad"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="fecha_salida" class="flex flex-col gap-2 w-full">
+            <label for="ot" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">
+                    OT
+                </span>
+                <input type="text"
+                    name="ot"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
+                    <label for="fecha_salida" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
                     Fecha Salida del CRM
                 </span>
@@ -59,13 +73,6 @@
                 </span>
                 <input type="date"
                     name="fecha_llegada"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="ot" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">
-                    OT
-                </span>
-                <input type="text"
-                    name="ot"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="contador" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
