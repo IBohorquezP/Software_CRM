@@ -66,5 +66,14 @@ class TecnicosTableSeeder extends Seeder
         $tecnico6->foto = 'fotos/1734363620.jpeg';
         $tecnico6->cargo = 'Técnico de Planta';
         $tecnico6->save();
+
+        $tecnico7 = new Tecnico;
+        $tecnico7->cod_mecanico = '12345';
+        $tecnico7->nombre = 'Derek';
+        $tecnico7->apellido = 'Peréz';
+        $tecnico7->cedula = '12345678';
+        $tecnico7->foto = 'fotos/1734370292.jpeg';
+        $tecnico7->cargo = 'Técnico de Planta';
+        $tecnico7->save();
     }
 }

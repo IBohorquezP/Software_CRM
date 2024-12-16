@@ -13,7 +13,7 @@
     <a href="/Etapas" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Volver</a>
     <h1 class="text-[60px] font-bold drop-shadow-xl mx-auto">Servicios</h1>
     @can('Servicios.create')
-    <a href="/Servicios/create" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Agregar</a>
+    <a href="/Servicios/create" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-500 hover:bg-naranja-industrial-500">Agregar</a>
     @endcan
 </div>
 <div class="card p-4">
@@ -27,6 +27,8 @@
                     <th class="text-center">Componente</th>
                     <th class="text-center">Modelo</th>
                     <th class="text-center">Serial</th>
+                    <th class="text-center">Horometro</th>
+                    <th class="text-center">Fecha Llegada</th>
                     <th class="text-center">Acciones</th>
                 </tr>
             </thead>
@@ -38,6 +40,8 @@
                 <td class="text-center">{{ $servicio->componente }}</td>
                 <td class="text-center">{{ $servicio->modelo }}</td>
                 <td class="text-center">{{ $servicio->serial }}</td>
+                <td class="text-center">{{ $servicio->horometro }}</td>
+                <td class="text-center">{{ $servicio->fecha_llegada ? \Carbon\Carbon::parse($servicio->fecha_llegada)->format('d-m-Y') : '' }}</td>
                 <td class="">
                     <ul
                         class="relative w-9 h-9 bg-naranja-claro-500 p-1 border-[2px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-claro-600 hover:text-white float-right">
@@ -49,7 +53,7 @@
                                 <a href="{{ route('Servicios.show', ['id_servicio' => $servicio->id_servicio]) }}" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Ver</a>
                             </li>
                             <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group ">
-                            <a href="{{ route('Bahias.showServicioBahias', $servicio->id_servicio) }}" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Bahías</a>        
+                                <a href="{{ route('Bahias.showServicioBahias', $servicio->id_servicio) }}" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Bahías</a>
                             </li>
                             <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group ">
                                 <a href="{{ route('Tecnicos.showServicioTecnicos', $servicio->id_servicio) }}" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Técnicos</a>
@@ -58,10 +62,10 @@
                                 <a href="{{ route('Repuestos.show', $servicio->id_servicio) }}" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Repuestos</a>
                             </li>
                             <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group ">
-                                <a href="{{ route('Externos.show', $servicio->id_servicio) }}"" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Externos</a>
+                                <a href="{{ route('Externos.show', $servicio->id_servicio) }}"" class=" block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Externos</a>
                             </li>
                             <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group ">
-                                <a href="{{ route('Servicios.reporteServicio', ['id_servicio' => $servicio->id_servicio]) }}" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900" >Reporte</a>
+                                <a href="{{ route('Servicios.reporteServicio', ['id_servicio' => $servicio->id_servicio]) }}" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Reporte</a>
                             </li>
                         </div>
                     </ul>

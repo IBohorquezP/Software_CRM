@@ -121,8 +121,8 @@
                 </label>
             </div>
             <div class="mt-5 flex justify-evenly w-full">
-                <button type="button" onclick="guardarYAgregar()" class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-400 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>
                 <a href="{{ route('Bahias.showServicioBahias', $servicio->id_servicio) }}" class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Finalizar</a>
+                <button type="button" onclick="guardarYAgregar()" class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-400 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>
             </div>
             <label for="id_servicio" class=" flex flex-col gap-2">
                 <input type="hidden" name=id_servicio value="{{$id_servicio}}">
