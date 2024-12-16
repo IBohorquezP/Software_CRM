@@ -195,27 +195,7 @@
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    // $(document).ready(function() {
-    //     const imageInput = $('.image-input');
-    //     const imageUpload = $('#imageUpload');
-    //     const imagePreview = $('#imagePreview');
-
-    //     imageUpload.change(function() {
-    //         const file = this.files[0];
-    //         const allowedTypes = ['image/webp', 'image/jpeg', 'image/png'];
-
-    //         if (!allowedTypes.includes(file.type)) {
-    //             alert('Por favor, selecciona un archivo de imagen válido (JPEG, PNG o WebP).');
-    //             return false; // Prevent default behavior
-    //         }
-
-    //         const reader = new FileReader();
-    //         reader.onload = function(e) {
-    //             imagePreview.attr('src', e.target.result);
-    //         };
-    //         reader.readAsDataURL(file);
-    //     });
-    // });
+   
     // Función de validación utilizando jQuery
     // function validateForm($form) {
     //     let isValid = true;
@@ -256,14 +236,6 @@
             $form2.removeClass('grid').hide();
             $form2.addClass('hidden').hide();
         });
-
-        // Manejador de eventos para el botón "Siguiente" del formulario 2
-        // $nextform3.click(function() {
-        //     $form3.show();
-        //     $form2.hide();
-        //     $form3.removeClass('hidden').show();
-        //     document.getElementById('form3').style.display = 'grid';
-        // });
 
         // Manejador de eventos para el botón "Anterior" del formulario 3
         $backform2.click(function() {

@@ -33,12 +33,20 @@
             <tbody>
                 @foreach($repuestos as $repuesto)
                 <tr>
-                    <td class="text-center">{{$repuesto->fecha_inicio_cotizacion}}</td>
-                    <td class="text-center">{{$repuesto->fecha_fin_cotizacion}}</td>
-                    <td class="text-center">{{$repuesto->nro_cotizacion}}</td>
-                    <td class="text-center">{{$repuesto->fecha_inicio_colocacion}}</td>
-                    <td class="text-center">{{$repuesto->fecha_fin_colocacion}}</td>
-                    <td class="text-center">{{$repuesto->nro_orden}}</td>
+                    <td class="text-center">
+                        {{ $repuesto->fecha_inicio_cotizacion ? \Carbon\Carbon::parse($repuesto->fecha_inicio_cotizacion)->format('d-m-Y') : '' }}
+                    </td>
+                    <td class="text-center">
+                        {{ $repuesto->fecha_fin_cotizacion ? \Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->format('d-m-Y') : '' }}
+                    </td>
+                    <td class="text-center">{{ $repuesto->nro_cotizacion }}</td>
+                    <td class="text-center">
+                        {{ $repuesto->fecha_inicio_colocacion ? \Carbon\Carbon::parse($repuesto->fecha_inicio_colocacion)->format('d-m-Y') : '' }}
+                    </td>
+                    <td class="text-center">
+                        {{ $repuesto->fecha_fin_colocacion ? \Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->format('d-m-Y') : '' }}
+                    </td>
+                    <td class="text-center">{{ $repuesto->nro_orden }}</td>
 
                     <td class="flex justify-center space-x-2">
                         @can('Repuestos.edit')

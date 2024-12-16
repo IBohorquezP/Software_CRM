@@ -24,16 +24,14 @@
 
             <label for="fecha_inicio_cotizacion" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">Fecha Inicio de Cotización</span>
-                <input type="date"
-                    value="{{ \Carbon\Carbon::parse($repuesto->fecha_inicio_cotizacion)->format('Y-m-d') }}"
+                <input type="date" value="{{ $repuesto->fecha_inicio_cotizacion ? \Carbon\Carbon::parse($repuesto->fecha_inicio_cotizacion)->format('Y-m-d') : '' }}"
                     name="fecha_inicio_cotizacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
             </label>
 
             <label for="fecha_fin_cotizacion" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">Fecha Fin de Cotización</span>
-                <input type="date"
-                    value="{{ \Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->format('Y-m-d') }}"
+                <input type="date" value="{{ $repuesto->fecha_fin_cotizacion ? \Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->format('Y-m-d') : '' }}"
                     name="fecha_fin_cotizacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
             </label>
@@ -54,21 +52,16 @@
                     @endif
                 </span>
             </label>
-
-
-
             <label for="fecha_inicio_colocacion" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">Fecha Inicio Colocación</span>
-                <input type="date"
-                    value="{{ \Carbon\Carbon::parse($repuesto->fecha_inicio_colocacion)->format('Y-m-d') }}"
+                <input type="date" value="{{ $repuesto->fecha_inicio_colocacion ? \Carbon\Carbon::parse($repuesto->fecha_inicio_colocacion)->format('Y-m-d') : '' }}"
                     name="fecha_inicio_colocacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
             </label>
 
             <label for="fecha_fin_colocacion" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">Fecha Fin Colocación</span>
-                <input type="date"
-                    value="{{ \Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->format('Y-m-d') }}"
+                <input type="date" value="{{ $repuesto->fecha_fin_colocacion ? \Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->format('Y-m-d') : '' }}"
                     name="fecha_fin_colocacion"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
             </label>

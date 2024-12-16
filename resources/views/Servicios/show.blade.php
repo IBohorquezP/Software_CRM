@@ -83,7 +83,7 @@
                 </label>
                 <label for="fecha_llegada" class="flex flex-col gap-2">
                     <span class="font-bold">Fecha Llegada</span>
-                    <input type="text" value="{{ \Carbon\Carbon::parse($servicio->fecha_llegada)->format('d-m-Y') }}"
+                    <input type="text" value="{{ $servicio->fecha_llegada ? \Carbon\Carbon::parse($servicio->fecha_llegada)->format('d-m-Y') : '' }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         disabled name="fecha_llegada">
                     <span class="text-red-500 text-sm hidden" id="fechallegadaError">Este campo es obligatorio.</span>
@@ -96,14 +96,14 @@
             <div id="form2" class="hidden grid-cols-2 gap-5">
                 <label for="fecha_salida_estimada" class="flex flex-col gap-2">
                     <span class="font-bold">Fecha Salida Estimada</span>
-                    <input type="text" value="{{ \Carbon\Carbon::parse($servicio->fecha_salida_estimada)->format('d-m-Y') }}"
+                    <input type="text" value="{{ $servicio->fecha_salida_estimada ? \Carbon\Carbon::parse($servicio->fecha_salida_estimada)->format('d-m-Y') : '' }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         disabled name="fecha_salida_estimada">
                     <span class="text-red-500 text-sm hidden" id="fechaSalidaEstimadaError">Este campo es obligatorio.</span>
                 </label>
                 <label for="fecha_salida_real" class="flex flex-col gap-2">
                     <span class="font-bold">Fecha Salida Real</span>
-                    <input type="text" value="{{ \Carbon\Carbon::parse($servicio->fecha_salida_real)->format('d-m-Y') }}"
+                    <input type="text" value="{{ $servicio->fecha_salida_real ? \Carbon\Carbon::parse($servicio->fecha_salida_real)->format('d-m-Y') : '' }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         disabled name="fecha_salida_real">
                     <span class="text-red-500 text-sm hidden" id="fechaSalidaRealError">Este campo es obligatorio.</span>

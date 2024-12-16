@@ -54,9 +54,9 @@
                     <ul
                         class="relative bg-naranja-claro-200 p-3 border-[3px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-claro-300 hover:text-white">
                         <li>
-                            <img src='{{ asset('/css/images/menu.svg') }}' class='w-6 h-6 cursor-pointer menu-icon'>
+                            <img src='{{ asset('/css/images/menu.svg') }}' class='w-6 h-6 cursor-pointer menu-icon' onclick="toggle_menu('header-menu')">
                         </li>
-                        <div class="absolute top-[70px] left-[-140px] w-48 bg-white rounded-md shadow-md menu-content hidden">
+                        <div class="absolute top-[70px] left-[-140px] w-48 bg-white rounded-md shadow-md menu-content hidden" id="header-menu">
                             <li class="transition-all duration-300 ease-in-out rounded-t-md hover:bg-naranja-industrial-500 group "><a href="/Clientes"
                                     class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Clientes</a></li>
                             <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group "><a href="/Etapas"
@@ -83,12 +83,10 @@
 </body>
 @yield('js')
 <script>
-    const menuIcon = document.querySelector('.menu-icon');
-    const menuContent = document.querySelector('.menu-content');
-
-    menuIcon.addEventListener('click', () => {
-        menuContent.classList.toggle('hidden');
-    });
+    function toggle_menu(menu_id){
+        const menu = document.getElementById(menu_id)
+        menu.classList.toggle('hidden')
+    }
 </script>
 
 </html>

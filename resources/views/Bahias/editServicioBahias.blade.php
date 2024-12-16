@@ -63,8 +63,7 @@
 
                         Fecha Inicio
                     </span>
-                    <input type="date"
-                        value="{{$bahia->pivot->fecha_inicio}}"
+                    <input type="date" value="{{ $bahia->pivot->fecha_inicio ? \Carbon\Carbon::parse($bahia->pivot->fecha_inicio)->format('Y-m-d') : '' }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=fecha_inicio>
                     <span class="text-red-500 text-sm hidden" id="fechaEstimadaError">Este campo es
@@ -75,8 +74,7 @@
 
                         Fecha Fin
                     </span>
-                    <input type="date"
-                        value="{{$bahia->pivot->fecha_real}}"
+                    <input type="date" value="{{ $bahia->pivot->fecha_fin ? \Carbon\Carbon::parse($bahia->pivot->fecha_fin)->format('Y-m-d') : '' }}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=fecha_fin>
                     <span class="text-red-500 text-sm hidden" id="fechaRealError">Este campo es

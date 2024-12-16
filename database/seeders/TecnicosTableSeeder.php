@@ -40,7 +40,7 @@ class TecnicosTableSeeder extends Seeder
         $tecnico3->cargo = 'Técnico de Planta';
         $tecnico3->save();
 
-        $tecnico4 = new Tecnico;   
+        $tecnico4 = new Tecnico;
         $tecnico4->cod_mecanico = '12345';
         $tecnico4->nombre = 'Nelson';
         $tecnico4->apellido = 'Torres';
@@ -49,7 +49,7 @@ class TecnicosTableSeeder extends Seeder
         $tecnico4->cargo = 'Técnico de Planta';
         $tecnico4->save();
 
-        $tecnico5 = new Tecnico;   
+        $tecnico5 = new Tecnico;
         $tecnico5->cod_mecanico = '12345';
         $tecnico5->nombre = 'Arnaldo';
         $tecnico5->apellido = 'Bolivar';
@@ -57,5 +57,14 @@ class TecnicosTableSeeder extends Seeder
         $tecnico5->foto = 'fotos/1734027331.jpeg';
         $tecnico5->cargo = 'Técnico de Planta';
         $tecnico5->save();
+
+        $tecnico6 = new Tecnico;
+        $tecnico6->cod_mecanico = '12345';
+        $tecnico6->nombre = 'José Manuel';
+        $tecnico6->apellido = 'Peréz';
+        $tecnico6->cedula = '12345678';
+        $tecnico6->foto = 'fotos/1734363620.jpeg';
+        $tecnico6->cargo = 'Técnico de Planta';
+        $tecnico6->save();
     }
 }

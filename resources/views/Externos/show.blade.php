@@ -37,8 +37,12 @@
                     <td class="text-center">{{ $externo->componente }}</td>
                     <td class="text-center">{{ $externo->serial }}</td>
                     <td class="text-center">{{ $externo->cantidad }}</td>
-                    <td class="text-center">{{ $externo->fecha_salida }}</td>
-                    <td class="text-center">{{ $externo->fecha_llegada }}</td>
+                    <td class="text-center">
+                        {{ $externo->fecha_salida ? \Carbon\Carbon::parse($externo->fecha_salida)->format('d-m-Y') : '' }}
+                    </td>
+                    <td class="text-center">
+                        {{ $externo->fecha_llegada ? \Carbon\Carbon::parse($externo->fecha_llegada)->format('d-m-Y') : '' }}
+                    </td>
                     <td class="flex justify-center space-x-2">
                         @can('Externos.edit')
                         <a href="{{ route('Externos.edit', ['id_servicio' => $servicio->id_servicio, 'id_externo' => $externo->id_externo]) }}" class="w-20 h-10 py-2 text-center rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Editar</a>

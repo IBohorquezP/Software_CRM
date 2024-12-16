@@ -17,11 +17,11 @@ return new class extends Migration
             $table->unsignedInteger('etapas_id_etapa');//Foreign
             $table->string('serial');
             $table->integer('servicio');
-            $table->string('componente');
-            $table->string('modelo');
+            $table->string('componente')->nullable();
+            $table->string('modelo')->nullable();
             $table->string('horometro')->nullable();
             $table->string('marca')->nullable();
-            $table->datetime('fecha_llegada');
+            $table->datetime('fecha_llegada')->nullable();
             $table->datetime('fecha_salida_estimada')->nullable();
             $table->datetime('fecha_salida_real')->nullable();
             $table->integer('contador')->nullable();

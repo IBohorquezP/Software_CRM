@@ -56,19 +56,18 @@ class ExternoController extends Controller
     public function show($id_servicio)
     {
         $servicio = Servicio::find($id_servicio);
-
-        // Obtener los externos para el servicio y formatear las fechas
         $externos = Externo::where('servicios_id_servicio', $id_servicio)->get()->map(function ($externo) {
-            // Formateo de las fechas en el formato Y-m-d
-            $externo->fecha_salida = \Carbon\Carbon::parse($externo->fecha_salida)->format('Y-m-d');
-            $externo->fecha_llegada = \Carbon\Carbon::parse($externo->fecha_llegada)->format('Y-m-d');
+            $externo->fecha_salida = $externo->fecha_salida
+                ? \Carbon\Carbon::parse($externo->fecha_salida)->format('Y-m-d')
+                : null;
+            $externo->fecha_llegada = $externo->fecha_llegada
+                ? \Carbon\Carbon::parse($externo->fecha_llegada)->format('Y-m-d')
+                : null;
             return $externo;
         });
 
-        // Pasar los datos a la vista
         return view('Externos.show', compact('servicio', 'externos'));
     }
-
     public function edit($id_servicio, $id_externo)
     {
         $servicio = Servicio::find($id_servicio);

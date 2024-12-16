@@ -60,26 +60,23 @@
                     value="{{$externo->cantidad}}"
                     name="cantidad"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="fecha_salida" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">Fecha Salida del CRM</span>
-                <input type="date"
-                    value="{{ \Carbon\Carbon::parse($externo->fecha_salida)->format('Y-m-d') }}"
-                    name="fecha_salida"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
-            </label>
-
-            <label for="fecha_llegada" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">Fecha Llegada al CRM</span>
-                <input type="date"
-                    value="{{ \Carbon\Carbon::parse($externo->fecha_llegada)->format('Y-m-d') }}"
-                    name="fecha_llegada"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
-            </label>
             <label for="ot" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">OT</span>
                 <input type="text"
                     value="{{ $externo->ot }}"
                     name="ot"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+            </label>
+            <label for="fecha_salida" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">Fecha Salida del CRM</span>
+                <input type="date" value="{{ $externo->fecha_salida ? \Carbon\Carbon::parse($externo->fecha_salida)->format('Y-m-d') : '' }}"
+                    name="fecha_salida"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+            </label>
+            <label for="fecha_llegada" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">Fecha Llegada al CRM</span>
+                <input type="date" value="{{ $externo->fecha_llegada ? \Carbon\Carbon::parse($externo->fecha_llegada)->format('Y-m-d') : '' }}"
+                    name="fecha_llegada"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
             </label>
             <label for="contador_cotizacion" class="flex flex-col gap-2 w-full">

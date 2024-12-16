@@ -37,7 +37,7 @@ class Servicio extends Model
 
     public function cliente()
     {
-    return $this->belongsTo(Cliente::class, 'clientes_id_cliente');
+    return $this->belongsTo(Cliente::class, 'clientes_id_cliente')->withTrashed();
     }
 
 
@@ -54,7 +54,7 @@ class Servicio extends Model
             'servicios_bahias', 
             'servicios_id_servicio', 
             'bahias_id_bahia' 
-        )->withPivot(['TRG', 'fecha_inicio', 'fecha_fin', 'alcance', 'herramienta', 'documentacion', 'requerimientos', 'actividad', 'servicios_id_servicio']);
+        )->withPivot(['TRG', 'fecha_inicio', 'fecha_fin', 'alcance', 'herramienta', 'documentacion', 'requerimientos', 'actividad', 'servicios_id_servicio'])->withTrashed();
     }
 
 
@@ -72,7 +72,7 @@ class Servicio extends Model
 
     public function tecnicos():BelongsToMany
     {
-        return $this->belongsToMany(Tecnico::class, 'servicios_tecnicos', 'servicios_id_servicio', 'tecnicos_id_tecnico');
+        return $this->belongsToMany(Tecnico::class, 'servicios_tecnicos', 'servicios_id_servicio', 'tecnicos_id_tecnico')->withTrashed();
     }
 
     public function diferenciaFechasSalida()

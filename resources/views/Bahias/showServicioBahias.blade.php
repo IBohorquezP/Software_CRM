@@ -10,7 +10,7 @@
 <div class="w-full flex justify-between items-center">
     <a href="/Servicios"
         class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Volver</a>
-        <h1 class="text-[40px] font-bold drop-shadow-xl mx-auto">Bahias del Servicio {{$servicio->servicio}}</h1>
+    <h1 class="text-[40px] font-bold drop-shadow-xl mx-auto">Bahias del Servicio {{$servicio->servicio}}</h1>
     @can('Bahias.asignarBahias')
     <a href="{{ route('Bahias.asignarBahias', $servicio->id_servicio) }}"
         class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Agregar</a>
@@ -33,8 +33,12 @@
                 <tr>
                     <td class="text-center">{{ $bahia->nombre }}</td>
                     <td class="text-center">{{ $bahia->pivot->TRG }}</td>
-                    <td class="text-center">{{ $bahia->pivot->fecha_inicio }}</td>
-                    <td class="text-center">{{ $bahia->pivot->fecha_fin }}</td>
+                    <td class="text-center">
+                        {{ $bahia->pivot->fecha_inicio ? \Carbon\Carbon::parse($bahia->pivot->fecha_inicio)->format('d-m-Y') : '' }}
+                    </td>
+                    <td class="text-center">
+                        {{ $bahia->pivot->fecha_fin ? \Carbon\Carbon::parse($bahia->pivot->fecha_fin)->format('d-m-Y') : '' }}
+                    </td>
                     <td class="flex justify-center space-x-2">
                         @can('Bahias.editServicioBahias')
                         <a href="{{ route('Bahias.editServicioBahias', ['id_servicio' => $bahia->pivot->servicios_id_servicio, 'id_bahia' => $bahia->id_bahia]) }}" class="w-20 h-10 py-2 text-center rounded-md transition-all duration-300 ease-in-out hover:bg-[#f0a21c]/80 bg-[#F0A21C] text-white">Editar</a>

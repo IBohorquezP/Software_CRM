@@ -56,11 +56,18 @@ class RepuestoController extends Controller
 
         // Obtener los repuestos para el servicio y formatear las fechas
         $repuestos = Repuesto::where('servicios_id_servicio', $id_servicio)->get()->map(function ($repuesto) {
-            // Formateo de las fechas en el formato Y-m-d
-            $repuesto->fecha_inicio_cotizacion = \Carbon\Carbon::parse($repuesto->fecha_inicio_cotizacion)->format('Y-m-d');
-            $repuesto->fecha_fin_cotizacion = \Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->format('Y-m-d');
-            $repuesto->fecha_inicio_colocacion = \Carbon\Carbon::parse($repuesto->fecha_inicio_colocacion)->format('Y-m-d');
-            $repuesto->fecha_fin_colocacion = \Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->format('Y-m-d');
+            $repuesto->fecha_inicio_cotizacion = $repuesto->fecha_inicio_cotizacion
+                ? \Carbon\Carbon::parse($repuesto->fecha_inicio_cotizacion)->format('Y-m-d')
+                : null;
+            $repuesto->fecha_fin_cotizacion = $repuesto->fecha_fin_cotizacion
+                ? \Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->format('Y-m-d')
+                : null;
+            $repuesto->fecha_inicio_colocacion = $repuesto->fecha_inicio_colocacion
+                ? \Carbon\Carbon::parse($repuesto->fecha_inicio_colocacion)->format('Y-m-d')
+                : null;
+            $repuesto->fecha_fin_colocacion = $repuesto->fecha_fin_colocacion
+                ? \Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->format('Y-m-d')
+                : null;
             return $repuesto;
         });
 
