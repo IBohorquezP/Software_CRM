@@ -99,7 +99,7 @@
                     <span class="text-red-500 text-sm hidden" id="fechallegadaError">Este campo es obligatorio.</span>
                 </label>
                 <span id="btn-siguiente"
-                    class="col-start-2 px-4 py-1 bg-naranja-claro-400 transition-all ease-in-out duration-300 cursor-pointer text-center text-sm hover:bg-naranja-industrial-500 hover:text-white">
+                    class="col-start-2 px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 cursor-pointer text-center hover:bg-naranja-industrial-500 hover:text-white">
                     Siguiente
                 </span>
             </div>
@@ -174,7 +174,7 @@
                     @enderror
                 </label>
                 <span id="btn-anterior"
-                    class="col-start-2 px-4 py-1 bg-naranja-claro-400 transition-all ease-in-out duration-300 cursor-pointer text-center text-sm hover:bg-naranja-industrial-500 hover:text-white">
+                    class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">
                     Anterior</span>
             </div>
             <div class="mt-5 flex justify-evenly w-full">

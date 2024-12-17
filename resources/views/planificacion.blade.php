@@ -12,7 +12,7 @@
         </a>
         <a href="{{route('Etapas.index')}}" class="border-4 border-black p-10 text-center items-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{asset('/css/images/planificacion/Alquiler-de-equipos-1-150x150.png')}}" class="w-[150px]">
-            <p class="text-xl  font-bold">Servicio</p>
+            <p class="text-xl  font-bold">Servicios</p>
         </a>
         <a href="{{route('Tecnicos.index')}}" class="border-4 border-black p-10 text-center items-center flex flex-col gap-5 transition-all ease-in-out duration-300 hover:border-naranja-industrial-500 hover:scale-105">
             <img src="{{asset('/css/images/planificacion/Tecnico.png')}}" class="w-[150px]">

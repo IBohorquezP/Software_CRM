@@ -65,7 +65,7 @@
                                 <a href="{{ route('Externos.show', $servicio->id_servicio) }}"" class=" block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Externos</a>
                             </li>
                             <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group ">
-                                <a href="{{ route('Servicios.reporteServicio', ['id_servicio' => $servicio->id_servicio]) }}" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Reporte</a>
+                                <a href="{{ route('Servicios.reporteServicio', ['id_servicio' => $servicio->id_servicio]) }}" target="_blank"  class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Reporte</a>
                             </li>
                         </div>
                     </ul>
