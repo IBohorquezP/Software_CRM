@@ -68,6 +68,7 @@ Route::get('/Etapas', [EtapaController::class, 'index'])->name('Etapas.index');
 Route::get('/Etapas/create', [EtapaController::class, 'create'])->name('Etapas.create');
 Route::post('/Etapas', [EtapaController::class, 'store'])->name('Etapas.store');
 Route::get('/Etapas/{id_etapa}', [EtapaController::class, 'show'])->name('Etapas.show');
+Route::get('/Etapas/{id_etapa}/Servicios', [EtapaController::class, 'servicios'])->name('Etapas.servicios');
 Route::get('/Etapas/{id_etapa}/edit', [EtapaController::class, 'edit'])->name('Etapas.edit');
 Route::put('/Etapas/{id_etapa}', [EtapaController::class, 'update'])->name('Etapas.update');
 Route::delete('/Etapas/{id_etapa}', [EtapaController::class, 'destroy'])->name('Etapas.destroy');

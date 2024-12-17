@@ -11,39 +11,32 @@
 
             @csrf
 
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-
             <div id="form1" class="grid grid-cols-2 gap-5">
-                <label for="servicio" class=" flex flex-col gap-2">
-                    <span class="font-bold">
-                        Servicio
-                    </span>
-                    <input type="text"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name=servicio>
-                    <span class="text-red-500 text-sm hidden" id="numeroServicioError">Este campo es obligatorio.</span>
+
+                <label for="servicio" class="flex flex-col gap-2">
+                    <span class="font-bold">Servicio</span>
+                    <input type="text" name="servicio"
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 focus:border-naranja-industrial-400 @error('servicio') border-red-500 @enderror"
+                        value="{{ old('servicio') }}">
+                    @error('servicio')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </label>
 
-                <label for="cliente" class="flex flex-col gap-2">
+                <label for="id_cliente" class="flex flex-col gap-2">
                     <span class="font-bold">Cliente</span>
-
                     <select name="id_cliente" id="id_cliente"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 focus:border-naranja-industrial-400 @error('id_cliente') border-red-500 @enderror">
                         <option value="">Seleccione un cliente</option>
                         @foreach ($clientes as $cliente)
-                        <option value="{{ $cliente->id_cliente }}">{{ $cliente->nombre }}</option>
+                        <option value="{{ $cliente->id_cliente }}" {{ old('id_cliente') == $cliente->id_cliente ? 'selected' : '' }}>
+                            {{ $cliente->nombre }}
+                        </option>
                         @endforeach
                     </select>
-
-                    <span class="text-red-500 text-sm hidden" id="clienteError">Este campo es obligatorio.</span>
+                    @error('id_cliente')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </label>
 
                 <label for="componente" class=" flex flex-col gap-2">
@@ -66,15 +59,14 @@
                         name=modelo>
                     <span class="text-red-500 text-sm hidden" id="modeloError">Este campo es obligatorio.</span>
                 </label>
-                <label for="serial" class=" flex flex-col gap-2">
-                    <span class="font-bold">
-
-                        Serial
-                    </span>
-                    <input type="text"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name=serial>
-                    <span class="text-red-500 text-sm hidden" id="serialError">Este campo es obligatorio.</span>
+                <label for="serial" class="flex flex-col gap-2">
+                    <span class="font-bold">Serial</span>
+                    <input type="text" name="serial"
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 focus:border-naranja-industrial-400 @error('serial') border-red-500 @enderror"
+                        value="{{ old('serial') }}">
+                    @error('serial')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </label>
                 <label for="horometro" class=" flex flex-col gap-2">
                     <span class="font-bold">
@@ -107,8 +99,9 @@
                     <span class="text-red-500 text-sm hidden" id="fechallegadaError">Este campo es obligatorio.</span>
                 </label>
                 <span id="btn-siguiente"
-                    class="col-start-2 px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 cursor-pointer text-center hover:bg-naranja-industrial-500 hover:text-white">
-                    Siguiente</span>
+                    class="col-start-2 px-4 py-1 bg-naranja-claro-400 transition-all ease-in-out duration-300 cursor-pointer text-center text-sm hover:bg-naranja-industrial-500 hover:text-white">
+                    Siguiente
+                </span>
             </div>
             {{-- aqui es el otro formulario --}}
             <div id="form2" class="hidden grid-cols-2 gap-5">
@@ -168,22 +161,27 @@
                 <label for="id_etapa" class="flex flex-col gap-2">
                     <span class="font-bold">Etapa</span>
                     <select name="id_etapa" id="id_etapa"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 focus:border-naranja-industrial-400 @error('id_etapa') border-red-500 @enderror">
                         <option value="">Seleccione una etapa</option>
                         @foreach ($etapas as $etapa)
-                        <option value="{{ $etapa->id_etapa }}">{{ $etapa->nombre }}</option>
+                        <option value="{{ $etapa->id_etapa }}" {{ old('id_etapa') == $etapa->id_etapa ? 'selected' : '' }}>
+                            {{ $etapa->nombre }}
+                        </option>
                         @endforeach
                     </select>
+                    @error('id_etapa')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </label>
                 <span id="btn-anterior"
-                    class="px-10 py-2 bg-naranja-claro-400 border-2 border-black transition-all ease-in-out duration-300 text-center cursor-pointer hover:bg-naranja-industrial-500 hover:text-white">
+                    class="col-start-2 px-4 py-1 bg-naranja-claro-400 transition-all ease-in-out duration-300 cursor-pointer text-center text-sm hover:bg-naranja-industrial-500 hover:text-white">
                     Anterior</span>
             </div>
             <div class="mt-5 flex justify-evenly w-full">
                 <a href="{{ route('Servicios.index') }}"
-                    class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
+                    class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-400">Volver</a>
                 <button type="submit"
-                    class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>
+                    class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500  transition-all duration-300 ease-in-out hover:bg-naranja-industrial-600">Guardar</button>
 
             </div>
             {{-- hasta aca --}}
@@ -195,7 +193,6 @@
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-   
     // Función de validación utilizando jQuery
     // function validateForm($form) {
     //     let isValid = true;

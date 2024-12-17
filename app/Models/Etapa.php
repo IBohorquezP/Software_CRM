@@ -18,4 +18,9 @@ class Etapa extends Model
         'foto',
 
     ];
+
+    public function servicios()
+    {
+        return $this->hasMany(Servicio::class, 'etapas_id_etapa');
+    }
 }

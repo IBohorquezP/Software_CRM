@@ -16,11 +16,16 @@ class EtapaController extends Controller
 
     public function index()
     {
-        $etapas = Etapa::all(); 
-        return view('Etapas.index', compact('etapas')); 
+        $etapas = Etapa::all();
+        return view('Etapas.index', compact('etapas'));
+    }
+    public function servicios($id_etapa)
+    {
+        $etapa = Etapa::findOrFail($id_etapa);
+        $servicios = $etapa->servicios;
+        return view('Servicios.index', compact('servicios'));
     }
 
- 
     public function create()
     {
         $etapa = new Etapa();
@@ -32,16 +37,16 @@ class EtapaController extends Controller
     {
         //Validacion de datos etapa
         $validateData = $request->validate([
-        'nombre'=> 'required|string|min:3|max:255', 
-        'descripcion'=> 'required|string|max:255',
-        'img'=> 'nullable',
+            'nombre' => 'required|string|min:3|max:255',
+            'descripcion' => 'required|string|max:255',
+            'img' => 'nullable',
         ]);
 
         //Crear una Etapa
         $etapa = new Etapa();
-        $etapa->nombre =$validateData['nombre'] ;
-        $etapa->descripcion = $validateData['descripcion'];    
-        $etapa->foto = $validateData['foto'] ?? null; 
+        $etapa->nombre = $validateData['nombre'];
+        $etapa->descripcion = $validateData['descripcion'];
+        $etapa->foto = $validateData['foto'] ?? null;
 
         if ($request->hasFile('foto')) {
             // Obtener el archivo
@@ -56,14 +61,13 @@ class EtapaController extends Controller
         $etapa->save();
 
         return redirect()->route('Etapas.store')->with('success', 'Etapa creada correctamente.');
-
     }
 
 
-    public function show ($id_etapa)
+    public function show($id_etapa)
     {
         $etapa = Etapa::find($id_etapa);
-        
+
         return view('Etapas.show', compact('etapa'));
     }
 

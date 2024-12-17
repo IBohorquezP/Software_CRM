@@ -13,7 +13,7 @@
     <h1 class="text-[40px] font-bold drop-shadow-xl mx-auto">Bahias del Servicio {{$servicio->servicio}}</h1>
     @can('Bahias.asignarBahias')
     <a href="{{ route('Bahias.asignarBahias', $servicio->id_servicio) }}"
-        class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Agregar</a>
+        class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-500 hover:bg-naranja-industrial-500">Agregar</a>
     @endcan
 </div>
 <div class="card p-4">

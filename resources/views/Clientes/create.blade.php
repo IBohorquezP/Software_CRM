@@ -11,24 +11,29 @@
         <form action="{{ route('Clientes.store') }}" method="POST" enctype="multipart/form-data"
             class="flex flex-col gap-5">
 
-        @csrf
+            @csrf
+            <!-- Nombre -->
             <label for="nombre" class="flex flex-col gap-2">
-                <span class="font-bold">
-                    Nombre
-                </span>
-                <input type="text"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                    required name="nombre">
-                <span class="text-red-500 text-sm hidden" id="nombreError">Este campo es obligatorio.</span>
+                <span class="font-bold">Nombre</span>
+                <input type="text" name="nombre" id="nombre"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400 
+        @error('nombre') border-red-500 @enderror"
+                    value="{{ old('nombre') }}">
+                @error('nombre')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </label>
+
+            <!-- Tipo -->
             <label for="tipo" class="flex flex-col gap-2">
-                <span class="font-bold">
-                    Tipo
-                </span>
-                <input type="text"
-                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                    name="tipo" required>
-                <span class="text-red-500 text-sm hidden" id="tipoError">Este campo es obligatorio.</span>
+                <span class="font-bold">Tipo</span>
+                <input type="text" name="tipo" id="tipo"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400 
+        @error('tipo') border-red-500 @enderror"
+                    value="{{ old('tipo') }}">
+                @error('tipo')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </label>
             <label for="imageUpload" class="flex hover:cursor-pointer justify-center items-center ">
                 <div class="flex flex-col gap-2 justify-center items-center">
@@ -40,11 +45,11 @@
             </label>
             <div class="col-span-2 flex justify-evenly w-full">
                 <a href="{{ route('Clientes.index') }}"
-                    class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
+                    class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-400">Volver</a>
                 <button type="submit"
-                    class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>
+                    class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-600">Guardar</button>
             </div>
-            
+
         </form>
     </div>
     <img src="{{ asset('/css/images/CRM3.webp') }}" class="justify-self-center border-4 border-black p-5 bg-gray-200 h-[500px] object-cover">

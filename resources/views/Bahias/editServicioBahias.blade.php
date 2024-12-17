@@ -128,9 +128,9 @@
                 </label>
             </div>
             <div class="mt-5 flex justify-evenly w-full">
-                <a href="{{ route('Bahias.showServicioBahias', $servicio->id_servicio) }}" class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>
+                <a href="{{ route('Bahias.showServicioBahias', $servicio->id_servicio) }}" class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-400">Volver</a>
                 <button type="submit"
-                    class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Guardar</button>
+                    class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-600">Guardar</button>
             </div>
         </form>
     </div>
