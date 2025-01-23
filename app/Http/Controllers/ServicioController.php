@@ -71,19 +71,20 @@ class ServicioController extends Controller
     public function show($id_servicio)
     {
         $servicio = Servicio::with('cliente', 'etapa')->findOrFail($id_servicio);
-        $clientes = Cliente::all();
-        $etapas = Etapa::all();
+        $id_etapa = $servicio->etapa->id_etapa;
 
-        return view('Servicios.show', compact('servicio', 'clientes', 'etapas'));
+        return view('Servicios.show', compact('servicio', 'id_etapa'));
     }
+
 
     public function edit($id_servicio)
     {
         $servicio = Servicio::with('cliente', 'etapa')->findOrFail($id_servicio);
         $clientes = Cliente::all();
         $etapas = Etapa::all();
+        $id_etapa = $servicio->etapa->id_etapa;
 
-        return view('Servicios.edit', compact('servicio', 'clientes', 'etapas'));
+        return view('Servicios.edit', compact('servicio', 'clientes', 'etapas', 'id_etapa'));
     }
 
     public function update(Request $request, $id_servicio)

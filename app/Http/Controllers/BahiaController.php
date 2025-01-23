@@ -161,7 +161,8 @@ class BahiaController extends Controller
 
         $servicio = Servicio::find($id_servicio_bahia);
         $bahias = $servicio->bahias()->get();
-        return view('Bahias.showServicioBahias', compact('bahias', 'servicio'));
+        $id_etapa = $servicio->etapa->id_etapa;
+        return view('Bahias.showServicioBahias', compact('bahias', 'servicio', 'id_etapa'));
     }
 
 

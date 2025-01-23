@@ -150,8 +150,8 @@ class TecnicoController extends Controller
     {
         $servicio = Servicio::findOrFail($id_servicio_tecnico);
         $tecnicos = $servicio->tecnicos; // Obtener los técnicos asignados directamente
-
-        return view('Tecnicos.showServicioTecnicos', compact('tecnicos', 'servicio'));
+        $id_etapa = $servicio->etapa->id_etapa;
+        return view('Tecnicos.showServicioTecnicos', compact('tecnicos', 'servicio','id_etapa'));
     }
 
     public function editServicioTecnicos($id_servicio, $id_tecnico)

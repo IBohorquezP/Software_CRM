@@ -70,9 +70,9 @@ class RepuestoController extends Controller
                 : null;
             return $repuesto;
         });
-
+        $id_etapa = $servicio->etapa->id_etapa;
         // Pasar los datos a la vista
-        return view('Repuestos.show', compact('servicio', 'repuestos'));
+        return view('Repuestos.show', compact('servicio', 'repuestos','id_etapa'));
     }
 
     public function edit($id_servicio, $id_repuesto)

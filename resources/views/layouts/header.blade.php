@@ -84,6 +84,10 @@
 @yield('js')
 <script>
     function toggle_menu(menu_id){
+        const menus = document.getElementsByClassName('menu-content')
+        for (let i = 0; i < menus.length; i++) {
+            if (menus[i].id != menu_id) menus[i].classList.add('hidden')
+        }
         const menu = document.getElementById(menu_id)
         menu.classList.toggle('hidden')
     }

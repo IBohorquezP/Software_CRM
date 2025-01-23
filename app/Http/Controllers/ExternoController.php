@@ -65,8 +65,9 @@ class ExternoController extends Controller
                 : null;
             return $externo;
         });
+        $id_etapa = $servicio->etapa->id_etapa;
 
-        return view('Externos.show', compact('servicio', 'externos'));
+        return view('Externos.show', compact('servicio', 'externos', 'id_etapa'));
     }
     public function edit($id_servicio, $id_externo)
     {

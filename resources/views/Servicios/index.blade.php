@@ -11,7 +11,8 @@
 @section('main2')
 <div class="w-full flex justify-between items-center">
     <a href="/Etapas" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-400 hover:bg-naranja-industrial-500">Volver</a>
-    <h1 class="text-[60px] font-bold drop-shadow-xl mx-auto">Servicios</h1>
+    <h1 class="text-[60px] font-bold drop-shadow-xl mx-auto">Servicios
+    </h1>
     @can('Servicios.create')
     <a href="/Servicios/create" class="px-8 py-1 border-4 border-black font-semibold transition-all ease-in-out duration-300 bg-naranja-claro-500 hover:bg-naranja-industrial-500">Agregar</a>
     @endcan
@@ -27,7 +28,7 @@
                     <th class="text-center">Componente</th>
                     <th class="text-center">Modelo</th>
                     <th class="text-center">Serial</th>
-                    <th class="text-center">Horometro</th>
+                    <th class="text-center">Horómetro</th>
                     <th class="text-center">Fecha Llegada</th>
                     <th class="text-center">Acciones</th>
                 </tr>
@@ -46,9 +47,9 @@
                     <ul
                         class="relative w-9 h-9 bg-naranja-claro-500 p-1 border-[2px] border-amarillo-oscuro-950 font-semibold transition-all duration-300 hover:bg-naranja-claro-600 hover:text-white float-right">
                         <li>
-                            <img src='{{ asset('/css/images/menu.svg') }}' class='w-6 h-6 cursor-pointer menu-icon' onclick="toggle_menu('menu-content-1')">
+                            <img src='{{ asset('/css/images/menu.svg') }}' class='w-6 h-6 cursor-pointer menu-icon' onclick="toggle_menu('menu-content-{{$servicio->id_servicio}}')">
                         </li>
-                        <div class="absolute bg-white rounded-md shadow-md menu-content hidden z-40" id="menu-content-1">
+                        <div class="absolute bg-white rounded-md shadow-md menu-content hidden z-40" id="menu-content-{{$servicio->id_servicio}}">
                             <li class="transition-all duration-300 ease-in-out rounded-t-md hover:bg-naranja-industrial-500 group ">
                                 <a href="{{ route('Servicios.show', ['id_servicio' => $servicio->id_servicio]) }}" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Ver</a>
                             </li>
@@ -65,7 +66,7 @@
                                 <a href="{{ route('Externos.show', $servicio->id_servicio) }}"" class=" block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Externos</a>
                             </li>
                             <li class="transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500 group ">
-                                <a href="{{ route('Servicios.reporteServicio', ['id_servicio' => $servicio->id_servicio]) }}" target="_blank"  class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Reporte</a>
+                                <a href="{{ route('Servicios.reporteServicio', ['id_servicio' => $servicio->id_servicio]) }}" target="_blank" class="block py-2 px-4 text-gray-800 group-hover:text-white hover:text-gray-900">Reporte</a>
                             </li>
                         </div>
                     </ul>

@@ -161,8 +161,10 @@
                 class="flex w-full justify-evenly gap-5">
                 @csrf
                 @method('DELETE')
-                <a href="{{ route('Servicios.index') }}"
-                    class="font-bold py-2 px-10 text-center rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">Volver</a>
+                <a href="{{ route('Etapas.servicios', $id_etapa) }}"
+                    class="font-bold py-2 px-10 text-center rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out  hover:bg-amarillo-pollo-300">
+                    Volver
+                </a>
                 @can('Servicios.edit')
                 <a href="{{ route('Servicios.edit', $servicio->id_servicio) }}"
                     class="font-bold py-2 px-10 text-center rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-naranja-industrial-500">Editar</a>
