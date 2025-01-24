@@ -1,3 +1,4 @@
+name: "software_crm"
 services:
   app:
     build:
@@ -17,7 +18,7 @@ services:
       - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./:/var/www
     ports:
-      - "8000:80"
+      - "8080:80"
     networks:
       - laravel
     depends_on:
