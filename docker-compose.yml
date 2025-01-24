@@ -27,6 +27,8 @@ services:
     container_name: software_crm_db
     restart: unless-stopped
     tty: true
+    volumes:
+      - software_crm_db_volume:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
@@ -39,3 +41,10 @@ services:
 
 networks:
   software_crm:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
+
+volumes:
+  software_crm_db_volume:
