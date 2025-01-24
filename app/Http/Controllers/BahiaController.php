@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 class BahiaController extends Controller
 {
 
-    // public function __construct()
-    // {
-    //     $this->middleware('role:Admin')->only('create','edit','destroy');
-    // }
-
     public function index()
     {
         $bahias = Bahia::all(); // Obtiene todos los clientes desde la base de datos

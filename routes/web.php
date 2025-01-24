@@ -32,7 +32,7 @@ Route::get('/dashboard', HomeController::class)->name('dashboard');
 
 //Ruta Planificación
 Route::get('/Planificacion', function () {
-    return view('Planificacion');
+    return view('planificacion');
 });
 
 // //Ruta Clientes
