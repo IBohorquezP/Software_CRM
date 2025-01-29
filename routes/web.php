@@ -103,7 +103,7 @@ Route::controller(BahiaController::class)->group(function () {
 
 // //Ruta Repuestos
 Route::get('/Servicio/Repuestos/{id_servicio}', [RepuestoController::class, 'show'])->name('Repuestos.show');
-Route::group(['middleware' => ['can:Repuestos.create', 'Repuestos.edit', 'Repuestos.destroy']], function () {
+Route::group(['middleware' => ['can:Repuestos.create', 'can:Repuestos.edit', 'can:Repuestos.destroy']], function () {
 Route::get('/Repuestos/{id_servicio}', [RepuestoController::class, 'create'])->name('Repuestos.create');
 Route::post('/Servicio/Repuestos', [RepuestoController::class, 'store'])->name('Repuestos.store');
 Route::get('/Servicio/{id_servicio}/Repuestos/{id_repuesto}/edit', [RepuestoController::class, 'edit'])->name('Repuestos.edit');
