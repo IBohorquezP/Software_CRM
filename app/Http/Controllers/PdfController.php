@@ -13,11 +13,18 @@ class PdfController extends Controller
         $servicio = Servicio::findOrFail($id_servicio);
 
         // Formatear las fechas antes de incluirlas en el arreglo
-        $fecha_llegada = \Carbon\Carbon::parse($servicio->fecha_llegada)->format('d/m/Y');
-        $fecha_inicio_estimada = \Carbon\Carbon::parse($servicio->fecha_inicio_estimada)->format('d/m/Y');
-        $fecha_de_despacho = \Carbon\Carbon::parse($servicio->fecha_de_despacho)->format('d/m/Y');
-        $fecha_salida_estimada = \Carbon\Carbon::parse($servicio->fecha_salida_estimada)->format('d/m/Y');
-        $fecha_salida_real = \Carbon\Carbon::parse($servicio->fecha_salida_real)->format('d/m/Y');
+        $fecha_llegada = $servicio->fecha_llegada ? \Carbon\Carbon::parse($servicio->fecha_llegada)->format('d/m/Y') : "";
+        $fecha_inicio_estimada = $servicio->fecha_inicio_estimada ? \Carbon\Carbon::parse($servicio->fecha_inicio_estimada)->format('d/m/Y') : "";
+        $fecha_de_despacho = $servicio->fecha_de_despacho ? \Carbon\Carbon::parse($servicio->fecha_de_despacho)->format('d/m/Y') : "";
+        $fecha_salida_estimada = $servicio->fecha_salida_estimada ? \Carbon\Carbon::parse($servicio->fecha_salida_estimada)->format('d/m/Y') : "";
+        $fecha_salida_real = $servicio->fecha_salida_real ? \Carbon\Carbon::parse($servicio->fecha_salida_real)->format('d/m/Y') : "";
+
+        $ordenes = $servicio->repuestos->pluck('nro_orden')->toArray();
+        $cotizaciones = $servicio->repuestos->pluck('nro_cotizacion')->toArray();
+
+        $externos = $servicio->externos->map(function ($externo) {
+            return "{$externo->cantidad} {$externo->componente} - {$externo->proveedor}";
+        })->toArray();
 
         $data = [
             'nombre_cliente' => $servicio->cliente->nombre,
@@ -42,8 +49,9 @@ class PdfController extends Controller
             'tecnicos' => implode(', ', $servicio->tecnicos->map(function ($tecnico) {
                 return $tecnico->nombre . ' ' . $tecnico->apellido;
             })->toArray()), // Técnicos
-            'repuestos' => implode(', ', $servicio->repuestos->pluck('nro_orden')->toArray()), 
-            'externos' => implode(', ', $servicio->externos->pluck('componente')->toArray()), 
+            'ordenes' => implode(', ', $ordenes),
+            'cotizaciones' => implode(', ', $cotizaciones),
+            'externos' => implode(', ', $externos),
         ];
 
         // Generar el PDF

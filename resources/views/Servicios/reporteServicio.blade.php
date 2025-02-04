@@ -76,7 +76,8 @@
             margin-bottom: 0rem;
             text-align: center;
             margin-left: 1rem;
-            padding-top: 0.5rem;;
+            padding-top: 0.5rem;
+            ;
         }
 
         .list {
@@ -140,7 +141,7 @@
                 <li><strong>Marca:</strong> <span>{{ $servicio['marca'] }}</span></li>
                 <li><strong>Horometro:</strong> <span>{{ $servicio['horometro'] }}</span></li>
                 <li><strong>Fecha Llegada:</strong> <span>{{ $servicio['fecha_llegada'] }}</span></li>
-                <li><strong>Fecha de Despacho:</strong> <span>{{ $servicio['fecha_de_despacho'] }}</span></li>
+                <li><strong>Fecha de Despacho:</strong> <span>{{ $servicio['fecha_de_despacho'] ? $servicio['fecha_de_despacho'] : ""}}</span></li>
                 <li><strong>Fecha Inicio Estimada:</strong> <span>{{ $servicio['fecha_inicio_estimada'] }}</span></li>
                 <li><strong>Fecha Fin Estimada:</strong> <span>{{ $servicio['fecha_salida_estimada'] }}</span></li>
                 <li><strong>Fecha Fin Real:</strong> <span>{{ $servicio['fecha_salida_real'] }}</span></li>
@@ -149,18 +150,19 @@
                 <li><strong>Observación:</strong> <span>{{ $servicio['nota'] }}</span></li>
             </ul>
         </div>
-            <h2 class="section-title">Bahías Asignadas</h2>
-            <p><strong>Bahias:</strong> {{ $bahias }}</p>
-            
-            <h2 class="section-title">Técnicos Asignados</h2>
-            <p><strong>Técnicos:</strong> {{ $tecnicos }}</p>
+        <h2 class="section-title">Bahías Asignadas</h2>
+        <p><strong>Bahias:</strong> {{ $bahias }}</p>
 
-            <h2 class="section-title">Ordenes de Repuesto</h2>
-            <p><strong>Número de Orden:</strong> {{ $repuestos }}</p>
+        <h2 class="section-title">Técnicos Asignados</h2>
+        <p><strong>Técnicos:</strong> {{ $tecnicos }}</p>
 
-            <h2 class="section-title">Trabajos Externos</h2>
-            <p><strong>Componentes:</strong> {{ $externos }}</p>
-            
+        <h2 class="section-title">Órdenes de Repuesto</h2>
+        <p><strong>Número de Orden:</strong> {{ $ordenes }}</p>
+        <p><strong>Número de Cotización:</strong> {{ $cotizaciones }}</p>
+
+        <h2 class="section-title">Trabajos Externos</h2>
+        <p><strong>Componentes:</strong> {{ $externos }}</p>
+
     </div>
 </body>
 

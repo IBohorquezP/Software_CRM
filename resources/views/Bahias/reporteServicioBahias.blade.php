@@ -127,8 +127,8 @@
             <h2 class="section-title">Bahía: {{ $bahia->nombre }}</h2>
             <ul class="list">
                 <li><strong>TRG:</strong> <span>{{ $bahia->pivot->TRG }}Hr</span></li>
-                <li><strong>Fecha Inicio:</strong> <span>{{ \Carbon\Carbon::parse($bahia->pivot->fecha_inicio)->format('d/m/Y') }}</span></li>
-                <li><strong>Fecha Fin:</strong> <span>{{ \Carbon\Carbon::parse($bahia->pivot->fecha_fin)->format('d/m/Y') }}</span></li>
+                <li><strong>Fecha Inicio:</strong><span>{{ $bahia->pivot->fecha_inicio ? \Carbon\Carbon::parse($bahia->pivot->fecha_inicio)->format('d/m/Y') : '' }}</span></li>
+                <li><strong>Fecha Fin:</strong><span>{{ $bahia->pivot->fecha_fin ? \Carbon\Carbon::parse($bahia->pivot->fecha_fin)->format('d/m/Y') : '' }}</span></li>
                 <li><strong>Alcance:</strong> <span>{{ $bahia->pivot->alcance }}</span></li>
                 <li><strong>Herramienta:</strong> <span>{{ $bahia->pivot->herramienta }}</span></li>
                 <li><strong>Documentación:</strong> <span>{{ $bahia->pivot->documentacion }}</span></li>
