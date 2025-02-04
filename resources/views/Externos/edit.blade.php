@@ -45,12 +45,12 @@
                     value="{{$externo->serial}}"
                     name="serial"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
-            <label for="descripcion" class="flex flex-col gap-2 w-full">
+            <label for="requerimiento" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
-                    Descripción
+                    Requerimiento
                 </span>
                 <input type="text"
-                    name="descripcion"
+                    name="requerimiento"
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <label for="cantidad" class="flex flex-col gap-2 w-full">
                 <span class="font-bold">
@@ -80,17 +80,23 @@
                     class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
             </label>
             <label for="contador_cotizacion" class="flex flex-col gap-2 w-full">
-                <span class="font-bold">Duración</span>
+                <span class="font-bold">Variación</span>
                 <span class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                     @if($externo->fecha_salida && $externo->fecha_llegada)
-                    {{ \Carbon\Carbon::parse($externo->fecha_llegada)->diffInDays($externo->fecha_salida, false) }} días
+                    {{ abs(\Carbon\Carbon::parse($externo->fecha_llegada)->diffInDays($externo->fecha_salida, false)) }} días
                     @else
                     {{ $externo->contador }} días
                     @endif
                 </span>
             </label>
-
-
+            <label for="observacion" class="flex flex-col gap-2 w-full">
+                <span class="font-bold">
+                    Observación
+                </span>
+                <input type="text"
+                    value="{{$externo->observacion}}"
+                    name="observacion"
+                    class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"></label>
             <div class="col-span-2 flex justify-evenly w-full">
                 <a href="{{ route('Externos.show', $servicio->id_servicio) }}"
                     class="font-bold py-2 px-10 rounded-sm bg-amarillo-pollo-300 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>

@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('componente')->nullable();
             $table->string('serial')->nullable();
             $table->integer('cantidad')->nullable();
-            $table->string('descripcion')->nullable();
+            $table->string('requerimiento')->nullable();
             $table->string('ot')->nullable();
+            $table->string('observacion')->nullable();
             $table->datetime('fecha_salida')->nullable();
             $table->datetime('fecha_llegada')->nullable();
             $table->string('contador')->nullable();

@@ -44,7 +44,8 @@
                     <input type="text"
                         value="{{$bahia->pivot->TRG}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name=TRG>
+                        name=TRG
+                        placeholder="Hr">
                     <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
                 </label>
                 <label for="actividad" class=" flex flex-col gap-2">
@@ -124,6 +125,17 @@
                         value="{{$bahia->pivot->alcance}}"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=alcance>
+                    <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
+                </label>
+                <label for="nro_de_tecnicos" class=" flex flex-col gap-2">
+
+                    <span class="font-bold">
+                        Cantidad de Técnicos
+                    </span>
+                    <input type="number"
+                        value="{{$bahia->pivot->nro_de_tecnicos}}"
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                        name=nro_de_tecnicos>
                     <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
                 </label>
             </div>

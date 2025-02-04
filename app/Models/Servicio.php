@@ -15,7 +15,7 @@ class Servicio extends Model
 
     protected $table = 'servicios';
     protected $primaryKey = 'id_servicio';
-    protected $dates = ['fecha_salida_estimada', 'fecha_salida_real'];
+    protected $dates = ['fecha_salida_estimada', 'fecha_salida_real','fecha_inicio_estimada','fecha_de_despacho'];
 
     protected $fillable = [
         'clientes_id_cliente',
@@ -27,6 +27,8 @@ class Servicio extends Model
         'horometro',
         'marca',
         'fecha_llegada',
+        'fecha_inicio_estimada',
+        'fecha_de_despacho',
         'fecha_salida_estimada',
         'fecha_salida_real',
         'contador',
@@ -54,7 +56,7 @@ class Servicio extends Model
             'servicios_bahias', 
             'servicios_id_servicio', 
             'bahias_id_bahia' 
-        )->withPivot(['TRG', 'fecha_inicio', 'fecha_fin', 'alcance', 'herramienta', 'documentacion', 'requerimientos', 'actividad', 'servicios_id_servicio'])->withTrashed();
+        )->withPivot(['TRG', 'fecha_inicio', 'fecha_fin', 'alcance', 'herramienta', 'documentacion', 'requerimientos', 'actividad','nro_de_tecnicos','servicios_id_servicio'])->withTrashed();
     }
 
 

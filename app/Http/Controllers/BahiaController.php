@@ -125,6 +125,7 @@ class BahiaController extends Controller
             'documentacion' => 'nullable|string',
             'requerimientos' => 'nullable|string',
             'actividad' => 'nullable|string',
+            'nro_de_tecnicos'=> 'nullable|string',
         ]);
 
         // Buscar el servicio
@@ -143,6 +144,7 @@ class BahiaController extends Controller
             'documentacion' => $validateData['documentacion'] ?? null,
             'requerimientos' => $validateData['requerimientos'] ?? null,
             'actividad' => $validateData['actividad'] ?? null,
+            'nro_de_tecnicos' => $validateData['nro_de_tecnicos'] ?? null,
         ]);
 
         // Redirigir con un mensaje de éxito
@@ -186,6 +188,7 @@ class BahiaController extends Controller
             'documentacion' => 'nullable|string',
             'requerimientos' => 'nullable|string',
             'actividad' => 'nullable|string',
+            'nro_de_tecnicos' => 'nullable|string',
         ]);
 
         // Encontrar el servicio por el ID proporcionado

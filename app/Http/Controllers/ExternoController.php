@@ -22,8 +22,9 @@ class ExternoController extends Controller
             'componente' => 'nullable|string|max:255',
             'serial' => 'nullable|string|max:255',
             'cantidad' => 'nullable|string|max:255',
-            'descripcion' => 'nullable|string|max:255',
+            'requerimiento' => 'nullable|string|max:255',
             'ot' => 'nullable|string|max:255',
+            'observacion' => 'nullable|string|max:255',
             'fecha_salida' => 'nullable|date_format:Y-m-d|max:255',
             'fecha_llegada' => 'nullable|date_format:Y-m-d|max:255',
             'id_servicio' => 'required|exists:servicios,id_servicio',
@@ -35,8 +36,9 @@ class ExternoController extends Controller
         $externo->componente = $validateData['componente'];
         $externo->serial = $validateData['serial'];
         $externo->cantidad = $validateData['cantidad'];
-        $externo->descripcion = $validateData['descripcion'];
+        $externo->requerimiento = $validateData['requerimiento'];
         $externo->ot = $validateData['ot'];
+        $externo->observacion = $validateData['observacion'];
         $externo->fecha_salida = $validateData['fecha_salida'];
         $externo->fecha_llegada = $validateData['fecha_llegada'];
 
@@ -84,8 +86,9 @@ class ExternoController extends Controller
             'componente' => 'nullable|string|max:255',
             'serial' => 'nullable|string|max:255',
             'cantidad' => 'nullable|string|max:255',
-            'descripcion' => 'nullable|string|max:255',
+            'requerimiento' => 'nullable|string|max:255',
             'ot' => 'nullable|string|max:255',
+            'observacion' => 'nullable|string|max:255',
             'fecha_salida' => 'nullable|date_format:Y-m-d|max:255',
             'fecha_llegada' => 'nullable|date_format:Y-m-d|max:255',
         ]);
@@ -102,8 +105,9 @@ class ExternoController extends Controller
         $externo->componente = $validateData['componente'];
         $externo->serial = $validateData['serial'];
         $externo->cantidad = $validateData['cantidad'];
-        $externo->descripcion = $validateData['descripcion'];
+        $externo->requerimiento = $validateData['requerimiento'];
         $externo->ot = $validateData['ot'];
+        $externo->observacion = $validateData['observacion'];
         $externo->fecha_salida = $validateData['fecha_salida'];
         $externo->fecha_llegada = $validateData['fecha_llegada'];
 
@@ -134,7 +138,7 @@ class ExternoController extends Controller
     private function calculateCounter($startDate, $endDate)
     {
         if ($startDate && $endDate) {
-            return \Carbon\Carbon::parse($endDate)->diffInDays($startDate, false);
+            return abs(\Carbon\Carbon::parse($endDate)->diffInDays($startDate, false));
         }
         return 0; // Si no hay fechas, el contador es 0
     }

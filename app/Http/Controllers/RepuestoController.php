@@ -72,7 +72,7 @@ class RepuestoController extends Controller
         });
         $id_etapa = $servicio->etapa->id_etapa;
         // Pasar los datos a la vista
-        return view('Repuestos.show', compact('servicio', 'repuestos','id_etapa'));
+        return view('Repuestos.show', compact('servicio', 'repuestos', 'id_etapa'));
     }
 
     public function edit($id_servicio, $id_repuesto)
@@ -132,7 +132,7 @@ class RepuestoController extends Controller
     private function calculateCounter($startDate, $endDate)
     {
         if ($startDate && $endDate) {
-            return \Carbon\Carbon::parse($endDate)->diffInDays($startDate, false);
+            return abs(\Carbon\Carbon::parse($endDate)->diffInDays($startDate, false));
         }
         return 0; // Si no hay fechas, el contador es 0
     }

@@ -14,6 +14,8 @@ class PdfController extends Controller
 
         // Formatear las fechas antes de incluirlas en el arreglo
         $fecha_llegada = \Carbon\Carbon::parse($servicio->fecha_llegada)->format('d/m/Y');
+        $fecha_inicio_estimada = \Carbon\Carbon::parse($servicio->fecha_inicio_estimada)->format('d/m/Y');
+        $fecha_de_despacho = \Carbon\Carbon::parse($servicio->fecha_de_despacho)->format('d/m/Y');
         $fecha_salida_estimada = \Carbon\Carbon::parse($servicio->fecha_salida_estimada)->format('d/m/Y');
         $fecha_salida_real = \Carbon\Carbon::parse($servicio->fecha_salida_real)->format('d/m/Y');
 
@@ -28,6 +30,8 @@ class PdfController extends Controller
                 'marca' => $servicio->marca,
                 'horometro' => $servicio->horometro,
                 'fecha_llegada' => $fecha_llegada,
+                'fecha_inicio_estimada' => $fecha_inicio_estimada,
+                'fecha_de_despacho' => $fecha_de_despacho,
                 'fecha_salida_estimada' => $fecha_salida_estimada,
                 'fecha_salida_real' => $fecha_salida_real,
                 'contador' => $servicio->contador,
@@ -38,8 +42,8 @@ class PdfController extends Controller
             'tecnicos' => implode(', ', $servicio->tecnicos->map(function ($tecnico) {
                 return $tecnico->nombre . ' ' . $tecnico->apellido;
             })->toArray()), // Técnicos
-            'repuestos' => implode(', ', $servicio->repuestos->pluck('nro_orden')->toArray()), // Solo nro_orden de los repuestos
-            'externos' => implode(', ', $servicio->externos->pluck('componente')->toArray()), // Solo nro_orden de los repuestos
+            'repuestos' => implode(', ', $servicio->repuestos->pluck('nro_orden')->toArray()), 
+            'externos' => implode(', ', $servicio->externos->pluck('componente')->toArray()), 
         ];
 
         // Generar el PDF

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('documentacion')->nullable();
             $table->text('requerimientos')->nullable();
             $table->text('actividad')->nullable();
+            $table->string('nro_de_tecnicos')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

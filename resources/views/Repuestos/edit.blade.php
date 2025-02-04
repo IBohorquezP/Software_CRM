@@ -46,7 +46,7 @@
                 <span class="font-bold">Duración Cotización</span>
                 <span class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                     @if($repuesto->fecha_inicio_cotizacion && $repuesto->fecha_fin_cotizacion)
-                    {{ \Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->diffInDays($repuesto->fecha_inicio_cotizacion, false) }} días
+                    {{ abs(\Carbon\Carbon::parse($repuesto->fecha_fin_cotizacion)->diffInDays($repuesto->fecha_inicio_cotizacion, false)) }} días
                     @else
                     {{ $repuesto->contador_cotizacion }} días
                     @endif
@@ -76,13 +76,12 @@
                 <span class="font-bold">Duración Colocación</span>
                 <span class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400">
                     @if($repuesto->fecha_inicio_colocacion && $repuesto->fecha_fin_colocacion)
-                    {{ \Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->diffInDays($repuesto->fecha_inicio_colocacion, false) }} días
+                    {{ abs(\Carbon\Carbon::parse($repuesto->fecha_fin_colocacion)->diffInDays($repuesto->fecha_inicio_colocacion, false)) }} días
                     @else
                     {{ $repuesto->contador_colocacion }} días
                     @endif
                 </span>
             </label>
-
             <div class="col-span-2 flex justify-evenly w-full">
                 <a href="{{ route('Repuestos.show', $servicio->id_servicio) }}"
                     class="font-bold py-2 px-10 rounded-sm bg-naranja-industrial-500 transition-all duration-300 ease-in-out hover:bg-amarillo-pollo-300">Volver</a>

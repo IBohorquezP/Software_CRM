@@ -44,6 +44,8 @@ class ServicioController extends Controller
             'marca' => 'nullable|string',
             'horometro' => 'nullable|string',
             'fecha_llegada' => 'nullable|date_format:Y-m-d',
+            'fecha_inicio_estimada' => 'nullable|date_format:Y-m-d',
+            'fecha_de_despacho' => 'nullable|date_format:Y-m-d',
             'fecha_salida_estimada' => 'nullable|date_format:Y-m-d',
             'fecha_salida_real' => 'nullable|date_format:Y-m-d',
             'requisito' => 'nullable|string',
@@ -97,6 +99,8 @@ class ServicioController extends Controller
             'marca' => 'nullable|string',
             'horometro' => 'nullable|string',
             'fecha_llegada' => 'nullable|date_format:Y-m-d',
+            'fecha_inicio_estimada' => 'nullable|date_format:Y-m-d',
+            'fecha_de_despacho' => 'nullable|date_format:Y-m-d',
             'fecha_salida_estimada' => 'nullable|date_format:Y-m-d',
             'fecha_salida_real' => 'nullable|date_format:Y-m-d',
             'requisito' => 'nullable|string|max:255',
@@ -146,7 +150,7 @@ class ServicioController extends Controller
             $fechaEstimada = Carbon::create($fechaEstimada);
             $fechaReal = Carbon::create($fechaReal);
 
-            return $fechaReal->diffInDays($fechaEstimada, false); // False para diferencias negativas
+            return abs($fechaReal->diffInDays($fechaEstimada, false)); // abs() para evitar valores negativos
         }
 
         return null;

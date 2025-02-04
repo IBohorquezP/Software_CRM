@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('horometro')->nullable();
             $table->string('marca')->nullable();
             $table->datetime('fecha_llegada')->nullable();
+            $table->datetime('fecha_inicio_estimada')->nullable();
+            $table->datetime('fecha_de_despacho')->nullable();
             $table->datetime('fecha_salida_estimada')->nullable();
             $table->datetime('fecha_salida_real')->nullable();
             $table->integer('contador')->nullable();

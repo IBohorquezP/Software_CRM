@@ -29,16 +29,14 @@
                     @error('id_bahia')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
-                </label>    
-                <label for="TRG" class=" flex flex-col gap-2">
-
-                    <span class="font-bold">
-                        TRG
-                    </span>
-                    <input type="number"
-                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
-                        name=TRG>
-                    <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
+                </label>
+                <label for="TRG" class="flex flex-col gap-2">
+                    <span class="font-bold">TRG</span>
+                    <div class="relative">
+                        <input type="number"
+                            class="p-2 pr-10 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400 w-full"
+                            placeholder="Hr">
+                    </div>
                 </label>
                 <label for="actividad" class=" flex flex-col gap-2">
 
@@ -112,6 +110,15 @@
                     <input type="text"
                         class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
                         name=alcance>
+                    <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
+                </label>
+                <label for="nro_de_tecnicos" class=" flex flex-col gap-2">
+                    <span class="font-bold">
+                        Cantidad de Técnicos
+                    </span>
+                    <input type="number"
+                        class="p-2 bg-gray-100 border-4 border-black outline-0 transition-all ease-in-out duration-300 focus:border-naranja-industrial-400"
+                        name=nro_de_tecnicos>
                     <span class="text-red-500 text-sm hidden" id="alcanceError">Este campo es obligatorio.</span>
                 </label>
             </div>

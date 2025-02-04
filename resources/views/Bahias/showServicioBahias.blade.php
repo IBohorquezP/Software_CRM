@@ -32,7 +32,7 @@
                 @foreach ($bahias as $bahia)
                 <tr>
                     <td class="text-center">{{ $bahia->nombre }}</td>
-                    <td class="text-center">{{ $bahia->pivot->TRG }}</td>
+                    <td class="text-center">{{ $bahia->pivot->TRG }}hr</td>
                     <td class="text-center">
                         {{ $bahia->pivot->fecha_inicio ? \Carbon\Carbon::parse($bahia->pivot->fecha_inicio)->format('d-m-Y') : '' }}
                     </td>

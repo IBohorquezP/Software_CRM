@@ -139,10 +139,12 @@
                 <li><strong>Modelo:</strong> <span>{{ $servicio['modelo'] }}</span></li>
                 <li><strong>Marca:</strong> <span>{{ $servicio['marca'] }}</span></li>
                 <li><strong>Horometro:</strong> <span>{{ $servicio['horometro'] }}</span></li>
-                <li><strong>Fecha llegada:</strong> <span>{{ $servicio['fecha_llegada'] }}</span></li>
-                <li><strong>Fecha Salida Estimada:</strong> <span>{{ $servicio['fecha_salida_estimada'] }}</span></li>
-                <li><strong>Fecha Salida Real:</strong> <span>{{ $servicio['fecha_salida_real'] }}</span></li>
-                <li><strong>Duración:</strong> <span>{{ $servicio['contador'] }}</span></li>
+                <li><strong>Fecha Llegada:</strong> <span>{{ $servicio['fecha_llegada'] }}</span></li>
+                <li><strong>Fecha de Despacho:</strong> <span>{{ $servicio['fecha_de_despacho'] }}</span></li>
+                <li><strong>Fecha Inicio Estimada:</strong> <span>{{ $servicio['fecha_inicio_estimada'] }}</span></li>
+                <li><strong>Fecha Fin Estimada:</strong> <span>{{ $servicio['fecha_salida_estimada'] }}</span></li>
+                <li><strong>Fecha Fin Real:</strong> <span>{{ $servicio['fecha_salida_real'] }}</span></li>
+                <li><strong>Variación:</strong> <span>{{ $servicio['contador'] }} días</span></li>
                 <li><strong>Requisito:</strong> <span>{{ $servicio['requisito'] }}</span></li>
                 <li><strong>Observación:</strong> <span>{{ $servicio['nota'] }}</span></li>
             </ul>

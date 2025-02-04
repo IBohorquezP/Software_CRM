@@ -28,10 +28,11 @@
         }
 
         .header img {
-             height: 70px;
-             width: 200px;   
+            height: 70px;
+            width: 200px;
 
         }
+
         .header h1 {
             font-size: 1.5rem;
             font-weight: bold;
@@ -41,7 +42,7 @@
             flex-grow: 1;
         }
 
-                /* Fecha de reporte en la esquina superior derecha */
+        /* Fecha de reporte en la esquina superior derecha */
         .fecha-reporte {
             font-size: 0.8rem;
             font-weight: bold;
@@ -125,14 +126,15 @@
         <div>
             <h2 class="section-title">Bahía: {{ $bahia->nombre }}</h2>
             <ul class="list">
-                <li><strong>TRG:</strong> <span>{{ $bahia->pivot->TRG }}</span></li>
-                <li><strong>Fecha Inicio:</strong> <span>{{ $bahia->pivot->fecha_inicio }}</span></li>
-                <li><strong>Fecha Fin:</strong> <span>{{ $bahia->pivot->fecha_fin }}</span></li>
+                <li><strong>TRG:</strong> <span>{{ $bahia->pivot->TRG }}Hr</span></li>
+                <li><strong>Fecha Inicio:</strong> <span>{{ \Carbon\Carbon::parse($bahia->pivot->fecha_inicio)->format('d/m/Y') }}</span></li>
+                <li><strong>Fecha Fin:</strong> <span>{{ \Carbon\Carbon::parse($bahia->pivot->fecha_fin)->format('d/m/Y') }}</span></li>
                 <li><strong>Alcance:</strong> <span>{{ $bahia->pivot->alcance }}</span></li>
                 <li><strong>Herramienta:</strong> <span>{{ $bahia->pivot->herramienta }}</span></li>
                 <li><strong>Documentación:</strong> <span>{{ $bahia->pivot->documentacion }}</span></li>
                 <li><strong>Requerimientos:</strong> <span>{{ $bahia->pivot->requerimientos }}</span></li>
                 <li><strong>Actividad:</strong> <span>{{ $bahia->pivot->actividad }}</span></li>
+                <li><strong>Cantidad de Técnicos:</strong> <span>{{ $bahia->pivot->nro_de_tecnicos }}</span></li>
             </ul>
         </div>
     </div>
